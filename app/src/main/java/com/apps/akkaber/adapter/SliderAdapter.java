@@ -21,13 +21,12 @@ import java.util.List;
 public class SliderAdapter  extends PagerAdapter {
 
 
-    List<Object> IMAGES;
+    Integer[] IMAGES={R.drawable.lamb,R.drawable.slider};
     private LayoutInflater inflater;
     Context context;
 
-    public SliderAdapter(List<Object> IMAGES,Context context) {
+    public SliderAdapter(Context context) {
         this.context = context;
-        this.IMAGES=IMAGES;
         inflater = LayoutInflater.from(context);
     }
 
@@ -38,14 +37,14 @@ public class SliderAdapter  extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return IMAGES.size();
+        return IMAGES.length;
     }
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
         SliderBinding rowBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.slider,view,false);
-
         view.addView(rowBinding.getRoot());
+        rowBinding.sliderImage.setImageResource(IMAGES[position]);
         return rowBinding.getRoot();
     }
 
@@ -54,17 +53,5 @@ public class SliderAdapter  extends PagerAdapter {
         return view.equals(object);
     }
 
-    @Override
-    public void restoreState(Parcelable state, ClassLoader loader) {
-    }
 
-    @Override
-    public Parcelable saveState() {
-        return null;
-    }
-
-    @Override
-    public int getItemPosition(@NonNull Object object) {
-        return POSITION_NONE;
-    }
 }

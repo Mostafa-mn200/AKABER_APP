@@ -4,24 +4,19 @@
     <data>
 
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
-
-    <ImageView
-        android:id="@+id/image"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:scaleType="fitXY"
+        app:cardCornerRadius="10dp">
 
-      />
-</FrameLayout>
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/sliderImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:riv_corner_radius="20dp"
+            android:scaleType="fitXY"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            />
+
+    </androidx.cardview.widget.CardView>
 </layout>

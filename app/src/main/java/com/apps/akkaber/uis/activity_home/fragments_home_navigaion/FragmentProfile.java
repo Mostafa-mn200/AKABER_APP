@@ -127,13 +127,6 @@ public class FragmentProfile extends BaseFragment {
 
     }
 
-    private void navigateToFragmentApp(View v, String type) {
-        Bundle bundle = new Bundle();
-        bundle.putString("data", type);
-        Navigation.findNavController(v).navigate(R.id.appFragment, bundle);
-
-    }
-
     @Override
     public void onResume() {
         super.onResume();

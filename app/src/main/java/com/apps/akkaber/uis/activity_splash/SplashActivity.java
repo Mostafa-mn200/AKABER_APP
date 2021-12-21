@@ -11,6 +11,7 @@ import com.apps.akkaber.R;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
 import com.apps.akkaber.databinding.ActivitySplashBinding;
+import com.apps.akkaber.uis.activity_intro_slider.IntroSliderActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -65,7 +66,7 @@ public class SplashActivity extends BaseActivity {
 
 
     private void navigateToHomeActivity() {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, IntroSliderActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
         finish();

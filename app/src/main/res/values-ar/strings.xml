@@ -69,5 +69,19 @@
     <string name="change">تغيير</string>
     <string name="cnt_book">عفوا لايمكن الحجز الان</string>
     <string name="choose_language">تغيير اللغة</string>
+    <string name="departments">الاقسام</string>
+    <string name="minced">المفروم</string>
+    <string name="otherItems">أصناف اخرى</string>
+    <string name="trotters">الكوارع</string>
+    <string name="lambForBarbecue">خروف مجهز للشواء</string>
+    <string name="homeCooking">الطبخ المنزلي</string>
+    <string name="skip">تخطي</string>
+    <string name="start">ابدأ</string>
+    <string name="WelcomeIn">اهلا بكم في </string>
+    <string name="content">التطبيق الأكبر لشراء المواشي واللحوم الطازجة في الخليج العربي</string>
+    <string name="best">الافضل</string>
+    <string name="bestSeller">الاوفر</string>
+    <string name="fresh">الطازج</string>
+    <string name="wallet">المحفظة</string>
 
 </resources>

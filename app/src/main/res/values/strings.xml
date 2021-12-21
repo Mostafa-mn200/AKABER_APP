@@ -69,5 +69,20 @@
     <string name="change">Change</string>
     <string name="cnt_book">You cannot book now</string>
     <string name="choose_language">Change language</string>
+    <string name="departments">Departments</string>
+    <string name="minced">Minced</string>
+    <string name="otherItems">Other Items</string>
+    <string name="trotters">Trotters</string>
+    <string name="lambForBarbecue">Lamb prepared for barbecue</string>
+    <string name="homeCooking">Home Cooking</string>
+    <string name="skip">Skip</string>
+    <string name="start">Start</string>
+    <string name="WelcomeIn">Welcome in </string>
+    <string name="content">The largest application for buying fresh livestock and meat in the Arabian Gulf</string>
+    <string name="best">The Best</string>
+    <string name="bestSeller">Best Seller</string>
+    <string name="fresh">Fresh</string>
+    <string name="wallet">Wallet</string>
+
 
 </resources>

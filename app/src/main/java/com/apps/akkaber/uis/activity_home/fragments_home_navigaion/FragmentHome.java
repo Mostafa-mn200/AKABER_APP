@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,17 @@ import android.view.ViewGroup;
 
 import com.apps.akkaber.R;
 
+import com.apps.akkaber.adapter.DepartmentAdapter;
+import com.apps.akkaber.adapter.NestedRecyclerAdapter;
+import com.apps.akkaber.adapter.OffersAdapter;
+import com.apps.akkaber.adapter.SliderAdapter;
 import com.apps.akkaber.mvvm.FragmentHomeMvvm;
 import com.apps.akkaber.uis.activity_base.BaseFragment;
 import com.apps.akkaber.databinding.FragmentHomeBinding;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -34,6 +41,10 @@ public class FragmentHome extends BaseFragment {
     private HomeActivity activity;
     private FragmentHomeBinding binding;
     private FragmentHomeMvvm fragmentHomeMvvm;
+    private DepartmentAdapter departmentAdapter;
+    private OffersAdapter offersAdapter;
+    private NestedRecyclerAdapter nestedRecyclerAdapter;
+    private SliderAdapter sliderAdapter;
     private CompositeDisposable disposable = new CompositeDisposable();
 
     @Override
@@ -85,6 +96,26 @@ public class FragmentHome extends BaseFragment {
         fragmentHomeMvvm = ViewModelProviders.of(this).get(FragmentHomeMvvm.class);
 
 
+        departmentAdapter=new DepartmentAdapter(activity,this);
+        binding.recyclerDepartment.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
+        binding.recyclerDepartment.setAdapter(departmentAdapter);
+
+        offersAdapter=new OffersAdapter(activity,this);
+        binding.recyclerOffers.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
+        binding.recyclerOffers.setAdapter(offersAdapter);
+
+        nestedRecyclerAdapter=new NestedRecyclerAdapter(activity,this);
+        binding.nestedRecycler.setLayoutManager(new LinearLayoutManager(activity));
+        binding.nestedRecycler.setAdapter(nestedRecyclerAdapter);
+
+        sliderAdapter=new SliderAdapter(getContext());
+        binding.pager.setAdapter(sliderAdapter);
+        binding.pager.setClipToPadding(false);
+        binding.pager.setPadding(80, 0, 80, 0);
+        binding.pager.setPageMargin(20);
+        Timer timer=new Timer();
+        timer.scheduleAtFixedRate(new MyTask(),3000,3000);
+
     }
 
 
@@ -92,6 +123,23 @@ public class FragmentHome extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         disposable.clear();
+    }
+
+    public class MyTask extends TimerTask {
+        @Override
+        public void run() {
+            activity.runOnUiThread(() -> {
+                int current_page = binding.pager.getCurrentItem();
+                if (current_page < sliderAdapter.getCount() - 1) {
+                    binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1);
+                } else {
+                    binding.pager.setCurrentItem(0);
+
+                }
+            });
+
+        }
+
     }
 
 
