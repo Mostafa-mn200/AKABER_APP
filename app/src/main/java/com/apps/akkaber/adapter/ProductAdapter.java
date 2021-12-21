@@ -11,12 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
-import com.apps.akkaber.databinding.NestedRecyclerBinding;
-import com.apps.akkaber.databinding.OthersItemRowBinding;
+import com.apps.akkaber.databinding.ProductItemRowBinding;
 
 import java.util.List;
 
-public class NestedRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private List<Object> list;
     private Context context;
     private LayoutInflater inflater;
@@ -27,7 +26,7 @@ public class NestedRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     LambForBarbecueAdapter lambForBarbecueAdapter;
     HomeCookingAdapter homeCookingAdapter;
 
-    public NestedRecyclerAdapter(Context context,Fragment fragment) {
+    public ProductAdapter(Context context, Fragment fragment) {
         this.context=context;
         inflater=LayoutInflater.from(context);
         this.fragment=fragment;
@@ -36,7 +35,7 @@ public class NestedRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        NestedRecyclerBinding binding = DataBindingUtil.inflate(inflater, R.layout.nested_recycler, parent, false);
+        ProductItemRowBinding binding = DataBindingUtil.inflate(inflater, R.layout.product_item_row, parent, false);
         return new MyHolder(binding);
     }
 
@@ -80,9 +79,9 @@ public class NestedRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {
-        public NestedRecyclerBinding binding;
+        public ProductItemRowBinding binding;
 
-        public MyHolder(NestedRecyclerBinding binding) {
+        public MyHolder(ProductItemRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 

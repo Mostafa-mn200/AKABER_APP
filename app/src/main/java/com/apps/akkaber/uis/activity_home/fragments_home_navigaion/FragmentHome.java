@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.apps.akkaber.R;
 
 import com.apps.akkaber.adapter.DepartmentAdapter;
-import com.apps.akkaber.adapter.NestedRecyclerAdapter;
+import com.apps.akkaber.adapter.ProductAdapter;
 import com.apps.akkaber.adapter.OffersAdapter;
 import com.apps.akkaber.adapter.SliderAdapter;
 import com.apps.akkaber.mvvm.FragmentHomeMvvm;
@@ -43,7 +43,7 @@ public class FragmentHome extends BaseFragment {
     private FragmentHomeMvvm fragmentHomeMvvm;
     private DepartmentAdapter departmentAdapter;
     private OffersAdapter offersAdapter;
-    private NestedRecyclerAdapter nestedRecyclerAdapter;
+    private ProductAdapter productAdapter;
     private SliderAdapter sliderAdapter;
     private CompositeDisposable disposable = new CompositeDisposable();
 
@@ -104,9 +104,9 @@ public class FragmentHome extends BaseFragment {
         binding.recyclerOffers.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
         binding.recyclerOffers.setAdapter(offersAdapter);
 
-        nestedRecyclerAdapter=new NestedRecyclerAdapter(activity,this);
+        productAdapter =new ProductAdapter(activity,this);
         binding.nestedRecycler.setLayoutManager(new LinearLayoutManager(activity));
-        binding.nestedRecycler.setAdapter(nestedRecyclerAdapter);
+        binding.nestedRecycler.setAdapter(productAdapter);
 
         sliderAdapter=new SliderAdapter(getContext());
         binding.pager.setAdapter(sliderAdapter);

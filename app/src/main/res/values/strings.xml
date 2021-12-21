@@ -83,6 +83,10 @@
     <string name="bestSeller">Best Seller</string>
     <string name="fresh">Fresh</string>
     <string name="wallet">Wallet</string>
+    <string name="yourBalance">Your Balance</string>
+    <string name="walletContent">Share the app to get extra credit that you can use to buy from our store</string>
+    <string name="shareNow">Share now</string>
+    <string name="purchaseGifts">هدايا الشراء</string>
 
 
 </resources>

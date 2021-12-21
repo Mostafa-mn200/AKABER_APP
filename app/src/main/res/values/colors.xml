@@ -7,8 +7,11 @@
     <color name="color1">#FCF3D6</color>
     <color name="color2">#EAB217</color>
     <color name="color3">#F7F7F7</color>
+    <color name="color4">#F1EBD8</color>
+    <color name="color5">#FF5200</color>
 
     <color name="gray1">#707070</color>
+    <color name="gray2">#7D7D7D</color>
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="black1">#222020</color>

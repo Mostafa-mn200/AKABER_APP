@@ -27,10 +27,14 @@
         tools:targetApi="q">
         <activity
             android:name=".uis.activity_wallet.WalletActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".uis.activity_intro_slider.IntroSliderActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".uis.activity_language.LanguageActivity"
             android:exported="false" />
@@ -61,6 +65,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <uses-library
