@@ -87,5 +87,9 @@
     <string name="walletContent">شارك التطبيق للحصول علي رصيد اضافي يمكنك استخدامها للشراء من متجرنا</string>
     <string name="shareNow">شارك الان</string>
     <string name="purchaseGifts">هدايا الشراء</string>
+    <string name="share">مشاركة التطبيق</string>
+    <string name="cart">السلة</string>
+    <string name="favourite">المفضلة</string>
+    <string name="myOrders">طلباتي</string>
 
 </resources>

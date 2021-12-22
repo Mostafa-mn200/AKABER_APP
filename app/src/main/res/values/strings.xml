@@ -86,7 +86,12 @@
     <string name="yourBalance">Your Balance</string>
     <string name="walletContent">Share the app to get extra credit that you can use to buy from our store</string>
     <string name="shareNow">Share now</string>
-    <string name="purchaseGifts">هدايا الشراء</string>
+    <string name="purchaseGifts">Purchase gifts</string>
+    <string name="share">Share</string>
+    <string name="cart">Cart</string>
+    <string name="favourite">Favourite</string>
+    <string name="myOrders">My Orders</string>
+
 
 
 </resources>

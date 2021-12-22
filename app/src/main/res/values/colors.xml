@@ -12,9 +12,13 @@
 
     <color name="gray1">#707070</color>
     <color name="gray2">#7D7D7D</color>
+    <color name="gray3">#EFEFEF</color>
+    <color name="gray4">#6D6D6D</color>
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="black1">#222020</color>
+    <color name="black2">#242424</color>
+    <color name="black3">#E5E8EC</color>
 
 
     <color name="black_trans">#55000000</color>
