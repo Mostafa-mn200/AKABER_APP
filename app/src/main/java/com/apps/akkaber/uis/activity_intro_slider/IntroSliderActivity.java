@@ -23,6 +23,7 @@ import io.paperdb.Paper;
 public class IntroSliderActivity extends AppCompatActivity {
     private ActivityIntroSliderBinding binding;
     private IntroAdapter adapter;
+    private Preferences preferences;
 
 
     @Override
@@ -39,6 +40,7 @@ public class IntroSliderActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        preferences = Preferences.getInstance();
         binding.tab.setupWithViewPager(binding.pager);
         adapter = new IntroAdapter(this);
         binding.pager.setAdapter(adapter);
@@ -79,18 +81,34 @@ public class IntroSliderActivity extends AppCompatActivity {
             });
 
             binding.btnSkip.setOnClickListener(view -> {
-                Intent intent = new Intent(IntroSliderActivity.this, HomeActivity.class);
-                startActivity(intent);
-                finish();
+                start();
             });
 
             binding.btnNext.setOnClickListener(view -> binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1));
             binding.btnStart.setOnClickListener(view -> {
-                Intent intent = new Intent(IntroSliderActivity.this, HomeActivity.class);
-                startActivity(intent);
-                finish();
+              start();
             });
 
         }
     }
+    private void start() {
+        UserSettingsModel defaultSettings = preferences.getAppSetting(this);
+        if (defaultSettings != null) {
+            // Log.e("lsdkdk","dkkdkkd");
+            defaultSettings.setShowIntroSlider(false);
+            preferences.createUpdateAppSetting(this, defaultSettings);
+        }else {
+            defaultSettings=new DefaultSettings();
+            defaultSettings.setShowIntroSlider(false);
+            preferences.createUpdateAppSetting(this, defaultSettings);
+        }
+
+        Intent intent = new Intent(this, HomeActivity.class);
+
+        startActivity(intent);
+        finish();
+
+
+    }
+
 }
