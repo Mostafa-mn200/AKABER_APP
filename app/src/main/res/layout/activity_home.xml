@@ -9,68 +9,96 @@
             name="lang"
             type="String" />
     </data>
-
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:context=".uis.activity_home.HomeActivity"
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+        >
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawerLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-
+            android:layout_height="match_parent"
+            tools:openDrawer="end"
 
             >
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBar"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/consData"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@color/white"
-                app:layout_scrollFlags="scroll|enterAlways|snap">
+                android:layout_height="match_parent">
 
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/ic_search"
-                    android:visibility="gone"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    />
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imgNotification"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:src="@drawable/ic_notification"
-
-                    />
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/toolBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:background="@color/white"
+                            app:layout_scrollFlags="scroll|enterAlways|snap">
 
 
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="end"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/ic_search"
+                                android:visibility="gone"
+
+                                />
+
+                            <ImageView
+                                android:id="@+id/imgNotification"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="end"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_notification"
+
+                                />
 
 
-        <fragment
-            android:id="@+id/navHostFragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph"
+                        </androidx.appcompat.widget.Toolbar>                    </com.google.android.material.appbar.AppBarLayout>
 
-            />
+                    <fragment
+                        android:id="@+id/navHostFragment"
+                        android:name="androidx.navigation.fragment.NavHostFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        app:defaultNavHost="true"
+                        app:navGraph="@navigation/nav_graph" />
 
 
-    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:elevation="0dp"
+                 />
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>
 

@@ -48,12 +48,12 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     private void initView() {
 
         homeActivityMvvm = ViewModelProviders.of(this).get(HomeActivityMvvm.class);
-        setSupportActionBar(binding.toolBar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        navController = Navigation.findNavController(this, R.id.navHostFragment);
-        NavigationUI.setupWithNavController(binding.toolBar, navController);
-        NavigationUI.setupActionBarWithNavController(this, navController);
 
+
+        setSupportActionBar(binding.toolBar);
+        navController = Navigation.findNavController(this, R.id.navHostFragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout);
+        NavigationUI.setupWithNavController(binding.navView, navController);
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (binding.toolBar.getNavigationIcon() != null) {
@@ -102,6 +102,11 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
     }
 
+    @Override
+    public boolean onNavigateUp() {
+
+        return NavigationUI.navigateUp(navController, binding.drawerLayout);
+    }
 
     @Override
     public void onBackPressed() {
@@ -109,7 +114,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         if (currentFragmentId == R.id.home) {
             finish();
 
-        }else {
+        } else {
             navController.popBackStack();
         }
 
