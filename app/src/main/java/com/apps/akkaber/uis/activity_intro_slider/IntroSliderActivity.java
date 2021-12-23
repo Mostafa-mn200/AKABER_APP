@@ -16,6 +16,8 @@ import com.apps.akkaber.R;
 import com.apps.akkaber.adapter.IntroAdapter;
 import com.apps.akkaber.databinding.ActivityIntroSliderBinding;
 import com.apps.akkaber.language.Language;
+import com.apps.akkaber.model.UserSettingsModel;
+import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
 
 import io.paperdb.Paper;
@@ -98,7 +100,7 @@ public class IntroSliderActivity extends AppCompatActivity {
             defaultSettings.setShowIntroSlider(false);
             preferences.createUpdateAppSetting(this, defaultSettings);
         }else {
-            defaultSettings=new DefaultSettings();
+            defaultSettings=new UserSettingsModel();
             defaultSettings.setShowIntroSlider(false);
             preferences.createUpdateAppSetting(this, defaultSettings);
         }
