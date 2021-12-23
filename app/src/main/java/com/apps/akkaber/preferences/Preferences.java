@@ -82,6 +82,18 @@ public class Preferences {
     }
 
 
-
+    public void createUpdateAppSetting(Context context, UserSettingsModel settings) {
+        SharedPreferences preferences = context.getSharedPreferences("settingsEbsar", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String data = gson.toJson(settings);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("settings", data);
+        editor.apply();
+    }
+    public UserSettingsModel getAppSetting(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("settingsEbsar", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        return gson.fromJson(preferences.getString("settings",""), UserSettingsModel.class);
+    }
 
 }
