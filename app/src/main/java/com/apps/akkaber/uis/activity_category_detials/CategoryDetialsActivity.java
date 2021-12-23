@@ -1,6 +1,7 @@
 package com.apps.akkaber.uis.activity_category_detials;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
@@ -42,6 +43,12 @@ public class CategoryDetialsActivity extends BaseActivity {
 
         binding.recView.setLayoutManager(new GridLayoutManager(this,2));
         binding.recView.setAdapter(new Product2Adapter(this));
+        binding.llBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 

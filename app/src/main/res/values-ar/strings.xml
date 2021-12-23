@@ -93,4 +93,6 @@
     <string name="myOrders">طلباتي</string>
     <string name="open">فتح</string>
     <string name="close">غلق</string>
+    <string name="order_num">Order Number :</string>
+    <string name="show_detials">Show Detials</string>
 </resources>

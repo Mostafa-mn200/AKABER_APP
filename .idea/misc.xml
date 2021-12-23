@@ -18,10 +18,8 @@
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_logout.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_nav_nearby.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_shape.xml" value="0.19074074074074074" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_share.xml" value="0.2703125" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_subject.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_user.xml" value="0.26615384615384613" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_wallet.xml" value="0.2703125" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_whatts.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/line.xml" value="0.14635416666666667" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape.xml" value="0.26615384615384613" />
@@ -32,8 +30,7 @@
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/toolbar_shape.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout-v21/activity_contact_us.xml" value="0.23822463768115942" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_contact_us.xml" value="0.13020833333333334" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_favourite.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_home.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_intro_slider.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_language.xml" value="0.11614583333333334" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_login.xml" value="0.13020833333333334" />
@@ -46,7 +43,6 @@
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/department_item_raw.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/department_item_row.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/exo_player_layout.xml" value="0.13020833333333334" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/favourite_row.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_app.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_current_reservation.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_home.xml" value="0.13020833333333334" />
@@ -155,6 +151,10 @@
         <entry key="..\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_verification_code.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/slider.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_category_detials.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_favourite.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_orders.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/HP/Desktop/akaper/app/src/main/res/layout/order_row.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/HP/Desktop/akaper/app/src/main/res/layout/product_row.xml" value="0.14444444444444443" />
         <entry key="..\:/android/FlutterProjects/Wedding/app/src/main/res/drawable/ic_left_arrow.xml" value="0.1125" />
         <entry key="..\:/android/FlutterProjects/Wedding/app/src/main/res/layout/activity_main.xml" value="0.1935185185185185" />
         <entry key="..\:/android/FlutterProjects/Wedding/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />

@@ -13,22 +13,57 @@
     </data>
 <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <com.github.siyamed.shapeimageview.RoundedImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/sss"
-                />
-            <FrameLayout
+    android:layout_height="match_parent"
+    android:background="@color/gray0"
+    >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+      <androidx.appcompat.widget.Toolbar
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@drawable/toolbar_shape">
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+              <androidx.cardview.widget.CardView
+                  android:id="@+id/llBack"
+                  android:layout_width="35dp"
+                  android:layout_height="35dp"
+                  android:layout_gravity="start"
+                  app:cardBackgroundColor="@color/color4"
+                  app:cardCornerRadius="10dp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:padding="5dp"
+                      android:rotation='@{lang.equals("ar")?180:0}'
+                      android:src="@drawable/ic_left" />
+              </androidx.cardview.widget.CardView>
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:text="@string/myOrders"
+                  android:textSize="18sp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </androidx.appcompat.widget.Toolbar>
+
+      <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -81,49 +116,7 @@
 
             </FrameLayout>
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/toolbar_shape">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/llBack"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="start"
-                app:cardBackgroundColor="@color/color4"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp"
-                    android:rotation='@{lang.equals("ar")?180:0}'
-                    android:src="@drawable/ic_left" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@{title}"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.appcompat.widget.Toolbar>
 
 </FrameLayout>
 

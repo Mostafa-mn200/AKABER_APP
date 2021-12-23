@@ -92,6 +92,8 @@
     <string name="myOrders">My Orders</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="order_num">Order Number :</string>
+    <string name="show_detials">Show Detials</string>
 
 
 </resources>
