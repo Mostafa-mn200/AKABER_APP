@@ -26,6 +26,19 @@
         tools:ignore="AllowBackup"
         tools:targetApi="q">
         <activity
+            android:name=".uis.activity_order_detials.OrderDetialsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".uis.activity_my_orders.MyOrderActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            >
+
+
+        </activity>
+        <activity
             android:name=".uis.activity_category_detials.CategoryDetialsActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize"
@@ -35,7 +48,7 @@
 
         </activity>
         <activity
-            android:name=".uis.favourite_activity.FavouriteActivity"
+            android:name=".uis.activity_splash.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -79,7 +92,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".uis.activity_splash.SplashActivity"
+            android:name=".uis.favourite_activity.FavouriteActivity"
             android:exported="true">
 
         </activity>

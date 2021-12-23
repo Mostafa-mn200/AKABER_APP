@@ -7,26 +7,23 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.apps.akkaber.model.NotificationModel;
-import com.apps.akkaber.model.UserModel;
-
-import java.util.List;
-
 import io.reactivex.disposables.CompositeDisposable;
 
-public class ActivityCategoryDetialsMvvm extends AndroidViewModel {
-    private static final String TAG = "ActivityCategoryMvvm";
+public class ActivityOrderDetialsMvvm extends AndroidViewModel {
+    private static final String TAG = "ActivityorderDetialsMvvm";
     private Context context;
+
 
     private MutableLiveData<Boolean> isLoadingLivData;
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
 
-    public ActivityCategoryDetialsMvvm(@NonNull Application application) {
+    public ActivityOrderDetialsMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
     }
+
 
 
 

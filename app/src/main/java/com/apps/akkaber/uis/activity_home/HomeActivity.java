@@ -29,6 +29,7 @@ import com.apps.akkaber.databinding.ActivityHomeBinding;
 import com.apps.akkaber.language.Language;
 import com.apps.akkaber.uis.activity_contact_us.ContactUsActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
+import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
 import com.apps.akkaber.uis.activity_notification.NotificationActivity;
 import com.apps.akkaber.uis.activity_wallet.WalletActivity;
 
@@ -109,6 +110,13 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
                 Intent intent=new Intent(HomeActivity.this, ContactUsActivity.class);
                 startActivity(intent);
 
+            }
+        });
+        binding.llMyOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeActivity.this, MyOrderActivity.class);
+                startActivity(intent);
             }
         });
     }

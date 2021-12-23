@@ -14,19 +14,21 @@ import java.util.List;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class ActivityCategoryDetialsMvvm extends AndroidViewModel {
-    private static final String TAG = "ActivityCategoryMvvm";
+public class ActivityMyOrdersMvvm extends AndroidViewModel {
+    private static final String TAG = "ActivitymyordersMvvm";
     private Context context;
+
 
     private MutableLiveData<Boolean> isLoadingLivData;
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
 
-    public ActivityCategoryDetialsMvvm(@NonNull Application application) {
+    public ActivityMyOrdersMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
     }
+
 
 
 

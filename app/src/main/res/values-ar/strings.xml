@@ -93,6 +93,13 @@
     <string name="myOrders">طلباتي</string>
     <string name="open">فتح</string>
     <string name="close">غلق</string>
-    <string name="order_num">Order Number :</string>
-    <string name="show_detials">Show Detials</string>
+    <string name="order_num">رقم الطلب :</string>
+    <string name="show_detials">عرض التفاصيل</string>
+    <string name="order_status">حالة الطلب :  </string>
+    <string name="order_sent">تم استلام طلبك</string>
+    <string name="preparing">جاري التجهيز</string>
+    <string name="delivered_to_the_delegate">تم التسليم للمندوب</string>
+    <string name="delivery_in_progress">جارى التوصيل</string>
+    <string name="end">تم الانتهاء</string>
+    <string name="order_detials">تفاصيل الطلب</string>
 </resources>
