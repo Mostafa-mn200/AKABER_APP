@@ -48,25 +48,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         myHolder.binding.recyclerMinced.setLayoutManager(layoutManager);
         myHolder.binding.recyclerMinced.setAdapter(mincedAdapter);
 //Others
-        otherItemsAdapter=new OtherItemsAdapter(list,context);
-        LinearLayoutManager layoutManager2=new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
-        myHolder.binding.recyclerOthers.setLayoutManager(layoutManager2);
-        myHolder.binding.recyclerOthers.setAdapter(otherItemsAdapter);
-//Trotters
-        trottersAdapter=new TrottersAdapter(list,context);
-        LinearLayoutManager layoutManager3=new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
-        myHolder.binding.recyclerTrotters.setLayoutManager(layoutManager3);
-        myHolder.binding.recyclerTrotters.setAdapter(trottersAdapter);
-//Lamb
-        lambForBarbecueAdapter=new LambForBarbecueAdapter(list,context);
-        LinearLayoutManager layoutManager4=new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
-        myHolder.binding.recyclerLambForBarbecue.setLayoutManager(layoutManager4);
-        myHolder.binding.recyclerLambForBarbecue.setAdapter(lambForBarbecueAdapter);
-//HomeCooking
-        homeCookingAdapter=new HomeCookingAdapter(list,context);
-        LinearLayoutManager layoutManager5=new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
-        myHolder.binding.recyclerHomeCooking.setLayoutManager(layoutManager5);
-        myHolder.binding.recyclerHomeCooking.setAdapter(homeCookingAdapter);
+
     }
 
     @Override
@@ -74,7 +56,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (list!=null){
             return list.size();
         }else {
-            return 1;
+            return 4;
         }
     }
 

@@ -49,7 +49,10 @@
             android:exported="false" />
         <activity
             android:name=".uis.activity_contact_us.ContactUsActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            >
 
         </activity>
         <activity

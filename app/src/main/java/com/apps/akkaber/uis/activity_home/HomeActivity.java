@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
@@ -16,6 +17,7 @@ import androidx.navigation.ui.NavigationUI;
 
 
 import com.apps.akkaber.interfaces.Listeners;
+import com.apps.akkaber.model.ContactUsModel;
 import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.mvvm.HomeActivityMvvm;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
@@ -24,8 +26,10 @@ import com.apps.akkaber.R;
 
 import com.apps.akkaber.databinding.ActivityHomeBinding;
 import com.apps.akkaber.language.Language;
+import com.apps.akkaber.uis.activity_contact_us.ContactUsActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
 import com.apps.akkaber.uis.activity_notification.NotificationActivity;
+import com.apps.akkaber.uis.activity_wallet.WalletActivity;
 
 import io.paperdb.Paper;
 
@@ -43,7 +47,6 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
 
     }
-
 
     private void initView() {
 
@@ -85,6 +88,21 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         if (getUserModel() != null) {
             homeActivityMvvm.updateFirebase(this, getUserModel());
         }
+        binding.wallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeActivity.this, WalletActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.contactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeActivity.this, ContactUsActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
 
