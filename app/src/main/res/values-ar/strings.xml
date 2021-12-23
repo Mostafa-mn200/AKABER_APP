@@ -91,5 +91,6 @@
     <string name="cart">السلة</string>
     <string name="favourite">المفضلة</string>
     <string name="myOrders">طلباتي</string>
-
+    <string name="open">فتح</string>
+    <string name="close">غلق</string>
 </resources>

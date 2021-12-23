@@ -26,6 +26,14 @@
         tools:ignore="AllowBackup"
         tools:targetApi="q">
         <activity
+            android:name=".uis.activity_category_detials.CategoryDetialsActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            >
+
+        </activity>
+        <activity
             android:name=".uis.activity_wallet.WalletActivity"
             android:exported="true" >
 

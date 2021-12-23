@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -37,6 +38,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     private ActivityHomeBinding binding;
     private NavController navController;
     private HomeActivityMvvm homeActivityMvvm;
+    private ActionBarDrawerToggle toggle;
 
 
     @Override
@@ -64,6 +66,12 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
             }
         });
+        toggle = new ActionBarDrawerToggle(this, binding.drawerLayout, binding.toolBar, R.string.open, R.string.close);
+//
+//        toggle.setHomeAsUpIndicator(R.drawable.ic_menu);
+
+
+        toggle.syncState();
         binding.imgNotification.setOnClickListener(v -> {
 
 
