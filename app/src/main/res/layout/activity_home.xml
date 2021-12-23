@@ -21,7 +21,7 @@
             android:id="@+id/drawerLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:openDrawer="end"
+            tools:openDrawer="start"
 
             >
 
@@ -338,7 +338,9 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_gravity="center_vertical" />
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_wallet"
+                                />
 
                             <TextView
                                 android:layout_width="match_parent"
