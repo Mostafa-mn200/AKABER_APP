@@ -1,6 +1,7 @@
 package com.apps.akkaber.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -36,6 +37,9 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
        MyHolder myHolder = (MyHolder) holder;
+
+       myHolder.binding.priceOld.setPaintFlags(myHolder.binding.priceOld.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+       myHolder.binding.amountOld.setPaintFlags(myHolder.binding.amountOld.getPaintFlags()|Paint.STRIKE_THRU_TEXT_FLAG);
     }
 
     @Override

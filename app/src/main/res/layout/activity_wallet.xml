@@ -41,7 +41,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_gravity="start"
-                        app:cardBackgroundColor="@color/color4"
+                        app:cardBackgroundColor="@color/color7"
                         app:cardCornerRadius="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -60,9 +60,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/wallet"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/llBack"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -126,12 +127,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/walletContent"
+                android:text="@string/shareContent"
                 android:textSize="18sp"
                 android:layout_gravity="center_horizontal"
+                android:gravity="center"
                 android:layout_margin="20dp"
                 android:textColor="@color/black"/>
             <TextView
+                android:id="@+id/lShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/shareNow"

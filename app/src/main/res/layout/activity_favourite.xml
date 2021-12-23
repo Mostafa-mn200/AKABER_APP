@@ -25,14 +25,14 @@
                <androidx.constraintlayout.widget.ConstraintLayout
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:orientation="horizontal">
+                   >
 
                    <androidx.cardview.widget.CardView
                        android:id="@+id/llBack"
                        android:layout_width="35dp"
                        android:layout_height="35dp"
                        android:layout_gravity="start"
-                       app:cardBackgroundColor="@color/color4"
+                       app:cardBackgroundColor="@color/color7"
                        app:cardCornerRadius="10dp"
                        app:layout_constraintBottom_toBottomOf="parent"
                        app:layout_constraintStart_toStartOf="parent"

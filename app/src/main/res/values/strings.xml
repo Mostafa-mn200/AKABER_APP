@@ -83,7 +83,7 @@
     <string name="fresh">Fresh</string>
     <string name="wallet">Wallet</string>
     <string name="yourBalance">Your Balance</string>
-    <string name="walletContent">Share the app to get extra credit that you can use to buy from our store</string>
+    <string name="shareContent">Share the app to get extra credit that you can use to buy from our store</string>
     <string name="shareNow">Share now</string>
     <string name="purchaseGifts">Purchase gifts</string>
     <string name="share">Share</string>
@@ -101,6 +101,10 @@
     <string name="delivery_in_progress">Delivery in progress</string>
     <string name="end">End</string>
     <string name="order_detials">Order Detials</string>
+    <string name="shareApp">Share App</string>
+    <string name="scanCode">Scan the code</string>
+    <string name="or">OR</string>
+    <string name="clickShare">Click to share</string>
 
 
 </resources>

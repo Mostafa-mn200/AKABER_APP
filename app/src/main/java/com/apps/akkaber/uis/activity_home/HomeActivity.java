@@ -31,7 +31,9 @@ import com.apps.akkaber.uis.activity_contact_us.ContactUsActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
 import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
 import com.apps.akkaber.uis.activity_notification.NotificationActivity;
+import com.apps.akkaber.uis.activity_share.ShareActivity;
 import com.apps.akkaber.uis.activity_wallet.WalletActivity;
+import com.apps.akkaber.uis.favourite_activity.FavouriteActivity;
 
 import io.paperdb.Paper;
 
@@ -97,25 +99,30 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         if (getUserModel() != null) {
             homeActivityMvvm.updateFirebase(this, getUserModel());
         }
-        binding.wallet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this, WalletActivity.class);
-                startActivity(intent);
-            }
+        binding.wallet.setOnClickListener(view -> {
+            Intent intent=new Intent(HomeActivity.this, WalletActivity.class);
+            startActivity(intent);
         });
-        binding.contactUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this, ContactUsActivity.class);
-                startActivity(intent);
+        binding.contactUs.setOnClickListener(view -> {
+            Intent intent=new Intent(HomeActivity.this, ContactUsActivity.class);
+            startActivity(intent);
 
-            }
+        });
+        binding.favourite.setOnClickListener(view -> {
+            Intent intent=new Intent(HomeActivity.this, FavouriteActivity.class);
+            startActivity(intent);
         });
         binding.llMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(HomeActivity.this, MyOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.shareApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeActivity.this, ShareActivity.class);
                 startActivity(intent);
             }
         });

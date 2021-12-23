@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:text="كرات لحم"
+                android:textSize="18sp"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:layout_gravity="bottom"

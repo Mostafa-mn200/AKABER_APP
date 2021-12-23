@@ -84,7 +84,7 @@
     <string name="fresh">الطازج</string>
     <string name="wallet">المحفظة</string>
     <string name="yourBalance">رصيدك</string>
-    <string name="walletContent">شارك التطبيق للحصول علي رصيد اضافي يمكنك استخدامها للشراء من متجرنا</string>
+    <string name="shareContent">شارك التطبيق للحصول علي رصيد اضافي يمكنك استخدامها للشراء من متجرنا</string>
     <string name="shareNow">شارك الان</string>
     <string name="purchaseGifts">هدايا الشراء</string>
     <string name="share">مشاركة التطبيق</string>
@@ -93,8 +93,6 @@
     <string name="myOrders">طلباتي</string>
     <string name="open">فتح</string>
     <string name="close">غلق</string>
-    <string name="order_num">رقم الطلب :</string>
-    <string name="show_detials">عرض التفاصيل</string>
     <string name="order_status">حالة الطلب :  </string>
     <string name="order_sent">تم استلام طلبك</string>
     <string name="preparing">جاري التجهيز</string>
@@ -102,4 +100,10 @@
     <string name="delivery_in_progress">جارى التوصيل</string>
     <string name="end">تم الانتهاء</string>
     <string name="order_detials">تفاصيل الطلب</string>
+    <string name="order_num">رقم الطلب :</string>
+    <string name="show_detials">إظهار التفاصيل</string>
+    <string name="shareApp">مشاركة التطبيق</string>
+    <string name="scanCode">امسح الكود</string>
+    <string name="or">أو</string>
+    <string name="clickShare">اضغط للمشاركة</string>
 </resources>

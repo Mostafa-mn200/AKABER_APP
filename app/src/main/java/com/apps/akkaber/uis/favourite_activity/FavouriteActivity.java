@@ -10,8 +10,9 @@ import android.os.Bundle;
 import com.apps.akkaber.R;
 import com.apps.akkaber.adapter.FavouriteAdapter;
 import com.apps.akkaber.databinding.ActivityFavouriteBinding;
+import com.apps.akkaber.uis.activity_base.BaseActivity;
 
-public class FavouriteActivity extends AppCompatActivity {
+public class FavouriteActivity extends BaseActivity {
     ActivityFavouriteBinding binding;
     FavouriteAdapter adapter;
     @Override

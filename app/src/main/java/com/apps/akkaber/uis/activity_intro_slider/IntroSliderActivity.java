@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.util.Log;
@@ -52,6 +53,8 @@ public class IntroSliderActivity extends AppCompatActivity {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
             p.setMargins(10, 0, 10, 0);
             tab.requestLayout();
+
+            binding.btnSkip.setPaintFlags(binding.btnSkip.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
 
 
             binding.pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
