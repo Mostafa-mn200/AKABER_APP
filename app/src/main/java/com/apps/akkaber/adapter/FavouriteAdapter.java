@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.FavouriteRowBinding;
+import com.apps.akkaber.model.FavouriteModel;
 
 import java.util.List;
 
 public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-    private List<Object> list;
+    private List<FavouriteModel> list;
     private Context context;
     private LayoutInflater inflater;
 
@@ -42,7 +43,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (list!=null){
             return list.size();
         }else {
-            return 2;
+            return 0;
         }
     }
 
@@ -55,7 +56,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         }
     }
-    public void updateList(List<Object> list){
+    public void updateList(List<FavouriteModel> list){
         if (list!=null){
             this.list = list;
 

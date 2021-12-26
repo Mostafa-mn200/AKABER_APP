@@ -108,6 +108,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="enter_code">Enter Code</string>
+    <string name="hi">Hi</string>
 
 
 </resources>
