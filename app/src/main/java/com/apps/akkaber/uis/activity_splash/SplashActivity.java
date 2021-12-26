@@ -16,6 +16,7 @@ import com.apps.akkaber.uis.activity_base.BaseActivity;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
 import com.apps.akkaber.databinding.ActivitySplashBinding;
 import com.apps.akkaber.uis.activity_intro_slider.IntroSliderActivity;
+import com.apps.akkaber.uis.activity_login.LoginActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -167,7 +168,7 @@ public class SplashActivity extends BaseActivity {
         } else {
 
 
-            intent = new Intent(this, HomeActivity.class);
+            intent = new Intent(this, LoginActivity.class);
 
             startActivity(intent);
             finish();

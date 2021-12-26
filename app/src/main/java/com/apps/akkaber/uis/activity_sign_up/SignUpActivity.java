@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import android.Manifest;
 import android.content.Intent;
@@ -115,7 +116,11 @@ public class SignUpActivity extends BaseActivity {
         binding.btnSignup.setOnClickListener(view -> {
             if (model.isDataValid(this)) {
                 if (model.isDataValid(this)) {
-
+                    if (uri == null) {
+                        activitySignupMvvm.signupWithOutImage(this, model, phone_code, phone);
+                    } else {
+                        activitySignupMvvm.signupWithImage(this, model, phone_code, phone, uri);
+                    }
                 }
             }
         });

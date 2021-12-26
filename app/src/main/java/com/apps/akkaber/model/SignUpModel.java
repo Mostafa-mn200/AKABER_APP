@@ -13,19 +13,21 @@ import com.apps.akkaber.R;
 public class SignUpModel extends BaseObservable {
     private String first_name;
     private String seconed_name;
-
-
+    private boolean ischeck;
+    private String code;
 
 
     public ObservableField<String> error_first_name = new ObservableField<>();
     public ObservableField<String> error_seconed_name = new ObservableField<>();
-
+    public ObservableField<String> error_code = new ObservableField<>();
 
 
     public boolean isDataValid(Context context) {
         if (!first_name.trim().isEmpty()
                 &&
-                !seconed_name.trim().isEmpty() //&&
+                !seconed_name.trim().isEmpty()
+                && (!ischeck || !code.isEmpty())
+            //&&
 //               department_id != 0
 
 
@@ -51,7 +53,16 @@ public class SignUpModel extends BaseObservable {
 
             }
 
+            if (ischeck) {
+                if (code.isEmpty()) {
+                    error_code.set(context.getString(R.string.field_required));
 
+                } else {
+                    error_code.set(null);
+
+                }
+
+            }
 
             return false;
         }
@@ -66,9 +77,6 @@ public class SignUpModel extends BaseObservable {
     }
 
 
-
-
-
     @Bindable
     public String getFirst_name() {
         return first_name;
@@ -79,6 +87,7 @@ public class SignUpModel extends BaseObservable {
         notifyPropertyChanged(BR.first_name);
 
     }
+
     @Bindable
     public String getSeconed_name() {
         return seconed_name;
@@ -90,7 +99,19 @@ public class SignUpModel extends BaseObservable {
 
     }
 
+    public boolean isIscheck() {
+        return ischeck;
+    }
 
+    public void setIscheck(boolean ischeck) {
+        this.ischeck = ischeck;
+    }
+    @Bindable
+    public String getCode() {
+        return code;
+    }
 
-
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

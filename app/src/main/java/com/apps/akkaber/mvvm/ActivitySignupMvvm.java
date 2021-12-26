@@ -40,6 +40,85 @@ public class ActivitySignupMvvm extends AndroidViewModel {
 
     }
 
+    public void signupWithOutImage(Context context, SignUpModel model, String phone_code, String phone) {
+        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService(Tags.base_url).signUp( model.getFirst_name() + " " + model.getSeconed_name(), phone_code.replace("+", ""), phone, model.getCode()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+                disposable.add(d);
+            }
+
+            @Override
+            public void onSuccess(@NonNull Response<UserModel> userModelResponse) {
+                dialog.dismiss();
+                if (userModelResponse.isSuccessful()) {
+                    if (userModelResponse.body().getStatus() == 200) {
+
+                        userModelMutableLiveData.postValue(userModelResponse.body());
+                    } else if (userModelResponse.body().getStatus() == 405) {
+                        Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+
+                }
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable throwable) {
+                dialog.dismiss();
+
+            }
+        });
+    }
+
+    public void signupWithImage(Context context, SignUpModel model, String phone_code, String phone, Uri uri) {
+        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        RequestBody name_part = Common.getRequestBodyText(model.getFirst_name() + " " + model.getSeconed_name());
+        RequestBody code_part = Common.getRequestBodyText(model.getCode()+"");
+        RequestBody phone_part = Common.getRequestBodyText(phone);
+        RequestBody phone_code_part = Common.getRequestBodyText(phone_code.replace("+", ""));
+
+
+        MultipartBody.Part image = Common.getMultiPart(context, uri, "logo");
+
+
+        Api.getService(Tags.base_url).signUpwithImage( name_part, phone_code_part, phone_part, code_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+                disposable.add(d);
+            }
+
+            @Override
+            public void onNext(@NonNull Response<UserModel> userModelResponse) {
+                dialog.dismiss();
+                if (userModelResponse.isSuccessful()) {
+                    if (userModelResponse.body().getStatus() == 200) {
+
+                        userModelMutableLiveData.postValue(userModelResponse.body());
+                    } else if (userModelResponse.body().getStatus() == 405) {
+                        Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onError(@NonNull Throwable throwable) {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onComplete() {
+                dialog.dismiss();
+            }
+        });
+    }
 
 
     @Override
