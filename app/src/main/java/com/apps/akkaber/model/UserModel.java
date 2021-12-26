@@ -10,69 +10,65 @@ public class UserModel extends StatusResponse {
     }
 
     public static class Data implements Serializable {
-        private int id;
-        private String user_type;
-        private String logo;
-        private String name;
-        private String phone_code;
-        private String phone;
-        private String gender;
-        private double latitude;
-        private double longitude;
-        private String address;
-        private String token;
-        private static String firebase_token;
+       private int id;
+       private String first_name;
+       private String last_name;
+       private String photo;
+       private String phone;
+       private String code;
+       private int purchase_gifts;
+       private String register_by;
+       private int share_gifts;
+       private int total;
+       private String created_at;
+       private String updated_at;
 
         public int getId() {
             return id;
         }
 
-        public String getUser_type() {
-            return user_type;
+        public String getFirst_name() {
+            return first_name;
         }
 
-        public String getLogo() {
-            return logo;
+        public String getLast_name() {
+            return last_name;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public String getPhone_code() {
-            return phone_code;
+        public String getPhoto() {
+            return photo;
         }
 
         public String getPhone() {
             return phone;
         }
 
-        public String getGender() {
-            return gender;
+        public String getCode() {
+            return code;
         }
 
-        public double getLatitude() {
-            return latitude;
+        public int getPurchase_gifts() {
+            return purchase_gifts;
         }
 
-        public double getLongitude() {
-            return longitude;
+        public String getRegister_by() {
+            return register_by;
         }
 
-        public String getAddress() {
-            return address;
+        public int getShare_gifts() {
+            return share_gifts;
         }
 
-        public String getToken() {
-            return token;
+        public int getTotal() {
+            return total;
         }
 
-        public String getFirebase_token() {
-            return firebase_token;
+        public String getCreated_at() {
+            return created_at;
         }
 
-        public void setFirebase_token(String firebase_token) {
-            this.firebase_token = firebase_token;
+        public String getUpdated_at() {
+            return updated_at;
         }
     }
 
