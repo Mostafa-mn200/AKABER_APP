@@ -166,7 +166,7 @@ public class ActivityVerificationMvvm extends AndroidViewModel {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService(Tags.base_url).login( phone_code, phone).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
+        Api.getService(Tags.base_url).login( phone_code+ phone).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable.add(d);
@@ -181,7 +181,7 @@ public class ActivityVerificationMvvm extends AndroidViewModel {
                     if (userModelResponse.body().getStatus() == 200) {
 
                         userModelMutableLiveData.postValue(userModelResponse.body());
-                    } else if (userModelResponse.body().getStatus() == 401) {
+                    } else if (userModelResponse.body().getStatus() == 400) {
                         found.postValue("not_found");
                     } else if (userModelResponse.body().getStatus() == 409) {
                         Toast.makeText(context, context.getResources().getString(R.string.user_blocked), Toast.LENGTH_LONG).show();

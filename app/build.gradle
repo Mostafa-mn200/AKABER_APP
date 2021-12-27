@@ -8,7 +8,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.apps.wedding"
+        applicationId "com.apps.akkaber"
         minSdk 19
         targetSdk 31
         versionCode 1

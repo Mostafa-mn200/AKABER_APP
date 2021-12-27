@@ -57,7 +57,7 @@ public class ActivitySignupMvvm extends AndroidViewModel {
                     if (userModelResponse.body().getStatus() == 200) {
 
                         userModelMutableLiveData.postValue(userModelResponse.body());
-                    } else if (userModelResponse.body().getStatus() == 405) {
+                    } else if (userModelResponse.body().getStatus() == 400) {
                         Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
                     }
                 } else {
@@ -100,7 +100,7 @@ public class ActivitySignupMvvm extends AndroidViewModel {
                     if (userModelResponse.body().getStatus() == 200) {
 
                         userModelMutableLiveData.postValue(userModelResponse.body());
-                    } else if (userModelResponse.body().getStatus() == 405) {
+                    } else if (userModelResponse.body().getStatus() == 400) {
                         Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
                     }
                 } else {

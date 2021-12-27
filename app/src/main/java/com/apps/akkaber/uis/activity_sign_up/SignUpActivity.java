@@ -66,6 +66,7 @@ public class SignUpActivity extends BaseActivity {
         activitySignupMvvm = ViewModelProviders.of(this).get(ActivitySignupMvvm.class);
         model = new SignUpModel();
         binding.setModel(model);
+        binding.setLang(getLang());
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                 if (selectedReq == READ_REQ) {
@@ -124,7 +125,6 @@ public class SignUpActivity extends BaseActivity {
                 }
             }
         });
-
     }
 
     public void openSheet() {

@@ -55,7 +55,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="5dp"
-                            android:rotation='@{lang.equals("ar")?180:0}'
+                            android:rotation='@{lang.equals("en")?180:0}'
                             android:src="@drawable/ic_left" />
                     </androidx.cardview.widget.CardView>
 
@@ -79,7 +79,7 @@
                 android:id="@+id/logo"
                 android:layout_width="180dp"
                 android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="90dp"
                 android:src="@drawable/logo_splash"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/small_stroke_color2"
                 android:gravity="center_vertical"
@@ -117,7 +117,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:text='@{model.phone_code}'
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="15sp" />
 
                 <EditText
@@ -140,14 +140,6 @@
 
             </LinearLayout>
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="1px"
-                android:background="@color/gray7"
-                app:layout_constraintEnd_toEndOf="@id/llPhone"
-                app:layout_constraintStart_toStartOf="@id/llPhone"
-                app:layout_constraintTop_toBottomOf="@id/llPhone" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -156,6 +148,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+
                 android:background="@drawable/rounded_color2"
                 android:gravity="center"
                 android:minWidth="120dp"
@@ -167,7 +160,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/llPhone"
                 app:layout_constraintVertical_bias=".3" />
 
 

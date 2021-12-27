@@ -39,7 +39,7 @@ public class VerificationCodeActivity extends BaseActivity {
     }
 
     private void initView() {
-
+        binding.setLang(getLang());
         activityVerificationMvvm = ViewModelProviders.of(this).get(ActivityVerificationMvvm.class);
         activityVerificationMvvm.sendSmsCode(getLang(), phone_code, phone, this);
         activityVerificationMvvm.smscode.observe(this, smsCode -> {
@@ -81,6 +81,12 @@ public class VerificationCodeActivity extends BaseActivity {
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
                 setResult(RESULT_OK);
+                finish();
+            }
+        });
+        binding.llBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
         });

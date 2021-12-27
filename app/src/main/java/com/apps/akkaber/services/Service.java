@@ -33,8 +33,7 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/login")
-    Single<Response<UserModel>> login(@Field("phone_code") String phone_code,
-                                      @Field("phone") String phone);
+    Single<Response<UserModel>> login(@Field("phone") String phone);
 
     @FormUrlEncoded
     @POST("api/register")
