@@ -12,6 +12,7 @@ import androidx.databinding.BindingAdapter;
 
 import com.apps.akkaber.R;
 
+import com.apps.akkaber.tags.Tags;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -37,7 +38,7 @@ public class GeneralMethod {
 
     @BindingAdapter("image")
     public static void image(View view, String imageUrl) {
-
+       String imageUrl1 = Tags.base_url + imageUrl;
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -46,11 +47,11 @@ public class GeneralMethod {
 
                 if (view instanceof CircleImageView) {
                     CircleImageView imageView = (CircleImageView) view;
-                    if (imageUrl != null) {
+                    if (imageUrl1 != null) {
                         RequestOptions options = new RequestOptions().override(view.getWidth(), view.getHeight());
                         Glide.with(view.getContext()).asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                .load(imageUrl)
+                                .load(imageUrl1)
                                 .centerCrop()
                                 .apply(options)
                                 .into(imageView);
@@ -58,12 +59,12 @@ public class GeneralMethod {
                 } else if (view instanceof RoundedImageView) {
                     RoundedImageView imageView = (RoundedImageView) view;
 
-                    if (imageUrl != null) {
+                    if (imageUrl1 != null) {
 
                         RequestOptions options = new RequestOptions().override(view.getWidth(), view.getHeight());
                         Glide.with(view.getContext()).asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                .load(imageUrl)
+                                .load(imageUrl1)
                                 .centerCrop()
                                 .apply(options)
                                 .into(imageView);
@@ -72,12 +73,12 @@ public class GeneralMethod {
                 } else if (view instanceof ImageView) {
                     ImageView imageView = (ImageView) view;
 
-                    if (imageUrl != null) {
+                    if (imageUrl1 != null) {
 
                         RequestOptions options = new RequestOptions().override(view.getWidth(), view.getHeight());
                         Glide.with(view.getContext()).asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                .load(imageUrl)
+                                .load(imageUrl1)
                                 .centerCrop()
                                 .apply(options)
                                 .into(imageView);

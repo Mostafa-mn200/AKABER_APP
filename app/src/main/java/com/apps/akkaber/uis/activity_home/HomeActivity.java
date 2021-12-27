@@ -1,11 +1,14 @@
 package com.apps.akkaber.uis.activity_home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
@@ -42,6 +45,8 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     private ActionBarDrawerToggle toggle;
     private Preferences preferences;
     private UserModel userModel;
+    private ActivityResultLauncher<Intent> launcher;
+    private int req = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +65,12 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             binding.setModel(userModel);
         }
         homeActivityMvvm = ViewModelProviders.of(this).get(HomeActivityMvvm.class);
-
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
+                userModel=getUserModel();
+                binding.setModel(getUserModel());
+            }
+        });
 
         setSupportActionBar(binding.toolBar);
         navController = Navigation.findNavController(this, R.id.navHostFragment);
@@ -104,10 +114,10 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             homeActivityMvvm.updateFirebase(this, getUserModel());
         }
         binding.wallet.setOnClickListener(view -> {
-            if(userModel!=null){
-            Intent intent = new Intent(HomeActivity.this, WalletActivity.class);
-            startActivity(intent);}
-            else{
+            if (userModel != null) {
+                Intent intent = new Intent(HomeActivity.this, WalletActivity.class);
+                startActivity(intent);
+            } else {
                 navigationToLoginActivity();
             }
         });
@@ -137,8 +147,9 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     }
 
     private void navigationToLoginActivity() {
-        Intent intent=new Intent(HomeActivity.this,LoginActivity.class);
-        startActivity(intent);
+        req = 1;
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        launcher.launch(intent);
     }
 
 
