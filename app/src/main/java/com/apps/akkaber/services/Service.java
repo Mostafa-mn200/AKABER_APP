@@ -30,46 +30,38 @@ public interface Service {
                                                   @Query(value = "key") String key);
 
 
-
-
-
-
     @FormUrlEncoded
     @POST("api/login")
-    Single<Response<UserModel>> login(@Field("api_key") String api_key,
-                                      @Field("phone_code") String phone_code,
+    Single<Response<UserModel>> login(@Field("phone_code") String phone_code,
                                       @Field("phone") String phone);
 
     @FormUrlEncoded
-    @POST("api/client-register")
-    Single<Response<UserModel>> signUp(@Field("api_key") String api_key,
-                                       @Field("name") String name,
+    @POST("api/register")
+    Single<Response<UserModel>> signUp(@Field("name") String name,
                                        @Field("phone_code") String phone_code,
                                        @Field("phone") String phone,
-                                       @Field("software_type") String software_type
+                                       @Field("register_by") String register_by
 
 
     );
 
 
     @Multipart
-    @POST("api/client-register")
-    Observable<Response<UserModel>> signUpwithImage(@Part("api_key") RequestBody api_key,
-                                                    @Part("name") RequestBody name,
+    @POST("api/register")
+    Observable<Response<UserModel>> signUpwithImage(@Part("name") RequestBody name,
                                                     @Part("phone_code") RequestBody phone_code,
                                                     @Part("phone") RequestBody phone,
-                                                    @Part("software_type") RequestBody software_type,
+                                                    @Part("register_by") RequestBody register_by,
                                                     @Part MultipartBody.Part logo
 
 
     );
 
 
-
     @FormUrlEncoded
     @POST("api/logout")
     Single<Response<StatusResponse>> logout(@Header("AUTHORIZATION") String token,
-                                            @Field("api_key") String api_key,
+
                                             @Field("phone_token") String phone_token
 
 
@@ -78,7 +70,7 @@ public interface Service {
     @FormUrlEncoded
     @POST("api/firebase-tokens")
     Single<Response<StatusResponse>> updateFirebasetoken(@Header("AUTHORIZATION") String token,
-                                                         @Field("api_key") String api_key,
+
                                                          @Field("phone_token") String phone_token,
                                                          @Field("user_id") String user_id,
                                                          @Field("software_type") String software_type
@@ -88,11 +80,11 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/contact-us")
-    Single<Response<StatusResponse>> contactUs(@Field("api_key") String api_key,
-                                               @Field("name") String name,
-                                               @Field("email") String email,
-                                               @Field("subject") String phone,
-                                               @Field("message") String message
+    Single<Response<StatusResponse>> contactUs(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("subject") String phone,
+            @Field("message") String message
 
 
     );
