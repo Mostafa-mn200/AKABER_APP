@@ -56,5 +56,7 @@ public class FavouriteActivity extends BaseActivity {
         LinearLayoutManager layoutManager=new GridLayoutManager(getBaseContext(),2);
         binding.recyclerFavourite.setLayoutManager(layoutManager);
         binding.recyclerFavourite.setAdapter(adapter);
+        activityFavouriteMvvm.getFavourites(getUserModel());
+
     }
 }
