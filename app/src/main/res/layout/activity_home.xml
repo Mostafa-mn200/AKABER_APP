@@ -6,6 +6,9 @@
     <data>
 
         <variable
+            name="model"
+            type="com.apps.akkaber.model.UserModel" />
+        <variable
             name="lang"
             type="String" />
     </data>
@@ -131,7 +134,7 @@
                                     <ImageView
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:src="@drawable/img_nav" />
+                                        image="@{model.Data.photo}" />
                                 </androidx.cardview.widget.CardView>
 
 
@@ -169,7 +172,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="10dp"
-                                            android:text="Mohamedd"
+                                            android:text="@{model.Data.first_name}"
                                             android:layout_margin="5dp"
                                             android:textColor="@color/black2"
                                             android:textSize="15sp" />
@@ -177,7 +180,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="10dp"
-                                            android:text="Ahmed"
+                                            android:text="@{model.Data.last_name}"
                                             android:layout_margin="5dp"
                                             android:textColor="@color/black2"
                                             android:textSize="15sp" />
