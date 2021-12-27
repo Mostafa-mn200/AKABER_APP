@@ -20,12 +20,15 @@ import com.apps.akkaber.adapter.DepartmentAdapter;
 import com.apps.akkaber.adapter.ProductAdapter;
 import com.apps.akkaber.adapter.OffersAdapter;
 import com.apps.akkaber.adapter.SliderAdapter;
+import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.mvvm.FragmentHomeMvvm;
 import com.apps.akkaber.uis.activity_base.BaseFragment;
 import com.apps.akkaber.databinding.FragmentHomeBinding;
 import com.apps.akkaber.uis.activity_category_detials.CategoryDetialsActivity;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +50,9 @@ public class FragmentHome extends BaseFragment {
     private OffersAdapter offersAdapter;
     private ProductAdapter productAdapter;
     private SliderAdapter sliderAdapter;
+    private List<SliderDataModel.SliderModel> sliderModelList;
     private CompositeDisposable disposable = new CompositeDisposable();
+    private Timer timer;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -94,9 +99,30 @@ public class FragmentHome extends BaseFragment {
     }
 
     private void initView() {
-
+        sliderModelList = new ArrayList<>();
         fragmentHomeMvvm = ViewModelProviders.of(this).get(FragmentHomeMvvm.class);
 
+        fragmentHomeMvvm.getIsLoading().observe(activity, isLoading -> {
+            if (isLoading) {
+                // binding.cardNoData.setVisibility(View.GONE);
+
+
+            }
+            // binding.swipeRefresh.setRefreshing(isLoading);
+        });
+        fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
+            @Override
+            public void onChanged(SliderDataModel sliderDataModel) {
+                if(sliderDataModel.getData()!=null){
+                    sliderModelList.clear();
+                    sliderModelList.addAll(sliderDataModel.getData());
+                    sliderAdapter.notifyDataSetChanged();
+                     timer = new Timer();
+                    timer.scheduleAtFixedRate(new MyTask(), 3000, 3000);
+                }
+                
+            }
+        });
 
         departmentAdapter = new DepartmentAdapter(activity, this);
         binding.recyclerDepartment.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
@@ -110,13 +136,13 @@ public class FragmentHome extends BaseFragment {
         binding.nestedRecycler.setLayoutManager(new LinearLayoutManager(activity));
         binding.nestedRecycler.setAdapter(productAdapter);
 
-        sliderAdapter = new SliderAdapter(getContext());
+        sliderAdapter = new SliderAdapter(sliderModelList, activity);
         binding.pager.setAdapter(sliderAdapter);
         binding.pager.setClipToPadding(false);
         binding.pager.setPadding(80, 0, 80, 0);
         binding.pager.setPageMargin(20);
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new MyTask(), 3000, 3000);
+       
+        fragmentHomeMvvm.getSlider();
 
     }
 

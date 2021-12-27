@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
 
+        <variable
+            name="photo"
+            type="String" />
     </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,12 +16,11 @@
 
         <com.github.siyamed.shapeimageview.RoundedImageView
             android:id="@+id/sliderImage"
+            image="@{photo}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:riv_corner_radius="20dp"
             android:scaleType="fitXY"
-
-            />
+            app:riv_corner_radius="20dp" />
 
     </androidx.cardview.widget.CardView>
 </layout>

@@ -4,6 +4,7 @@ package com.apps.akkaber.services;
 import com.apps.akkaber.model.FavouriteDataModel;
 import com.apps.akkaber.model.NotificationDataModel;
 import com.apps.akkaber.model.PlaceGeocodeData;
+import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.model.StatusResponse;
 import com.apps.akkaber.model.UserModel;
 
@@ -50,12 +51,12 @@ public interface Service {
     @Multipart
     @POST("api/register")
     Observable<Response<UserModel>> signUpwithImage(
-                                                    @Part("first_name") RequestBody first_name,
-                                                    @Part("last_name") RequestBody last_name,
-                                                    @Part("phone_code") RequestBody phone_code,
-                                                    @Part("phone") RequestBody phone,
-                                                    @Part("register_by") RequestBody register_by,
-                                                    @Part MultipartBody.Part logo
+            @Part("first_name") RequestBody first_name,
+            @Part("last_name") RequestBody last_name,
+            @Part("phone_code") RequestBody phone_code,
+            @Part("phone") RequestBody phone,
+            @Part("register_by") RequestBody register_by,
+            @Part MultipartBody.Part logo
 
 
     );
@@ -101,6 +102,9 @@ public interface Service {
 
 
     @GET("api/my_favourites")
-    Single<Response<FavouriteDataModel>> getFavourites(@Query(value = "user_id") int user_id);
+    Single<Response<FavouriteDataModel>> getFavourites(@Header("lang") String lang,
+                                                       @Query(value = "user_id") int user_id);
 
+    @GET("api/banners")
+    Single<Response<SliderDataModel>> getSlider();
 }

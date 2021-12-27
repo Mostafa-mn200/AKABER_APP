@@ -49,14 +49,14 @@ public class FavouriteActivity extends BaseActivity {
         });
 
         binding.swipeRefresh.setOnRefreshListener(() -> {
-            activityFavouriteMvvm.getFavourites(getUserModel());
+            activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
         });
 
         adapter=new FavouriteAdapter(this);
         LinearLayoutManager layoutManager=new GridLayoutManager(getBaseContext(),2);
         binding.recyclerFavourite.setLayoutManager(layoutManager);
         binding.recyclerFavourite.setAdapter(adapter);
-        activityFavouriteMvvm.getFavourites(getUserModel());
+        activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
 
     }
 }
