@@ -72,7 +72,6 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
                         isLoadingLiveData.postValue(false);
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {
-                                // List<ProductModel> list = response.body().getData();
                                 listMutableLiveData.setValue(response.body().getData());
                             }
                         }
