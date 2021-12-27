@@ -1,28 +1,30 @@
 package com.apps.akkaber.adapter;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
-import com.apps.akkaber.databinding.OfferItemRowBinding;
-import com.apps.akkaber.model.ProductModel;
+import com.apps.akkaber.databinding.MainDepartmentItemRowBinding;
+import com.apps.akkaber.databinding.MainDepartmentItemRowBinding;
+import com.apps.akkaber.model.DepartmentModel;
 
 import java.util.List;
 
-public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<ProductModel> list;
+public class MainDepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private List<DepartmentModel> list;
     private Context context;
     private LayoutInflater inflater;
     private Fragment fragment;
 
-    public OffersAdapter(Context context, Fragment fragment) {
+
+    public MainDepartmentAdapter(Context context, Fragment fragment) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.fragment = fragment;
@@ -31,7 +33,7 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        OfferItemRowBinding binding = DataBindingUtil.inflate(inflater, R.layout.offer_item_row, parent, false);
+        MainDepartmentItemRowBinding binding = DataBindingUtil.inflate(inflater, R.layout.main_department_item_row, parent, false);
         return new MyHolder(binding);
     }
 
@@ -39,8 +41,13 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
         myHolder.binding.setModel(list.get(position));
-        myHolder.binding.priceOld.setPaintFlags(myHolder.binding.priceOld.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        myHolder.binding.amountOld.setPaintFlags(myHolder.binding.amountOld.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+//Minced
+        SubProductAdapter subProductAdapter = new SubProductAdapter(list.get(position).getProducts(), context);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        myHolder.binding.recyclerMinced.setLayoutManager(layoutManager);
+        myHolder.binding.recyclerMinced.setAdapter(subProductAdapter);
+//Others
+
     }
 
     @Override
@@ -52,22 +59,19 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-
     public static class MyHolder extends RecyclerView.ViewHolder {
-        public OfferItemRowBinding binding;
+        public MainDepartmentItemRowBinding binding;
 
-        public MyHolder(OfferItemRowBinding binding) {
+        public MyHolder(MainDepartmentItemRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
         }
     }
 
-    public void updateList(List<ProductModel> list) {
-        if (list != null) {
-            this.list = list;
-
-        }
+    public void updateList(List<DepartmentModel> list) {
+        this.list = list;
         notifyDataSetChanged();
     }
+
 }

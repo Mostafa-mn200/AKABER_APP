@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.apps.akkaber.model.FavouriteDataModel;
+import com.apps.akkaber.model.ProductDataModel;
 import com.apps.akkaber.model.ProductModel;
 import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.remote.Api;
@@ -61,17 +61,18 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
                 .getFavourites(lang, userModel.getData().getId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<Response<FavouriteDataModel>>() {
+                .subscribe(new SingleObserver<Response<ProductDataModel>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
                         disposable.add(d);
                     }
 
                     @Override
-                    public void onSuccess(@NonNull Response<FavouriteDataModel> response) {
+                    public void onSuccess(@NonNull Response<ProductDataModel> response) {
                         isLoadingLiveData.postValue(false);
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {
+                                // List<ProductModel> list = response.body().getData();
                                 listMutableLiveData.setValue(response.body().getData());
                             }
                         }

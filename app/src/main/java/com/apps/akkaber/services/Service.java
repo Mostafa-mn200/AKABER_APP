@@ -2,15 +2,14 @@ package com.apps.akkaber.services;
 
 
 import com.apps.akkaber.model.DepartmentDataModel;
-import com.apps.akkaber.model.FavouriteDataModel;
+import com.apps.akkaber.model.ProductDataModel;
 import com.apps.akkaber.model.NotificationDataModel;
 import com.apps.akkaber.model.PlaceGeocodeData;
 import com.apps.akkaber.model.SingleDepartmentDataModel;
+import com.apps.akkaber.model.SingleProductDataModel;
 import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.model.StatusResponse;
 import com.apps.akkaber.model.UserModel;
-
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -66,18 +65,17 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/logout")
-    Single<Response<StatusResponse>> logout(@Header("AUTHORIZATION") String token,
-
-                                            @Field("phone_token") String phone_token
+    Single<Response<StatusResponse>> logout(@Field("user_id") String user_id,
+                                            @Field("token") String token
 
 
     );
 
     @FormUrlEncoded
-    @POST("api/firebase-tokens")
-    Single<Response<StatusResponse>> updateFirebasetoken(@Field("phone_token") String phone_token,
+    @POST("api/store_user_token")
+    Single<Response<StatusResponse>> updateFirebasetoken(@Field("token") String token,
                                                          @Field("user_id") String user_id,
-                                                         @Field("software_type") String software_type
+                                                         @Field("type") String type
 
 
     );
@@ -102,8 +100,8 @@ public interface Service {
 
 
     @GET("api/my_favourites")
-    Single<Response<FavouriteDataModel>> getFavourites(@Header("lang") String lang,
-                                                       @Query(value = "user_id") int user_id);
+    Single<Response<ProductDataModel>> getFavourites(@Header("lang") String lang,
+                                                     @Query(value = "user_id") int user_id);
 
     @GET("api/banners")
     Single<Response<SliderDataModel>> getSlider();
@@ -114,4 +112,11 @@ public interface Service {
     @GET("api/getCategoryById")
     Single<Response<SingleDepartmentDataModel>> getSingleDepartment(@Header("lang") String lang,
                                                                     @Query(value = "id") String id);
+    @GET("api/offers")
+    Single<Response<ProductDataModel>> getOffers(@Header("lang") String lang);
+    @GET("api/box")
+    Single<Response<SingleProductDataModel>> getBox(@Header("lang") String lang);
+    @GET("api/featured")
+    Single<Response<DepartmentDataModel>> getFeatured(@Header("lang") String lang);
+
 }

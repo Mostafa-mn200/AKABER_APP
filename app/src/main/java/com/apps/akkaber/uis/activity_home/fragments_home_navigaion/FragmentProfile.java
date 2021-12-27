@@ -48,12 +48,19 @@ public class FragmentProfile extends BaseFragment {
         activity = (HomeActivity) context;
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
-                binding.setModel(getUserModel());
-            } else if (req == 2 && result.getResultCode() == Activity.RESULT_OK&&result.getData()!=null) {
+                updateData();
+
+            } else if (req == 2 && result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
                 String lang = result.getData().getStringExtra("lang");
                 activity.refreshActivity(lang);
             }
         });
+    }
+
+    private void updateData() {
+        binding.setModel(getUserModel());
+        activity.updateFirebase();
+
     }
 
     @Override
@@ -78,8 +85,6 @@ public class FragmentProfile extends BaseFragment {
         binding.setLang(getLang());
 
 
-
-
     }
 
     private void navigateToLoginActivity() {
@@ -88,7 +93,6 @@ public class FragmentProfile extends BaseFragment {
         launcher.launch(intent);
 
     }
-
 
 
     private void rateApp() {
@@ -127,19 +131,5 @@ public class FragmentProfile extends BaseFragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        NavBackStackEntry currentBackStackEntry = Navigation.findNavController(binding.getRoot()).getCurrentBackStackEntry();
-        if (currentBackStackEntry != null) {
-            SavedStateHandle savedStateHandle = currentBackStackEntry.getSavedStateHandle();
-            if (savedStateHandle.contains("data")) {
-                login = savedStateHandle.get("data");
-                if (login) {
-                    binding.setModel(getUserModel());
-                    activity.updateFirebase();
-                }
-            }
-        }
-    }
+
 }

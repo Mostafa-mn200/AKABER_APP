@@ -38,7 +38,7 @@ public class GeneralMethod {
 
     @BindingAdapter("image")
     public static void image(View view, String imageUrl) {
-       String imageUrl1 = Tags.base_url + imageUrl;
+        String imageUrl1 = Tags.base_url + imageUrl;
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -52,7 +52,7 @@ public class GeneralMethod {
                         Glide.with(view.getContext()).asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .load(imageUrl1)
-                                .centerCrop()
+                                //.centerCrop()
                                 .apply(options)
                                 .into(imageView);
                     }
@@ -65,7 +65,7 @@ public class GeneralMethod {
                         Glide.with(view.getContext()).asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .load(imageUrl1)
-                                .centerCrop()
+                                //.centerCrop()
                                 .apply(options)
                                 .into(imageView);
 
@@ -79,7 +79,7 @@ public class GeneralMethod {
                         Glide.with(view.getContext()).asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .load(imageUrl1)
-                                .centerCrop()
+                                //.centerCrop()
                                 .apply(options)
                                 .into(imageView);
                     }

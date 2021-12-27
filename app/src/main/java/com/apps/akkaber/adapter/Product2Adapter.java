@@ -15,15 +15,15 @@ import com.apps.akkaber.model.ProductModel;
 
 import java.util.List;
 
-public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<ProductModel> list;
     private Context context;
     private LayoutInflater inflater;
 
 
     public Product2Adapter(Context context) {
-        this.context=context;
-        inflater=LayoutInflater.from(context);
+        this.context = context;
+        inflater = LayoutInflater.from(context);
     }
 
     @NonNull
@@ -36,6 +36,7 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
+        myHolder.binding.setModel(list.get(position));
 //Minced
 
 //Others
@@ -44,9 +45,9 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        if (list!=null){
+        if (list != null) {
             return list.size();
-        }else {
+        } else {
             return 0;
         }
     }
@@ -60,6 +61,7 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         }
     }
+
     public void updateList(List<ProductModel> list) {
         if (list != null) {
             this.list = list;

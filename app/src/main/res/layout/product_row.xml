@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+<variable
+    name="model"
+    type="com.apps.akkaber.model.ProductModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -28,6 +30,7 @@
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
+                image="@{model.photo}"
                 android:src="@drawable/meat" />
 
 
@@ -38,7 +41,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="خروف نعيمى"
+                android:text="@{model.title}"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
         </LinearLayout>

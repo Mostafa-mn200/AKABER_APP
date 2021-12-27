@@ -69,6 +69,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
                 userModel = getUserModel();
                 binding.setModel(getUserModel());
+                updateFirebase();
             }
         });
 
@@ -93,10 +94,15 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
 
         });
+        homeActivityMvvm.logout.observe(this, aBoolean -> {
+            if (aBoolean) {
+                logout();
+            }
+        });
         homeActivityMvvm.firebase.observe(this, token -> {
             if (getUserModel() != null) {
                 UserModel userModel = getUserModel();
-                //  userModel.getData().setFirebase_token(token);
+                  userModel.getData().setFirebase_token(token);
                 setUserModel(userModel);
             }
         });
@@ -138,6 +144,14 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         binding.llMyOrders.setOnClickListener(view -> {
             Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);
             startActivity(intent);
+        });
+        binding.imLogOut.setOnClickListener(view -> {
+            if (getUserModel() == null) {
+                logout();
+            } else {
+                homeActivityMvvm.logout(this, getUserModel());
+            }
+
         });
         binding.shareApp.setOnClickListener(view -> {
             if (userModel!=null){
@@ -204,6 +218,11 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         if (getUserModel() != null) {
             homeActivityMvvm.updateFirebase(this, getUserModel());
         }
+    }
+    private void logout() {
+        clearUserModel(this);
+        binding.setModel(null);
+        navigationToLoginActivity();
     }
 
 

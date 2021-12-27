@@ -35,7 +35,6 @@ public class CategoryDetialsActivity extends BaseActivity {
     private Preferences preferences;
     private String catid;
     private Product2Adapter product2Adapter;
-    private List<ProductModel> productModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +52,17 @@ public class CategoryDetialsActivity extends BaseActivity {
     }
 
     private void initView() {
-        productModelList = new ArrayList<>();
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(this);
         categoryDetialsMvvm = ViewModelProviders.of(this).get(ActivityCategoryDetialsMvvm.class);
+        categoryDetialsMvvm.getIsLoading().observe(this, isLoading -> {
+            if (isLoading) {
+                // binding.cardNoData.setVisibility(View.GONE);
+                binding.progBar.setVisibility(View.VISIBLE);
+                binding.nested.setVisibility(View.GONE);
+            }
+            // binding.swipeRefresh.setRefreshing(isLoading);
+        });
         categoryDetialsMvvm.getCategoryData().observe(this, new Observer<SingleDepartmentDataModel>() {
             @Override
             public void onChanged(SingleDepartmentDataModel singleDepartmentDataModel) {
@@ -65,9 +71,7 @@ public class CategoryDetialsActivity extends BaseActivity {
                 if (singleDepartmentDataModel.getData() != null) {
                     binding.setModel(singleDepartmentDataModel.getData());
                     if (singleDepartmentDataModel.getData().getProducts() != null && singleDepartmentDataModel.getData().getProducts().size() > 0) {
-                        productModelList.clear();
-                        productModelList.addAll(singleDepartmentDataModel.getData().getProducts());
-                        product2Adapter.updateList(productModelList);
+                        product2Adapter.updateList(singleDepartmentDataModel.getData().getProducts());
                         binding.cardNoData.setVisibility(View.GONE);
                     } else {
                         binding.cardNoData.setVisibility(View.VISIBLE);
@@ -78,14 +82,7 @@ public class CategoryDetialsActivity extends BaseActivity {
         });
         //  setUpToolbar(binding.toolbar, getString(R.string.contact_us), R.color.white, R.color.black);
         binding.setLang(getLang());
-        categoryDetialsMvvm.getIsLoading().observe(this, isLoading -> {
-            if (isLoading) {
-                // binding.cardNoData.setVisibility(View.GONE);
-                binding.progBar.setVisibility(View.VISIBLE);
-                binding.nested.setVisibility(View.GONE);
-            }
-            // binding.swipeRefresh.setRefreshing(isLoading);
-        });
+
         product2Adapter = new Product2Adapter(this);
         binding.recView.setLayoutManager(new GridLayoutManager(this, 2));
         binding.recView.setAdapter(product2Adapter);

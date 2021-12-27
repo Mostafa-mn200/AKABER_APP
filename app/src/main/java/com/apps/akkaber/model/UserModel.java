@@ -10,18 +10,19 @@ public class UserModel extends StatusResponse {
     }
 
     public static class Data implements Serializable {
-       private int id;
-       private String first_name;
-       private String last_name;
-       private String photo;
-       private String phone;
-       private String code;
-       private int purchase_gifts;
-       private String register_by;
-       private int share_gifts;
-       private int total;
-       private String created_at;
-       private String updated_at;
+        private int id;
+        private String first_name;
+        private String last_name;
+        private String photo;
+        private String phone;
+        private String code;
+        private int purchase_gifts;
+        private String register_by;
+        private int share_gifts;
+        private int total;
+        private String created_at;
+        private String updated_at;
+        private String firebase_token;
 
         public int getId() {
             return id;
@@ -69,6 +70,14 @@ public class UserModel extends StatusResponse {
 
         public String getUpdated_at() {
             return updated_at;
+        }
+
+        public String getFirebase_token() {
+            return firebase_token;
+        }
+
+        public void setFirebase_token(String firebase_token) {
+            this.firebase_token = firebase_token;
         }
     }
 

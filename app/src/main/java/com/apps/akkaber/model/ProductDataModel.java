@@ -3,7 +3,7 @@ package com.apps.akkaber.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class FavouriteDataModel extends StatusResponse implements Serializable {
+public class ProductDataModel extends StatusResponse implements Serializable {
     private List<ProductModel> data;
 
     public List<ProductModel> getData() {

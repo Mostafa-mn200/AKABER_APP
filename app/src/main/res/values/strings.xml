@@ -113,6 +113,8 @@
     <string name="login2">Login</string>
     <string name="invited_by_a_user">Invited by a user?</string>
     <string name="personal_information">Personal Information</string>
+    <string name="no_department_to_show">No Department To Show</string>
+    <string name="no_offer_to_show">No Offer To Show</string>
 
 
 </resources>

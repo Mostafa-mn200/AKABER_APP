@@ -191,7 +191,7 @@
 
 
                                 <ImageView
-                                    android:id="@+id/logOut"
+                                    android:id="@+id/imLogOut"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:layout_gravity="end"

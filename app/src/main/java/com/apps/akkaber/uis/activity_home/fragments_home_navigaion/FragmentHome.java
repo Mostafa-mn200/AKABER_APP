@@ -17,10 +17,11 @@ import android.view.ViewGroup;
 import com.apps.akkaber.R;
 
 import com.apps.akkaber.adapter.DepartmentAdapter;
-import com.apps.akkaber.adapter.ProductAdapter;
+import com.apps.akkaber.adapter.MainDepartmentAdapter;
 import com.apps.akkaber.adapter.OffersAdapter;
 import com.apps.akkaber.adapter.SliderAdapter;
 import com.apps.akkaber.model.DepartmentModel;
+import com.apps.akkaber.model.ProductModel;
 import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.mvvm.FragmentHomeMvvm;
 import com.apps.akkaber.uis.activity_base.BaseFragment;
@@ -49,7 +50,7 @@ public class FragmentHome extends BaseFragment {
     private FragmentHomeMvvm fragmentHomeMvvm;
     private DepartmentAdapter departmentAdapter;
     private OffersAdapter offersAdapter;
-    private ProductAdapter productAdapter;
+    private MainDepartmentAdapter mainDepartmentAdapter;
     private SliderAdapter sliderAdapter;
     private List<SliderDataModel.SliderModel> sliderModelList;
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -111,33 +112,69 @@ public class FragmentHome extends BaseFragment {
             }
             // binding.swipeRefresh.setRefreshing(isLoading);
         });
+        fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
+            @Override
+            public void onChanged(SliderDataModel sliderDataModel) {
+                if (sliderDataModel.getData() != null) {
+                    sliderModelList.clear();
+                    sliderModelList.addAll(sliderDataModel.getData());
+                    sliderAdapter.notifyDataSetChanged();
+                    timer = new Timer();
+                    timer.scheduleAtFixedRate(new MyTask(), 3000, 3000);
+                }
+
+            }
+        });
+
         fragmentHomeMvvm.getCategoryData().observe(activity, new androidx.lifecycle.Observer<List<DepartmentModel>>() {
             @Override
             public void onChanged(List<DepartmentModel> departmentModels) {
                 if (departmentModels.size() > 0) {
                     departmentAdapter.updateList(departmentModels);
+                    binding.tvNoCategory.setVisibility(View.GONE);
+
                     //binding.cardNoData.setVisibility(View.GONE);
                 } else {
+                    binding.tvNoCategory.setVisibility(View.VISIBLE);
+
                     //binding.cardNoData.setVisibility(View.VISIBLE);
 
                 }
             }
         });
 
-        fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
+        fragmentHomeMvvm.getOfferList().observe(activity, new androidx.lifecycle.Observer<List<ProductModel>>() {
             @Override
-            public void onChanged(SliderDataModel sliderDataModel) {
-                if(sliderDataModel.getData()!=null){
-                    sliderModelList.clear();
-                    sliderModelList.addAll(sliderDataModel.getData());
-                    sliderAdapter.notifyDataSetChanged();
-                     timer = new Timer();
-                    timer.scheduleAtFixedRate(new MyTask(), 3000, 3000);
+            public void onChanged(List<ProductModel> productModels) {
+                if (productModels != null && productModels.size() > 0) {
+                    offersAdapter.updateList(productModels);
+                    binding.tvNoOffer.setVisibility(View.GONE);
+
+                } else {
+                    binding.tvNoOffer.setVisibility(View.VISIBLE);
                 }
-                
             }
         });
+        fragmentHomeMvvm.getbox().observe(activity, new androidx.lifecycle.Observer<ProductModel>() {
+            @Override
+            public void onChanged(ProductModel productModel) {
+                if (productModel != null) {
+                    binding.setModel(productModel);
+                }
+            }
+        });
+        fragmentHomeMvvm.getCategoryfeaturedData().observe(activity, new androidx.lifecycle.Observer<List<DepartmentModel>>() {
+            @Override
+            public void onChanged(List<DepartmentModel> departmentModels) {
+                if (departmentModels != null && departmentModels.size() > 0) {
+                    mainDepartmentAdapter.updateList(departmentModels);
+                    binding.tvNoData.setVisibility(View.GONE);
+                } else {
+                    binding.tvNoData.setVisibility(View.VISIBLE);
 
+                }
+            }
+        });
         departmentAdapter = new DepartmentAdapter(activity, this);
         binding.recyclerDepartment.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
         binding.recyclerDepartment.setAdapter(departmentAdapter);
@@ -146,19 +183,21 @@ public class FragmentHome extends BaseFragment {
         binding.recyclerOffers.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
         binding.recyclerOffers.setAdapter(offersAdapter);
 
-        productAdapter = new ProductAdapter(activity, this);
+        mainDepartmentAdapter = new MainDepartmentAdapter(activity, this);
         binding.nestedRecycler.setLayoutManager(new LinearLayoutManager(activity));
-        binding.nestedRecycler.setAdapter(productAdapter);
+        binding.nestedRecycler.setAdapter(mainDepartmentAdapter);
 
         sliderAdapter = new SliderAdapter(sliderModelList, activity);
         binding.pager.setAdapter(sliderAdapter);
         binding.pager.setClipToPadding(false);
         binding.pager.setPadding(80, 0, 80, 0);
         binding.pager.setPageMargin(20);
-       
+
         fragmentHomeMvvm.getSlider();
         fragmentHomeMvvm.getDepartment(getLang());
-
+        fragmentHomeMvvm.getOffers(getLang());
+        fragmentHomeMvvm.getBox(getLang());
+        fragmentHomeMvvm.getFeatured(getLang());
     }
 
 
@@ -170,7 +209,7 @@ public class FragmentHome extends BaseFragment {
 
     public void showcategory(DepartmentModel departmentModel) {
         Intent intent = new Intent(activity, CategoryDetialsActivity.class);
-        intent.putExtra("catid",departmentModel.getId());
+        intent.putExtra("catid", departmentModel.getId());
         startActivity(intent);
     }
 

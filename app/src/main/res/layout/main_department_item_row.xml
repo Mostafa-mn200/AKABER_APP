@@ -6,6 +6,9 @@
         <variable
             name="lang"
             type="String" />
+        <variable
+            name="model"
+            type="com.apps.akkaber.model.DepartmentModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
 
-                        android:text="@string/minced"
+                        android:text="@{model.title}"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
