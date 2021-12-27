@@ -162,11 +162,14 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             }
 
         });
-        binding.tvName.setOnClickListener(view -> {
-            if (userModel==null){
-                navigationToLoginActivity();
-            }
-        });
+        if (userModel==null){
+            binding.tvName.setOnClickListener(view -> navigationToLoginActivity());
+        }
+//        binding.tvName.setOnClickListener(view -> {
+//            if (userModel==null){
+//                navigationToLoginActivity();
+//            }
+//        });
     }
 
     private void navigationToLoginActivity() {

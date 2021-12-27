@@ -4,6 +4,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.apps.akkaber.R;
@@ -47,6 +48,7 @@ public class ContactUsActivity extends BaseActivity {
                 contactusActivityMvvm.contactus(this, contactUsModel);
             }
         });
+        binding.llBack.setOnClickListener(view -> finish());
         contactusActivityMvvm.send.observe(this, aBoolean -> {
             if (aBoolean) {
                 Toast.makeText(ContactUsActivity.this, getResources().getString(R.string.suc), Toast.LENGTH_LONG).show();
