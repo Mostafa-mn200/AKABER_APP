@@ -112,6 +112,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/circle_avatar"
+                                android:scaleType="fitXY"
                                 image="@{model.data.photo}" />
                         </androidx.cardview.widget.CardView>
 
