@@ -143,6 +143,9 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             Intent intent = new Intent(HomeActivity.this, ShareActivity.class);
             startActivity(intent);
         });
+        binding.tvLogin.setOnClickListener(view -> {
+            navigationToLoginActivity();
+        });
     }
 
     private void navigationToLoginActivity() {

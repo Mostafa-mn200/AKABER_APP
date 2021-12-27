@@ -31,8 +31,6 @@ public class FavouriteActivity extends BaseActivity {
         activityFavouriteMvvm.getIsLoading().observe(this, isLoading -> {
             if (isLoading) {
                 binding.cardNoData.setVisibility(View.GONE);
-
-
             }
             binding.swipeRefresh.setRefreshing(isLoading);
         });
@@ -46,12 +44,14 @@ public class FavouriteActivity extends BaseActivity {
                 binding.cardNoData.setVisibility(View.VISIBLE);
 
             }
-
         });
+
 
         binding.swipeRefresh.setOnRefreshListener(() -> {
             activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
         });
+
+        binding.llBack.setOnClickListener(view -> finish());
 
         adapter = new FavouriteAdapter(this);
         LinearLayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 2);

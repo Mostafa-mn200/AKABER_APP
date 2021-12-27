@@ -32,5 +32,6 @@ public class WalletActivity extends BaseActivity {
             }
         });
         binding.lShare.setPaintFlags(binding.lShare.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        binding.llBack.setOnClickListener(view -> finish());
     }
 }
