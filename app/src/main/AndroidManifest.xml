@@ -51,7 +51,11 @@
         <activity
             android:name=".uis.activity_splash.SplashActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".uis.activity_favourite.FavouriteActivity"
@@ -64,11 +68,7 @@
         <activity
             android:name=".uis.activity_wallet.WalletActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".uis.activity_intro_slider.IntroSliderActivity"
@@ -84,7 +84,9 @@
             android:exported="false" />
         <activity
             android:name=".uis.activity_login.LoginActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".uis.activity_contact_us.ContactUsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
