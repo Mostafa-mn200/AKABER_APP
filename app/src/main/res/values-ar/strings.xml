@@ -48,6 +48,7 @@
     <string name="filter">تصفية</string>
     <string name="rating">التقييم</string>
     <string name="price">السعر</string>
+    <string name="price2">د.إ</string>
     <string name="show_results">عرض النتائج</string>
     <string name="more">المزيد</string>
     <string name="details">التفاصيل</string>
@@ -106,6 +107,10 @@
     <string name="scanCode">امسح الكود</string>
     <string name="or">أو</string>
     <string name="clickShare">اضغط للمشاركة</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="hi">مرحبا</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="enter_code">Enter Code</string>

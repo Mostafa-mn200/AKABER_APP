@@ -1,6 +1,7 @@
 package com.apps.akkaber.services;
 
 
+import com.apps.akkaber.model.FavouriteDataModel;
 import com.apps.akkaber.model.NotificationDataModel;
 import com.apps.akkaber.model.PlaceGeocodeData;
 import com.apps.akkaber.model.StatusResponse;
@@ -95,5 +96,9 @@ public interface Service {
                                                              @Query(value = "api_key") String api_key,
                                                              @Query(value = "user_id") String user_id
     );
+
+
+    @GET("api/my_favourites")
+    Single<Response<FavouriteDataModel>> getFavourites(@Query(value = "user_id") int user_id);
 
 }

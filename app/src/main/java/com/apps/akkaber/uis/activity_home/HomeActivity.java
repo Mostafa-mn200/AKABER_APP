@@ -9,18 +9,16 @@ import android.view.View;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 
 import com.apps.akkaber.interfaces.Listeners;
-import com.apps.akkaber.model.ContactUsModel;
 import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.mvvm.HomeActivityMvvm;
+import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 
 import com.apps.akkaber.R;
@@ -33,7 +31,7 @@ import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
 import com.apps.akkaber.uis.activity_notification.NotificationActivity;
 import com.apps.akkaber.uis.activity_share.ShareActivity;
 import com.apps.akkaber.uis.activity_wallet.WalletActivity;
-import com.apps.akkaber.uis.favourite_activity.FavouriteActivity;
+import com.apps.akkaber.uis.activity_favourite.FavouriteActivity;
 
 import io.paperdb.Paper;
 
@@ -42,7 +40,8 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     private NavController navController;
     private HomeActivityMvvm homeActivityMvvm;
     private ActionBarDrawerToggle toggle;
-
+    private Preferences preferences;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +54,11 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
     private void initView() {
 
+        preferences = Preferences.getInstance();
+        userModel = preferences.getUserData(this);
+        if (userModel != null) {
+            binding.setModel(userModel);
+        }
         homeActivityMvvm = ViewModelProviders.of(this).get(HomeActivityMvvm.class);
 
 
@@ -82,7 +86,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         homeActivityMvvm.firebase.observe(this, token -> {
             if (getUserModel() != null) {
                 UserModel userModel = getUserModel();
-                userModel.getData().setFirebase_token(token);
+                //  userModel.getData().setFirebase_token(token);
                 setUserModel(userModel);
             }
         });
@@ -100,32 +104,41 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             homeActivityMvvm.updateFirebase(this, getUserModel());
         }
         binding.wallet.setOnClickListener(view -> {
-            Intent intent=new Intent(HomeActivity.this, WalletActivity.class);
-            startActivity(intent);
+            if(userModel!=null){
+            Intent intent = new Intent(HomeActivity.this, WalletActivity.class);
+            startActivity(intent);}
+            else{
+                navigationToLoginActivity();
+            }
         });
         binding.contactUs.setOnClickListener(view -> {
-            Intent intent=new Intent(HomeActivity.this, ContactUsActivity.class);
+            Intent intent = new Intent(HomeActivity.this, ContactUsActivity.class);
             startActivity(intent);
 
         });
         binding.favourite.setOnClickListener(view -> {
-            Intent intent=new Intent(HomeActivity.this, FavouriteActivity.class);
+            Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
             startActivity(intent);
         });
         binding.llMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this, MyOrderActivity.class);
+                Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);
                 startActivity(intent);
             }
         });
         binding.shareApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this, ShareActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ShareActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void navigationToLoginActivity() {
+        Intent intent=new Intent(HomeActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 
 

@@ -6,6 +6,9 @@
     <data>
 
         <variable
+            name="model"
+            type="com.apps.akkaber.model.UserModel" />
+        <variable
             name="lang"
             type="String" />
     </data>
@@ -111,7 +114,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="110dp"
+                            android:layout_height="90dp"
                             android:layout_margin="10dp"
                             app:cardBackgroundColor="@color/gray3"
                             app:cardCornerRadius="15dp">
@@ -119,13 +122,21 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_margin="5dp"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/imgProfile"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="15dp"
+                                    app:cardCornerRadius="20dp">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        image="@{model.Data.photo}" />
+                                </androidx.cardview.widget.CardView>
 
-                                <ImageView
-                                    android:layout_width="100dp"
-                                    android:layout_height="100dp"
-                                    android:src="@drawable/img_nav" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -148,18 +159,33 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="5dp"
-                                            android:text="Hi"
+                                            android:text="@string/hi"
                                             android:textColor="@color/gray4"
                                             android:textSize="15sp" />
                                     </LinearLayout>
 
-                                    <TextView
+                                    <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:text="Mohamedd"
-                                        android:textColor="@color/black2"
-                                        android:textSize="18sp" />
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="@{model.Data.first_name}"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/black2"
+                                            android:textSize="15sp" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="@{model.Data.last_name}"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/black2"
+                                            android:textSize="15sp" />
+                                    </LinearLayout>
+
                                 </LinearLayout>
 
                                 <ImageView
@@ -167,7 +193,7 @@
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:layout_gravity="end"
-                                    android:layout_marginStart="30dp"
+                                    android:layout_marginStart="6dp"
                                     android:src="@drawable/ic_logout" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>

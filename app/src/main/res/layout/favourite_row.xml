@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="model"
+            type="com.apps.akkaber.model.FavouriteModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,7 +30,7 @@
                 android:layout_height="90dp"
                 android:layout_margin="10dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/lamb" />
+                image="@{model.photo}" />
 
 
             <TextView
@@ -38,7 +41,7 @@
                 android:gravity="center"
                 android:lines="2"
                 android:layout_margin="5dp"
-                android:text="خروف نعيمى"
+                android:text="@{model.title}"
                 android:textColor="@color/black"
 
                 />
