@@ -18,10 +18,11 @@ public class ShareActivity extends BaseActivity {
     ActivityShareBinding binding;
     private Preferences preferences;
     private UserModel userModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_share);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_share);
         initView();
     }
 
@@ -42,8 +43,9 @@ public class ShareActivity extends BaseActivity {
 
         binding.llBack.setOnClickListener(view -> finish());
     }
-    private void navigateToLoginActivity(){
-        Intent intent=new Intent(ShareActivity.this, LoginActivity.class);
+
+    private void navigateToLoginActivity() {
+        Intent intent = new Intent(ShareActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }

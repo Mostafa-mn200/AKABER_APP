@@ -8,9 +8,11 @@
         <variable
             name="model"
             type="com.apps.akkaber.model.UserModel" />
+
         <variable
             name="lang"
             type="String" />
+
         <import type="android.view.View" />
     </data>
 
@@ -18,18 +20,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray3">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/toolbar_shape">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/llBack"
@@ -68,24 +72,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/shareContent"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:textColor="@color/black"/>
+                android:gravity="center"
+                android:text="@string/shareContent"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <FrameLayout
                 android:id="@+id/llFrame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="25dp"
-                android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_qr_shape">
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_qr_shape"
+                android:orientation="vertical">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -105,15 +110,14 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            app:cardCornerRadius="15dp"
-                            >
+                            app:cardCornerRadius="15dp">
 
                             <ImageView
+                                image="@{model.data.photo}"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/circle_avatar"
                                 android:scaleType="fitXY"
-                                image="@{model.data.photo}" />
+                                android:src="@drawable/circle_avatar" />
                         </androidx.cardview.widget.CardView>
 
 
@@ -124,7 +128,7 @@
                             android:layout_marginStart="10dp"
                             android:orientation="vertical"
 
-                        >
+                            >
 
 
                             <LinearLayout
@@ -133,7 +137,6 @@
                                 android:orientation="horizontal"
 
                                 >
-
 
 
                                 <TextView
@@ -146,20 +149,19 @@
                                     android:textSize="15sp" />
                             </LinearLayout>
 
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="@string/name"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textSize="18sp" />-->
+                            <!--                            <TextView-->
+                            <!--                                android:layout_width="wrap_content"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:text="@string/name"-->
+                            <!--                                android:textColor="@color/black"-->
+                            <!--                                android:textSize="18sp" />-->
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@{model.data.code}"
                                 android:textColor="@color/color2"
-                                android:textSize="15sp"
-                                />
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -170,11 +172,11 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="22dp"
                         android:background="@drawable/horizontal_line"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/llTop"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintVertical_bias=".25"/>
+                        app:layout_constraintVertical_bias=".25" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -193,58 +195,62 @@
             </FrameLayout>
 
             <LinearLayout
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:weightSum="2">
+
                 <View
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/horizontal_line2"
-                    />
+                    android:layout_weight="1"
+                    android:background="@drawable/horizontal_line2" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/or"
-                    android:textSize="15dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
                 <View
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/horizontal_line2"
-                    />
+                    android:layout_weight="1"
+                    android:background="@drawable/horizontal_line2" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/llShare"
                 android:layout_width="180dp"
                 android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:padding="5dp"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/linear_shape2"
                 android:gravity="center"
-                android:background="@drawable/linear_shape2">
+                android:orientation="horizontal"
+                android:padding="5dp">
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_margin="3dp"
-                    android:src="@drawable/ic_share"/>
+                    android:src="@drawable/ic_share" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/clickShare"
                     android:layout_marginStart="5dp"
-                    android:textSize="15sp"
-                    android:textColor="@color/color2"/>
+                    android:text="@string/clickShare"
+                    android:textColor="@color/color2"
+                    android:textSize="15sp" />
             </LinearLayout>
-            </LinearLayout>
+        </LinearLayout>
 
     </FrameLayout>
 </layout>
