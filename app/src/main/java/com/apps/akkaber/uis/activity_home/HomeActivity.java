@@ -67,7 +67,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         homeActivityMvvm = ViewModelProviders.of(this).get(HomeActivityMvvm.class);
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
-                userModel=getUserModel();
+                userModel = getUserModel();
                 binding.setModel(getUserModel());
             }
         });
@@ -127,22 +127,21 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
         });
         binding.favourite.setOnClickListener(view -> {
-            Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
+            if (userModel != null) {
+                Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
+                startActivity(intent);
+            } else {
+                navigationToLoginActivity();
+            }
+
+        });
+        binding.llMyOrders.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);
             startActivity(intent);
         });
-        binding.llMyOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);
-                startActivity(intent);
-            }
-        });
-        binding.shareApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ShareActivity.class);
-                startActivity(intent);
-            }
+        binding.shareApp.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, ShareActivity.class);
+            startActivity(intent);
         });
     }
 
