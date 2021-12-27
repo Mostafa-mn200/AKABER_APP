@@ -14,15 +14,15 @@ import com.apps.akkaber.model.FavouriteModel;
 
 import java.util.List;
 
-public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<FavouriteModel> list;
     private Context context;
     private LayoutInflater inflater;
 
 
     public FavouriteAdapter(Context context) {
-        this.context=context;
-        inflater=LayoutInflater.from(context);
+        this.context = context;
+        inflater = LayoutInflater.from(context);
 
     }
 
@@ -35,14 +35,14 @@ public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MyHolder myHolder=(MyHolder) holder;
+        MyHolder myHolder = (MyHolder) holder;
     }
 
     @Override
     public int getItemCount() {
-        if (list!=null){
+        if (list != null) {
             return list.size();
-        }else {
+        } else {
             return 0;
         }
     }
@@ -56,8 +56,9 @@ public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         }
     }
-    public void updateList(List<FavouriteModel> list){
-        if (list!=null){
+
+    public void updateList(List<FavouriteModel> list) {
+        if (list != null) {
             this.list = list;
 
         }

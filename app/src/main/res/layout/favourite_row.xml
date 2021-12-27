@@ -26,21 +26,21 @@
 
             <ImageView
                 android:id="@+id/image"
+                image="@{model.photo}"
                 android:layout_width="140dp"
                 android:layout_height="90dp"
                 android:layout_margin="10dp"
-                android:scaleType="fitXY"
-                image="@{model.photo}" />
+                android:scaleType="fitXY" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_margin="5dp"
                 android:background="@color/white"
                 android:gravity="center"
                 android:lines="2"
-                android:layout_margin="5dp"
                 android:text="@{model.title}"
                 android:textColor="@color/black"
 

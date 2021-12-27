@@ -33,15 +33,15 @@ public class ContactUsActivity extends BaseActivity {
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(this);
         contactusActivityMvvm = ViewModelProviders.of(this).get(ContactusActivityMvvm.class);
-      //  setUpToolbar(binding.toolbar, getString(R.string.contact_us), R.color.white, R.color.black);
+        //  setUpToolbar(binding.toolbar, getString(R.string.contact_us), R.color.white, R.color.black);
 
         contactUsModel = new ContactUsModel();
         if (userModel != null) {
-           // contactUsModel.setName(userModel.getData().getName());
+            // contactUsModel.setName(userModel.getData().getName());
 
         }
 
-     //   binding.setContactModel(contactUsModel);
+        //   binding.setContactModel(contactUsModel);
         binding.btnSend.setOnClickListener(view -> {
             if (contactUsModel.isDataValid(this)) {
                 contactusActivityMvvm.contactus(this, contactUsModel);

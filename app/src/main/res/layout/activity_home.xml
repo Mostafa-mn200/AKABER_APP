@@ -8,10 +8,12 @@
         <variable
             name="model"
             type="com.apps.akkaber.model.UserModel" />
+
         <variable
             name="lang"
             type="String" />
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -125,6 +127,7 @@
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
                                 android:weightSum="3">
+
                                 <androidx.cardview.widget.CardView
                                     android:id="@+id/imgProfile"
                                     android:layout_width="60dp"
@@ -134,10 +137,11 @@
                                     android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
 
                                     app:cardCornerRadius="20dp">
+
                                     <ImageView
+                                        image="@{model.Data.photo}"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        image="@{model.Data.photo}" />
+                                        android:layout_height="match_parent" />
                                 </androidx.cardview.widget.CardView>
 
 
@@ -166,37 +170,41 @@
                                             android:textColor="@color/gray4"
                                             android:textSize="15sp" />
                                     </LinearLayout>
+
                                     <TextView
                                         android:id="@+id/tvLogin"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
                                         android:layout_marginTop="10dp"
                                         android:text="@string/login"
-                                        android:layout_margin="5dp"
-                                        android:visibility='@{model!=null?View.GONE:View.VISIBLE,default=gone}'
-
                                         android:textColor="@color/black2"
-                                        android:textSize="15sp" />
+
+                                        android:textSize="15sp"
+                                        android:visibility='@{model!=null?View.GONE:View.VISIBLE,default=gone}' />
+
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
+                                        android:orientation="horizontal"
 
-                                        android:orientation="horizontal">
+                                        android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'>
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
                                             android:layout_marginTop="10dp"
                                             android:text="@{model.Data.first_name}"
-                                            android:layout_margin="5dp"
                                             android:textColor="@color/black2"
                                             android:textSize="15sp" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
                                             android:layout_marginTop="10dp"
                                             android:text="@{model.Data.last_name}"
-                                            android:layout_margin="5dp"
                                             android:textColor="@color/black2"
                                             android:textSize="15sp" />
                                     </LinearLayout>
@@ -208,9 +216,9 @@
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:layout_gravity="end"
-                                   android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
                                     android:layout_marginStart="6dp"
-                                    android:src="@drawable/ic_logout" />
+                                    android:src="@drawable/ic_logout"
+                                    android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}' />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -381,8 +389,7 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_wallet"
-                                />
+                                android:src="@drawable/ic_wallet" />
 
                             <TextView
                                 android:layout_width="match_parent"

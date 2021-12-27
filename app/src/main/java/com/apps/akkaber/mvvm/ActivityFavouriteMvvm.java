@@ -28,29 +28,29 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
 
     private MutableLiveData<Boolean> isLoadingLiveData;
 
-    private CompositeDisposable disposable=new CompositeDisposable();
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     public ActivityFavouriteMvvm(@NonNull Application application) {
         super(application);
     }
 
     public MutableLiveData<List<FavouriteModel>> getFavouriteList() {
-        if (listMutableLiveData==null){
-            listMutableLiveData=new MutableLiveData<>();
+        if (listMutableLiveData == null) {
+            listMutableLiveData = new MutableLiveData<>();
         }
         return listMutableLiveData;
     }
 
     public MutableLiveData<Boolean> getIsLoading() {
-        if (isLoadingLiveData==null){
-            isLoadingLiveData=new MutableLiveData<>();
+        if (isLoadingLiveData == null) {
+            isLoadingLiveData = new MutableLiveData<>();
         }
         return isLoadingLiveData;
     }
 
-    public void getFavourites(UserModel userModel,String lang){
+    public void getFavourites(UserModel userModel, String lang) {
 
-        if (userModel==null){
+        if (userModel == null) {
             isLoadingLiveData.setValue(false);
             listMutableLiveData.setValue(new ArrayList<>());
             return;
@@ -58,7 +58,7 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
         isLoadingLiveData.setValue(true);
 
         Api.getService(Tags.base_url)
-                .getFavourites(lang,userModel.getData().getId())
+                .getFavourites(lang, userModel.getData().getId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<FavouriteDataModel>>() {
@@ -69,9 +69,9 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<FavouriteDataModel> response) {
-                        if (response.isSuccessful() && response.body()!=null){
-                            if (response.body().getStatus()==200){
-                                List<FavouriteModel> list=response.body().getData();
+                        if (response.isSuccessful() && response.body() != null) {
+                            if (response.body().getStatus() == 200) {
+                                List<FavouriteModel> list = response.body().getData();
                                 listMutableLiveData.setValue(list);
                             }
                         }

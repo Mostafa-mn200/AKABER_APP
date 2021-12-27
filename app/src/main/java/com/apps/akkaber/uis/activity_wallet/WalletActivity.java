@@ -18,7 +18,7 @@ public class WalletActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_wallet);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_wallet);
         initView();
     }
 
@@ -27,10 +27,10 @@ public class WalletActivity extends BaseActivity {
         binding.lShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(WalletActivity.this, ShareActivity.class);
+                Intent intent = new Intent(WalletActivity.this, ShareActivity.class);
                 startActivity(intent);
             }
         });
-        binding.lShare.setPaintFlags(binding.lShare.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        binding.lShare.setPaintFlags(binding.lShare.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
     }
 }

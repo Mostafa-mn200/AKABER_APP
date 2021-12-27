@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class FavouriteDataModel extends StatusResponse implements Serializable {
-    public List<FavouriteModel> data;
+    private List<FavouriteModel> data;
 
     public List<FavouriteModel> getData() {
         return data;

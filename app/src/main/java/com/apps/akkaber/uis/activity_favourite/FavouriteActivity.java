@@ -24,24 +24,25 @@ public class FavouriteActivity extends BaseActivity {
     ActivityFavouriteBinding binding;
     ActivityFavouriteMvvm activityFavouriteMvvm;
     FavouriteAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_favourite);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_favourite);
         initView();
     }
 
     private void initView() {
-        activityFavouriteMvvm= ViewModelProviders.of(this).get(ActivityFavouriteMvvm.class);
-        activityFavouriteMvvm.getIsLoading().observe(this,loading ->{
+        activityFavouriteMvvm = ViewModelProviders.of(this).get(ActivityFavouriteMvvm.class);
+        activityFavouriteMvvm.getIsLoading().observe(this, loading -> {
             binding.swipeRefresh.setRefreshing(loading);
         });
 
         activityFavouriteMvvm.getFavouriteList().observe(this, list -> {
-            if (list.size()>0){
+            if (list.size() > 0) {
                 adapter.updateList(list);
                 binding.cardNoData.setVisibility(View.GONE);
-            }else {
+            } else {
                 binding.cardNoData.setVisibility(View.VISIBLE);
 
             }
@@ -52,8 +53,8 @@ public class FavouriteActivity extends BaseActivity {
             activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
         });
 
-        adapter=new FavouriteAdapter(this);
-        LinearLayoutManager layoutManager=new GridLayoutManager(getBaseContext(),2);
+        adapter = new FavouriteAdapter(this);
+        LinearLayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 2);
         binding.recyclerFavourite.setLayoutManager(layoutManager);
         binding.recyclerFavourite.setAdapter(adapter);
         activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
