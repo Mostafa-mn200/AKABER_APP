@@ -37,7 +37,7 @@ public class FavouriteActivity extends BaseActivity {
 
 
         activityFavouriteMvvm.getFavouriteList().observe(this, list -> {
-            if (list!=null&&list.size() > 0) {
+            if (list != null && list.size() > 0) {
                 adapter.updateList(list);
                 binding.cardNoData.setVisibility(View.GONE);
             } else {
@@ -48,7 +48,7 @@ public class FavouriteActivity extends BaseActivity {
 
 
         binding.swipeRefresh.setOnRefreshListener(() -> {
-            activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
+            activityFavouriteMvvm.getFavourites(getUserModel(), getLang());
         });
 
         binding.llBack.setOnClickListener(view -> finish());
@@ -57,7 +57,7 @@ public class FavouriteActivity extends BaseActivity {
         LinearLayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 2);
         binding.recyclerFavourite.setLayoutManager(layoutManager);
         binding.recyclerFavourite.setAdapter(adapter);
-        activityFavouriteMvvm.getFavourites(getUserModel(),getLang());
+        activityFavouriteMvvm.getFavourites(getUserModel(), getLang());
 
     }
 }
