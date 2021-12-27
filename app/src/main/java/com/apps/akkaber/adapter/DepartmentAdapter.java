@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.DepartmentItemRowBinding;
+import com.apps.akkaber.model.DepartmentModel;
 import com.apps.akkaber.uis.activity_home.fragments_home_navigaion.FragmentHome;
 
 import java.util.List;
 
 public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
-    private List<Object> list;
+    private List<DepartmentModel> list;
     private Context context;
     private LayoutInflater inflater;
     private Fragment fragment;
@@ -38,12 +39,13 @@ public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
+        myHolder.binding.setModel(list.get(position));
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(fragment instanceof FragmentHome){
                     FragmentHome fragmentHome=(FragmentHome) fragment;
-                    fragmentHome.showcategory();
+                    fragmentHome.showcategory(list.get(holder.getLayoutPosition()));
                 }
             }
         });
@@ -54,9 +56,15 @@ public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (list!=null){
             return list.size();
         }else {
-            return 4;
+            return 0;
         }
     }
+
+        public void updateList(List<DepartmentModel> list) {
+            this.list = list;
+            notifyDataSetChanged();
+        }
+
 
     public static class MyHolder extends RecyclerView.ViewHolder {
         public DepartmentItemRowBinding binding;

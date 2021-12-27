@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.FavouriteRowBinding;
-import com.apps.akkaber.model.FavouriteModel;
+import com.apps.akkaber.model.ProductModel;
 
 import java.util.List;
 
 public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<FavouriteModel> list;
+    private List<ProductModel> list;
     private Context context;
     private LayoutInflater inflater;
 
@@ -57,7 +57,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public void updateList(List<FavouriteModel> list) {
+    public void updateList(List<ProductModel> list) {
         if (list != null) {
             this.list = list;
 

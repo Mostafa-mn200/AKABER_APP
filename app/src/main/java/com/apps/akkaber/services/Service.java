@@ -1,9 +1,11 @@
 package com.apps.akkaber.services;
 
 
+import com.apps.akkaber.model.DepartmentDataModel;
 import com.apps.akkaber.model.FavouriteDataModel;
 import com.apps.akkaber.model.NotificationDataModel;
 import com.apps.akkaber.model.PlaceGeocodeData;
+import com.apps.akkaber.model.SingleDepartmentDataModel;
 import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.model.StatusResponse;
 import com.apps.akkaber.model.UserModel;
@@ -73,9 +75,7 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/firebase-tokens")
-    Single<Response<StatusResponse>> updateFirebasetoken(@Header("AUTHORIZATION") String token,
-
-                                                         @Field("phone_token") String phone_token,
+    Single<Response<StatusResponse>> updateFirebasetoken(@Field("phone_token") String phone_token,
                                                          @Field("user_id") String user_id,
                                                          @Field("software_type") String software_type
 
@@ -107,4 +107,11 @@ public interface Service {
 
     @GET("api/banners")
     Single<Response<SliderDataModel>> getSlider();
+
+    @GET("api/categories")
+    Single<Response<DepartmentDataModel>> getDepartments(@Header("lang") String lang);
+
+    @GET("api/getCategoryById")
+    Single<Response<SingleDepartmentDataModel>> getSingleDepartment(@Header("lang") String lang,
+                                                                    @Query(value = "id") String id);
 }

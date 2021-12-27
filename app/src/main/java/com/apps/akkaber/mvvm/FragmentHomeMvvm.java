@@ -2,19 +2,19 @@ package com.apps.akkaber.mvvm;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.apps.akkaber.model.FavouriteDataModel;
-import com.apps.akkaber.model.FavouriteModel;
+import com.apps.akkaber.model.DepartmentDataModel;
+import com.apps.akkaber.model.DepartmentModel;
 import com.apps.akkaber.model.SliderDataModel;
-import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.remote.Api;
 import com.apps.akkaber.tags.Tags;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.SingleObserver;
@@ -30,6 +30,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
     private MutableLiveData<SliderDataModel> sliderDataModelMutableLiveData;
     private CompositeDisposable disposable = new CompositeDisposable();
     private MutableLiveData<Boolean> isLoadingLiveData;
+    private MutableLiveData<List<DepartmentModel>> departmentLivData;
 
     public FragmentHomeMvvm(@NonNull Application application) {
         super(application);
@@ -49,6 +50,13 @@ public class FragmentHomeMvvm extends AndroidViewModel {
             isLoadingLiveData = new MutableLiveData<>();
         }
         return isLoadingLiveData;
+    }
+    public LiveData<List<DepartmentModel>> getCategoryData() {
+        if (departmentLivData == null) {
+            departmentLivData = new MutableLiveData<>();
+
+        }
+        return departmentLivData;
     }
 
     public void getSlider() {
@@ -80,6 +88,42 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                         isLoadingLiveData.setValue(false);
                     }
                 });
+    }
+    public void getDepartment(String lang) {
+        isLoadingLiveData.postValue(true);
+        Api.getService(Tags.base_url)
+                .getDepartments(lang)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+
+                .subscribe(new SingleObserver<Response<DepartmentDataModel>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull Response<DepartmentDataModel> response) {
+
+                        if (response.isSuccessful() && response.body() != null) {
+                            if (response.body().getStatus() == 200) {
+                                List<DepartmentModel> list = response.body().getData();
+                                if (list.size() > 0) {
+                                    departmentLivData.setValue(list);
+                                }
+
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        isLoadingLiveData.postValue(false);
+                        Log.e(TAG, "onError: ", e);
+                    }
+                });
+
     }
 
     @Override

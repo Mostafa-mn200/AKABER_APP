@@ -2,12 +2,13 @@ package com.apps.akkaber.model;
 
 import java.io.Serializable;
 
-public class FavouriteModel implements Serializable {
-    private int id;
+public class ProductModel implements Serializable {
+    private String id;
     private String photo;
     private String title;
+    private String category_id;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -17,5 +18,9 @@ public class FavouriteModel implements Serializable {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getCategory_id() {
+        return category_id;
     }
 }

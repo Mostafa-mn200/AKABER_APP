@@ -10,14 +10,21 @@
         <variable
             name="title"
             type="String" />
+        <variable
+            name="model"
+            type="com.apps.akkaber.model.DepartmentModel" />
     </data>
 <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    >
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
+        android:visibility="invisible"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,6 +36,7 @@
                 android:src="@drawable/sss"
                 app:riv_corner_radius="20dp"
                 app:riv_mutate_background="true"
+                image="@{model.slider}"
                 />
             <FrameLayout
                 android:layout_width="match_parent"
@@ -139,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@{title}"
+                        android:text="@{model.title}"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +161,12 @@
         </androidx.cardview.widget.CardView>
 
     </FrameLayout>
-
+    <ProgressBar
+        android:id="@+id/progBar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+     />
 
 </FrameLayout>
 

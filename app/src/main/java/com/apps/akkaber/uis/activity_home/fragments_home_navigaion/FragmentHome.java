@@ -20,6 +20,7 @@ import com.apps.akkaber.adapter.DepartmentAdapter;
 import com.apps.akkaber.adapter.ProductAdapter;
 import com.apps.akkaber.adapter.OffersAdapter;
 import com.apps.akkaber.adapter.SliderAdapter;
+import com.apps.akkaber.model.DepartmentModel;
 import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.mvvm.FragmentHomeMvvm;
 import com.apps.akkaber.uis.activity_base.BaseFragment;
@@ -110,6 +111,19 @@ public class FragmentHome extends BaseFragment {
             }
             // binding.swipeRefresh.setRefreshing(isLoading);
         });
+        fragmentHomeMvvm.getCategoryData().observe(activity, new androidx.lifecycle.Observer<List<DepartmentModel>>() {
+            @Override
+            public void onChanged(List<DepartmentModel> departmentModels) {
+                if (departmentModels.size() > 0) {
+                    departmentAdapter.updateList(departmentModels);
+                    //binding.cardNoData.setVisibility(View.GONE);
+                } else {
+                    //binding.cardNoData.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
+
         fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
             @Override
             public void onChanged(SliderDataModel sliderDataModel) {
@@ -143,6 +157,7 @@ public class FragmentHome extends BaseFragment {
         binding.pager.setPageMargin(20);
        
         fragmentHomeMvvm.getSlider();
+        fragmentHomeMvvm.getDepartment(getLang());
 
     }
 
@@ -153,8 +168,9 @@ public class FragmentHome extends BaseFragment {
         disposable.clear();
     }
 
-    public void showcategory() {
+    public void showcategory(DepartmentModel departmentModel) {
         Intent intent = new Intent(activity, CategoryDetialsActivity.class);
+        intent.putExtra("catid",departmentModel.getId());
         startActivity(intent);
     }
 

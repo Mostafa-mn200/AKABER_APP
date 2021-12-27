@@ -1,12 +1,9 @@
 package com.apps.akkaber.uis.activity_favourite;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,11 +11,8 @@ import android.view.View;
 import com.apps.akkaber.R;
 import com.apps.akkaber.adapter.FavouriteAdapter;
 import com.apps.akkaber.databinding.ActivityFavouriteBinding;
-import com.apps.akkaber.model.FavouriteModel;
 import com.apps.akkaber.mvvm.ActivityFavouriteMvvm;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
-
-import java.util.List;
 
 public class FavouriteActivity extends BaseActivity {
     ActivityFavouriteBinding binding;
@@ -34,12 +28,18 @@ public class FavouriteActivity extends BaseActivity {
 
     private void initView() {
         activityFavouriteMvvm = ViewModelProviders.of(this).get(ActivityFavouriteMvvm.class);
-        activityFavouriteMvvm.getIsLoading().observe(this, loading -> {
-            binding.swipeRefresh.setRefreshing(loading);
+        activityFavouriteMvvm.getIsLoading().observe(this, isLoading -> {
+            if (isLoading) {
+                binding.cardNoData.setVisibility(View.GONE);
+
+
+            }
+            binding.swipeRefresh.setRefreshing(isLoading);
         });
 
+
         activityFavouriteMvvm.getFavouriteList().observe(this, list -> {
-            if (list.size() > 0) {
+            if (list!=null&&list.size() > 0) {
                 adapter.updateList(list);
                 binding.cardNoData.setVisibility(View.GONE);
             } else {

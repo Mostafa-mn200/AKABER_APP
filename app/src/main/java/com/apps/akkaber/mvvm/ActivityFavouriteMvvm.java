@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.apps.akkaber.model.FavouriteDataModel;
-import com.apps.akkaber.model.FavouriteModel;
+import com.apps.akkaber.model.ProductModel;
 import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.remote.Api;
 import com.apps.akkaber.tags.Tags;
@@ -24,7 +24,7 @@ import retrofit2.Response;
 
 public class ActivityFavouriteMvvm extends AndroidViewModel {
 
-    private MutableLiveData<List<FavouriteModel>> listMutableLiveData;
+    private MutableLiveData<List<ProductModel>> listMutableLiveData;
 
     private MutableLiveData<Boolean> isLoadingLiveData;
 
@@ -34,7 +34,7 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
         super(application);
     }
 
-    public MutableLiveData<List<FavouriteModel>> getFavouriteList() {
+    public MutableLiveData<List<ProductModel>> getFavouriteList() {
         if (listMutableLiveData == null) {
             listMutableLiveData = new MutableLiveData<>();
         }
@@ -69,10 +69,11 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<FavouriteDataModel> response) {
+                        isLoadingLiveData.postValue(false);
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {
-                                List<FavouriteModel> list = response.body().getData();
-                                listMutableLiveData.setValue(list);
+                               // List<ProductModel> list = response.body().getData();
+                                listMutableLiveData.setValue(response.body().getData());
                             }
                         }
                     }

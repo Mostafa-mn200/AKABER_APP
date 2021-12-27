@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 public class FavouriteDataModel extends StatusResponse implements Serializable {
-    private List<FavouriteModel> data;
+    private List<ProductModel> data;
 
-    public List<FavouriteModel> getData() {
+    public List<ProductModel> getData() {
         return data;
     }
 
-    public void setData(List<FavouriteModel> data) {
+    public void setData(List<ProductModel> data) {
         this.data = data;
     }
 }

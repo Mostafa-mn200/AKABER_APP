@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.apps.akkaber.model.FavouriteModel" />
+            type="com.apps.akkaber.model.ProductModel" />
     </data>
 
     <androidx.cardview.widget.CardView

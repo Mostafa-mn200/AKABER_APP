@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+<variable
+    name="model"
+    type="com.apps.akkaber.model.DepartmentModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,6 +29,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintDimensionRatio="1:.8"
                     android:src="@drawable/lamb"
+                    image="@{model.photo}"
                     android:scaleType="centerCrop"
                     />
 
@@ -35,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:text="خرفان"
+                android:text="@{model.title}"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:layout_gravity="bottom"

@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.ProductRowBinding;
+import com.apps.akkaber.model.ProductModel;
 
 import java.util.List;
 
 public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-    private List<Object> list;
+    private List<ProductModel> list;
     private Context context;
     private LayoutInflater inflater;
 
@@ -46,7 +47,7 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (list!=null){
             return list.size();
         }else {
-            return 4;
+            return 0;
         }
     }
 
@@ -58,5 +59,12 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             this.binding = binding;
 
         }
+    }
+    public void updateList(List<ProductModel> list) {
+        if (list != null) {
+            this.list = list;
+
+        }
+        notifyDataSetChanged();
     }
 }
