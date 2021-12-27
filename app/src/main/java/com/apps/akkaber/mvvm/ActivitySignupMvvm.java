@@ -4,6 +4,7 @@ import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,10 +42,11 @@ public class ActivitySignupMvvm extends AndroidViewModel {
     }
 
     public void signupWithOutImage(Context context, SignUpModel model, String phone_code, String phone) {
+       // Log.e("Dlfllfl",phone_code+" "+phone);
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService(Tags.base_url).signUp( model.getFirst_name() + " " + model.getSeconed_name(), phone_code.replace("+", ""), phone, model.getCode()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
+        Api.getService(Tags.base_url).signUp( model.getFirst_name() ,  model.getSeconed_name(), phone_code.replace("+", ""), phone, model.getCode()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable.add(d);
@@ -78,16 +80,18 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        RequestBody name_part = Common.getRequestBodyText(model.getFirst_name() + " " + model.getSeconed_name());
+        RequestBody name_part = Common.getRequestBodyText(model.getFirst_name() );
+        RequestBody seconded_name_part = Common.getRequestBodyText(model.getSeconed_name());
+
         RequestBody code_part = Common.getRequestBodyText(model.getCode()+"");
         RequestBody phone_part = Common.getRequestBodyText(phone);
         RequestBody phone_code_part = Common.getRequestBodyText(phone_code.replace("+", ""));
 
 
-        MultipartBody.Part image = Common.getMultiPart(context, uri, "logo");
+        MultipartBody.Part image = Common.getMultiPart(context, uri, "photo");
 
 
-        Api.getService(Tags.base_url).signUpwithImage( name_part, phone_code_part, phone_part, code_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
+        Api.getService(Tags.base_url).signUpwithImage( name_part,seconded_name_part, phone_code_part, phone_part, code_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable.add(d);

@@ -73,6 +73,7 @@ public class SignUpModel extends BaseObservable {
         setFirst_name("");
 
         setSeconed_name("");
+        setCode("");
 
     }
 

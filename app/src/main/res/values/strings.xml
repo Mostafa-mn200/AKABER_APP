@@ -110,6 +110,9 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="enter_code">Enter Code</string>
+    <string name="login2">Login</string>
+    <string name="invited_by_a_user">Invited by a user?</string>
+    <string name="personal_information">Personal Information</string>
 
 
 </resources>

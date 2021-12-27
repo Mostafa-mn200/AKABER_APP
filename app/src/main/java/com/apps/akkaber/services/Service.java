@@ -37,7 +37,8 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/register")
-    Single<Response<UserModel>> signUp(@Field("name") String name,
+    Single<Response<UserModel>> signUp(@Field("first_name") String first_name,
+                                       @Field("last_name") String last_name,
                                        @Field("phone_code") String phone_code,
                                        @Field("phone") String phone,
                                        @Field("register_by") String register_by
@@ -48,7 +49,9 @@ public interface Service {
 
     @Multipart
     @POST("api/register")
-    Observable<Response<UserModel>> signUpwithImage(@Part("name") RequestBody name,
+    Observable<Response<UserModel>> signUpwithImage(
+                                                    @Part("first_name") RequestBody first_name,
+                                                    @Part("last_name") RequestBody last_name,
                                                     @Part("phone_code") RequestBody phone_code,
                                                     @Part("phone") RequestBody phone,
                                                     @Part("register_by") RequestBody register_by,

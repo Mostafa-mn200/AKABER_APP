@@ -19,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.apps.akkaber.R;
@@ -123,6 +124,19 @@ public class SignUpActivity extends BaseActivity {
                         activitySignupMvvm.signupWithImage(this, model, phone_code, phone, uri);
                     }
                 }
+            }
+        });
+        binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    binding.llCode.setVisibility(View.VISIBLE);
+                }
+                else {
+                    binding.llCode.setVisibility(View.GONE);
+                }
+                model.setIscheck(b);
+                binding.setModel(model);
             }
         });
     }

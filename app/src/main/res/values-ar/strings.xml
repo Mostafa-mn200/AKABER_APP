@@ -111,4 +111,7 @@
     <string name="first_name">الاسم الاول</string>
     <string name="last_name">اسم الاخير</string>
     <string name="enter_code">ادخل الكود</string>
+    <string name="login2">دخول</string>
+    <string name="invited_by_a_user">مدعو بواسطة مستخدم ؟</string>
+    <string name="personal_information">Personal Information</string>
 </resources>
