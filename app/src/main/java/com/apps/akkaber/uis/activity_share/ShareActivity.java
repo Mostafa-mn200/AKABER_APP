@@ -41,7 +41,6 @@ public class ShareActivity extends BaseActivity {
         });
 
         binding.llBack.setOnClickListener(view -> finish());
-        binding.tvLogin.setOnClickListener(view -> navigateToLoginActivity());
     }
     private void navigateToLoginActivity(){
         Intent intent=new Intent(ShareActivity.this, LoginActivity.class);

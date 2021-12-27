@@ -106,26 +106,15 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             app:cardCornerRadius="15dp"
-                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
                             >
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                image="@{model.Data.photo}" />
+                                android:src="@drawable/circle_avatar"
+                                image="@{model.data.photo}" />
                         </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/tvLogin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="10dp"
-                            android:text="@string/login"
-                            android:textColor="@color/black2"
-
-                            android:textSize="15sp"
-                            android:visibility='@{model!=null?View.GONE:View.VISIBLE,default=gone}' />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -133,7 +122,6 @@
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
                             android:orientation="vertical"
-                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
 
                         >
 
@@ -143,23 +131,16 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
 
-                                android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'>
+                                >
+
+
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="5dp"
                                     android:layout_marginTop="10dp"
-                                    android:text="@{model.Data.first_name}"
-                                    android:textColor="@color/black2"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginTop="10dp"
-                                    android:text="@{model.Data.last_name}"
+                                    android:text='@{model.data.first_name+" "+model.Data.last_name}'
                                     android:textColor="@color/black2"
                                     android:textSize="15sp" />
                             </LinearLayout>
@@ -174,7 +155,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@{model.Data.code}"
+                                android:text="@{model.data.code}"
                                 android:textColor="@color/color2"
                                 android:textSize="15sp"
                                 />
