@@ -106,8 +106,11 @@ public class FragmentHome extends BaseFragment {
 
         fragmentHomeMvvm.getIsLoading().observe(activity, isLoading -> {
             if (isLoading) {
-                // binding.cardNoData.setVisibility(View.GONE);
-
+                 binding.progBarSlider.setVisibility(View.VISIBLE);
+                binding.progBarDepartment.setVisibility(View.VISIBLE);
+                binding.progBarOffers.setVisibility(View.VISIBLE);
+                binding.progBarBox.setVisibility(View.VISIBLE);
+                binding.progBar.setVisibility(View.VISIBLE);
 
             }
             // binding.swipeRefresh.setRefreshing(isLoading);
@@ -115,7 +118,9 @@ public class FragmentHome extends BaseFragment {
         fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
             @Override
             public void onChanged(SliderDataModel sliderDataModel) {
+
                 if (sliderDataModel.getData() != null) {
+                    binding.progBarSlider.setVisibility(View.GONE);
                     sliderModelList.clear();
                     sliderModelList.addAll(sliderDataModel.getData());
                     sliderAdapter.notifyDataSetChanged();
@@ -130,11 +135,15 @@ public class FragmentHome extends BaseFragment {
             @Override
             public void onChanged(List<DepartmentModel> departmentModels) {
                 if (departmentModels.size() > 0) {
+                    binding.progBarDepartment.setVisibility(View.GONE);
+
                     departmentAdapter.updateList(departmentModels);
                     binding.tvNoCategory.setVisibility(View.GONE);
 
                     //binding.cardNoData.setVisibility(View.GONE);
                 } else {
+                    binding.progBarDepartment.setVisibility(View.GONE);
+
                     binding.tvNoCategory.setVisibility(View.VISIBLE);
 
                     //binding.cardNoData.setVisibility(View.VISIBLE);
@@ -147,10 +156,14 @@ public class FragmentHome extends BaseFragment {
             @Override
             public void onChanged(List<ProductModel> productModels) {
                 if (productModels != null && productModels.size() > 0) {
+                    binding.progBarOffers.setVisibility(View.GONE);
+
                     offersAdapter.updateList(productModels);
                     binding.tvNoOffer.setVisibility(View.GONE);
 
                 } else {
+                    binding.progBarOffers.setVisibility(View.GONE);
+
                     binding.tvNoOffer.setVisibility(View.VISIBLE);
                 }
             }
@@ -159,6 +172,8 @@ public class FragmentHome extends BaseFragment {
             @Override
             public void onChanged(ProductModel productModel) {
                 if (productModel != null) {
+                    binding.progBarBox.setVisibility(View.GONE);
+
                     binding.setModel(productModel);
                 }
             }
@@ -167,9 +182,13 @@ public class FragmentHome extends BaseFragment {
             @Override
             public void onChanged(List<DepartmentModel> departmentModels) {
                 if (departmentModels != null && departmentModels.size() > 0) {
+                    binding.progBar.setVisibility(View.GONE);
+
                     mainDepartmentAdapter.updateList(departmentModels);
                     binding.tvNoData.setVisibility(View.GONE);
                 } else {
+                    binding.progBar.setVisibility(View.GONE);
+
                     binding.tvNoData.setVisibility(View.VISIBLE);
 
                 }

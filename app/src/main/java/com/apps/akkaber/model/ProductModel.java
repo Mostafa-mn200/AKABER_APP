@@ -17,6 +17,7 @@ public class ProductModel implements Serializable {
     private String desc;
     private String price;
     private String background;
+    private String is_favorite;
 
     public String getProduct_id() {
         return product_id;
@@ -72,5 +73,9 @@ public class ProductModel implements Serializable {
 
     public String getBackground() {
         return background;
+    }
+
+    public String getIs_favorite() {
+        return is_favorite;
     }
 }

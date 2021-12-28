@@ -13,6 +13,10 @@
         <variable
             name="model"
             type="com.apps.akkaber.model.ProductModel" />
+        <variable
+            name="userModel"
+            type="com.apps.akkaber.model.UserModel" />
+        <import type="android.view.View"/>
     </data>
 <FrameLayout
     android:layout_width="match_parent"
@@ -24,7 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:visibility="invisible"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -52,6 +55,59 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:text="@{model.title}"
+        android:textSize="16sp"
+        android:textStyle="bold"
+
+   />
+    <FrameLayout
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+android:background="@drawable/circle_red"
+        android:visibility='@{userModel!=null?View.VISIBLE:View.GONE,default=gone}'
+
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:button="@drawable/checkbox_bg"
+            android:checked='@{model.is_favorite.equals("yes")?true:false}'
+            />
+    </FrameLayout>
+
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@{model.desc}"
+        android:textSize="15sp"
+        android:lineSpacingExtra="2dp"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color2"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        />
 
 </LinearLayout>
             </FrameLayout>
