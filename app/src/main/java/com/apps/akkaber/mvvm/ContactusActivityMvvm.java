@@ -10,10 +10,15 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.model.ContactUsModel;
+import com.apps.akkaber.model.SettingDataModel;
+import com.apps.akkaber.model.SettingModel;
 import com.apps.akkaber.model.StatusResponse;
 import com.apps.akkaber.remote.Api;
 import com.apps.akkaber.share.Common;
 import com.apps.akkaber.tags.Tags;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -25,6 +30,23 @@ import retrofit2.Response;
 public class ContactusActivityMvvm extends AndroidViewModel {
     private Context context;
 
+    private MutableLiveData<SettingModel> mutableLiveData;
+    private MutableLiveData<Boolean> isLoading;
+
+    public MutableLiveData<SettingModel> getMutableLiveData() {
+        if (mutableLiveData==null){
+            mutableLiveData=new MutableLiveData<>();
+        }
+        return mutableLiveData;
+    }
+
+    public MutableLiveData<Boolean> getIsLoading() {
+        if (isLoading==null){
+            isLoading=new MutableLiveData<>();
+        }
+        return isLoading;
+    }
+
     public MutableLiveData<Boolean> send = new MutableLiveData<>();
 
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -33,19 +55,56 @@ public class ContactusActivityMvvm extends AndroidViewModel {
         super(application);
         context = application.getApplicationContext();
 
-
     }
 
+    public void getSetting(String lang){
+
+
+        isLoading.setValue(true);
+
+        Api.getService(Tags.base_url)
+                .getSetting(lang)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<Response<SettingDataModel>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull Response<SettingDataModel> response) {
+                        isLoading.postValue(false);
+                        if (response.isSuccessful() && response.body()!=null){
+                            if (response.body().getStatus()==200){
+
+                                mutableLiveData.setValue(response.body().getData());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        isLoading.setValue(false);
+                    }
+                });
+    }
+
+
     public void contactus(Context context, ContactUsModel contactUsModel) {
-       /* ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
+        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService(Tags.base_url).contactUs(Tags.api_key, contactUsModel.getName(), contactUsModel.getEmail(), contactUsModel.getSubject(), contactUsModel.getMessage()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        Api.getService(Tags.base_url)
+                .contactUs(contactUsModel.getName(), contactUsModel.getEmail(), contactUsModel.getTitle(), contactUsModel.getMessage())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable.add(d);
+
             }
 
             @Override
@@ -62,7 +121,7 @@ public class ContactusActivityMvvm extends AndroidViewModel {
             public void onError(@NonNull Throwable throwable) {
                 dialog.dismiss();
             }
-        });*/
+        });
 
 
     }

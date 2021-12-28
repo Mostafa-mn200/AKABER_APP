@@ -14,11 +14,11 @@ import com.apps.akkaber.R;
 public class ContactUsModel extends BaseObservable {
     private String name;
     private String email;
-    private String subject;
+    private String title;
     private String message;
     public ObservableField<String> error_name = new ObservableField<>();
     public ObservableField<String> error_email = new ObservableField<>();
-    public ObservableField<String> error_subject = new ObservableField<>();
+    public ObservableField<String> error_title = new ObservableField<>();
     public ObservableField<String> error_message = new ObservableField<>();
 
 
@@ -27,7 +27,7 @@ public class ContactUsModel extends BaseObservable {
         if (!name.isEmpty() &&
                 !email.isEmpty() &&
                 Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
-                !subject.isEmpty() &&
+                !title.isEmpty() &&
                 !message.isEmpty()
 
         ) {
@@ -35,7 +35,7 @@ public class ContactUsModel extends BaseObservable {
 
             error_name.set(null);
             error_email.set(null);
-            error_subject.set(null);
+            error_title.set(null);
             error_message.set(null);
 
 
@@ -60,10 +60,10 @@ public class ContactUsModel extends BaseObservable {
 
             }
 
-            if (subject.isEmpty()){
-                error_subject.set(context.getString(R.string.field_required));
+            if (title.isEmpty()){
+                error_title.set(context.getString(R.string.field_required));
             }else {
-                error_subject.set(null);
+                error_title.set(null);
 
             }
 
@@ -83,7 +83,7 @@ public class ContactUsModel extends BaseObservable {
     public ContactUsModel() {
         name = "";
         email = "";
-        subject ="";
+        title ="";
         message="";
     }
 
@@ -109,13 +109,13 @@ public class ContactUsModel extends BaseObservable {
     }
 
     @Bindable
-    public String getSubject() {
-        return subject;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-        notifyPropertyChanged(BR.subject);
+    public void setTitle(String title) {
+        this.title = title;
+        notifyPropertyChanged(BR.title);
 
     }
 

@@ -11,9 +11,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
@@ -160,11 +162,20 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             } else {
                 navigationToLoginActivity();
             }
+        });
+
+
+        binding.home.setOnClickListener(view -> {
+binding.drawerLayout.closeDrawer(GravityCompat.START);
+
+
 
         });
         if (userModel == null) {
             binding.tvName.setOnClickListener(view -> navigationToLoginActivity());
+
         }
+
     }
 
     private void navigationToLoginActivity() {
@@ -219,7 +230,9 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     }
 
     private void logout() {
+
         clearUserModel(this);
+        userModel=getUserModel();
         binding.setModel(null);
         navigationToLoginActivity();
     }

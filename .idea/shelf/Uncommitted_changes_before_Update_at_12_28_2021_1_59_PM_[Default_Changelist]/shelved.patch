@@ -1,0 +1,1185 @@
+Index: app/src/main/res/layout/activity_contact_us.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n\r\n    <data>\r\n\r\n\r\n        <variable\r\n            name=\"contactUsModel\"\r\n\r\n            type=\"com.apps.akkaber.model.ContactUsModel\" />\r\n\r\n        <variable\r\n\r\n            name=\"lang\"\r\n            type=\"String\" />\r\n\r\n    </data>\r\n\r\n    <FrameLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:background=\"@color/gray3\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <androidx.appcompat.widget.Toolbar\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:background=\"@drawable/toolbar_shape\">\r\n\r\n                <androidx.constraintlayout.widget.ConstraintLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\">\r\n\r\n                    <androidx.cardview.widget.CardView\r\n                        android:id=\"@+id/llBack\"\r\n                        android:layout_width=\"35dp\"\r\n                        android:layout_height=\"35dp\"\r\n                        android:layout_gravity=\"start\"\r\n                        app:cardBackgroundColor=\"@color/color7\"\r\n                        app:cardCornerRadius=\"10dp\"\r\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n                        app:layout_constraintStart_toStartOf=\"parent\"\r\n                        app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n                        <ImageView\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:padding=\"5dp\"\r\n                            android:rotation='@{lang.equals(\"ar\")?180:0}'\r\n                            android:src=\"@drawable/ic_left\" />\r\n                    </androidx.cardview.widget.CardView>\r\n\r\n                    <TextView\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:gravity=\"center\"\r\n                        android:text=\"@string/contact_us\"\r\n                        android:textSize=\"18sp\"\r\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n                        app:layout_constraintEnd_toEndOf=\"parent\"\r\n                        app:layout_constraintStart_toStartOf=\"parent\"\r\n                        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n                </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n            </androidx.appcompat.widget.Toolbar>\r\n\r\n            <androidx.core.widget.NestedScrollView\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:fillViewport=\"true\">\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:orientation=\"vertical\">\r\n\r\n                    <androidx.cardview.widget.CardView\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_margin=\"10dp\"\r\n                        app:cardBackgroundColor=\"@color/white\"\r\n                        app:cardCornerRadius=\"20dp\"\r\n                        app:cardElevation=\"5dp\">\r\n\r\n                        <LinearLayout\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_margin=\"20dp\"\r\n                            android:orientation=\"vertical\">\r\n\r\n                            <ImageView\r\n                                android:id=\"@+id/logo\"\r\n                                android:layout_width=\"130dp\"\r\n                                android:layout_height=\"130dp\"\r\n                                android:layout_gravity=\"center_horizontal\"\r\n                                android:layout_marginTop=\"20dp\"\r\n                                android:src=\"@drawable/logo_splash\" />\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center\"\r\n                                android:orientation=\"horizontal\">\r\n\r\n                                <ImageView\r\n                                    android:layout_width=\"24dp\"\r\n                                    android:layout_height=\"24dp\"\r\n                                    android:src=\"@drawable/ic_location\" />\r\n\r\n                                <TextView\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:layout_marginStart=\"10dp\"\r\n                                    android:text=\"Location\"\r\n                                    android:textColor=\"@color/black1\"\r\n                                    android:textSize=\"15sp\" />\r\n                            </LinearLayout>\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_marginTop=\"15dp\"\r\n                                android:orientation=\"horizontal\"\r\n                                android:weightSum=\"2\">\r\n\r\n                                <LinearLayout\r\n                                    android:layout_width=\"0dp\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:layout_weight=\"1\"\r\n\r\n                                    android:orientation=\"horizontal\">\r\n\r\n                                    <ImageView\r\n                                        android:layout_width=\"24dp\"\r\n                                        android:layout_height=\"24dp\"\r\n                                        android:src=\"@drawable/ic_call\" />\r\n\r\n                                    <TextView\r\n                                        android:layout_width=\"wrap_content\"\r\n                                        android:layout_height=\"wrap_content\"\r\n                                        android:layout_marginStart=\"10dp\"\r\n                                        android:text=\"01111111111\"\r\n                                        android:textColor=\"@color/black1\"\r\n                                        android:textSize=\"15sp\" />\r\n                                </LinearLayout>\r\n\r\n                                <LinearLayout\r\n                                    android:layout_width=\"0dp\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:layout_weight=\"1\"\r\n                                    android:gravity=\"center\"\r\n                                    android:orientation=\"horizontal\">\r\n\r\n                                    <ImageView\r\n                                        android:layout_width=\"24dp\"\r\n                                        android:layout_height=\"24dp\"\r\n                                        android:src=\"@drawable/ic_whatts\" />\r\n\r\n                                    <TextView\r\n                                        android:layout_width=\"wrap_content\"\r\n                                        android:layout_height=\"wrap_content\"\r\n                                        android:layout_marginStart=\"10dp\"\r\n                                        android:text=\"01111111111\"\r\n                                        android:textColor=\"@color/black1\"\r\n                                        android:textSize=\"15sp\" />\r\n                                </LinearLayout>\r\n                            </LinearLayout>\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_marginTop=\"15dp\"\r\n                                android:orientation=\"horizontal\">\r\n\r\n                                <ImageView\r\n                                    android:layout_width=\"24dp\"\r\n                                    android:layout_height=\"24dp\"\r\n                                    android:src=\"@drawable/ic_gmail\" />\r\n\r\n                                <TextView\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:layout_marginStart=\"10dp\"\r\n                                    android:text=\"mmmm@example.com\"\r\n                                    android:textColor=\"@color/black1\"\r\n                                    android:textSize=\"15sp\" />\r\n                            </LinearLayout>\r\n                        </LinearLayout>\r\n                    </androidx.cardview.widget.CardView>\r\n\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"45dp\"\r\n                        android:layout_marginStart=\"30dp\"\r\n                        android:layout_marginTop=\"30dp\"\r\n                        android:layout_marginEnd=\"30dp\"\r\n                        android:layout_marginBottom=\"8dp\"\r\n                        android:background=\"@drawable/linear_shape2\"\r\n                        android:gravity=\"center_vertical\"\r\n                        android:orientation=\"horizontal\">\r\n\r\n                        <ImageView\r\n                            android:layout_width=\"24dp\"\r\n                            android:layout_height=\"24dp\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:src=\"@drawable/ic_user\"\r\n\r\n                            />\r\n\r\n                        <EditText\r\n                            android:layout_width=\"0dp\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:layout_marginEnd=\"8dp\"\r\n                            android:layout_weight=\"1\"\r\n                            android:background=\"@color/transparent\"\r\n                            android:hint=\"@string/name\"\r\n                            android:lines=\"1\"\r\n                            android:paddingStart=\"8dp\"\r\n                            android:paddingEnd=\"8dp\"\r\n                            android:singleLine=\"true\"\r\n                            android:textColor=\"@color/black\"\r\n                            android:textSize=\"14sp\"\r\n\r\n                            />\r\n\r\n                    </LinearLayout>\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"45dp\"\r\n                        android:layout_marginStart=\"30dp\"\r\n                        android:layout_marginEnd=\"30dp\"\r\n                        android:layout_marginBottom=\"8dp\"\r\n                        android:background=\"@drawable/linear_shape2\"\r\n                        android:gravity=\"center_vertical\"\r\n                        android:orientation=\"horizontal\">\r\n\r\n                        <ImageView\r\n                            android:layout_width=\"24dp\"\r\n                            android:layout_height=\"24dp\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:src=\"@drawable/ic_mail\"\r\n\r\n                            />\r\n\r\n                        <EditText\r\n                            android:layout_width=\"0dp\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:layout_marginEnd=\"8dp\"\r\n                            android:layout_weight=\"1\"\r\n                            android:background=\"@color/transparent\"\r\n                            android:hint=\"@string/email\"\r\n                            android:lines=\"1\"\r\n                            android:paddingStart=\"8dp\"\r\n                            android:paddingEnd=\"8dp\"\r\n                            android:singleLine=\"true\"\r\n                            android:textColor=\"@color/black\"\r\n                            android:textSize=\"14sp\"\r\n\r\n                            />\r\n\r\n                    </LinearLayout>\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"45dp\"\r\n                        android:layout_marginStart=\"30dp\"\r\n                        android:layout_marginEnd=\"30dp\"\r\n                        android:layout_marginBottom=\"8dp\"\r\n                        android:background=\"@drawable/linear_shape2\"\r\n                        android:gravity=\"center_vertical\"\r\n                        android:orientation=\"horizontal\">\r\n\r\n                        <ImageView\r\n                            android:layout_width=\"24dp\"\r\n                            android:layout_height=\"24dp\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:src=\"@drawable/ic_subject\"\r\n\r\n                            />\r\n\r\n                        <EditText\r\n                            android:layout_width=\"0dp\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:layout_marginEnd=\"8dp\"\r\n                            android:layout_weight=\"1\"\r\n                            android:background=\"@color/transparent\"\r\n                            android:hint=\"@string/subject\"\r\n                            android:lines=\"1\"\r\n                            android:paddingStart=\"8dp\"\r\n                            android:paddingEnd=\"8dp\"\r\n                            android:singleLine=\"true\"\r\n                            android:textColor=\"@color/black\"\r\n                            android:textSize=\"14sp\"\r\n\r\n                            />\r\n\r\n                    </LinearLayout>\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"200dp\"\r\n                        android:layout_marginStart=\"30dp\"\r\n                        android:layout_marginEnd=\"30dp\"\r\n                        android:layout_marginBottom=\"8dp\"\r\n                        android:background=\"@drawable/linear_shape2\"\r\n                        android:orientation=\"horizontal\"\r\n                        android:padding=\"5dp\">\r\n\r\n                        <ImageView\r\n                            android:layout_width=\"24dp\"\r\n                            android:layout_height=\"24dp\"\r\n                            android:layout_marginStart=\"8dp\"\r\n\r\n                            android:src=\"@drawable/ic_subject\"\r\n\r\n                            />\r\n\r\n                        <EditText\r\n                            android:layout_width=\"0dp\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_marginStart=\"8dp\"\r\n                            android:layout_marginEnd=\"8dp\"\r\n                            android:layout_weight=\"1\"\r\n                            android:background=\"@color/transparent\"\r\n                            android:gravity=\"top\"\r\n                            android:hint=\"@string/message\"\r\n                            android:inputType=\"textMultiLine\"\r\n                            android:paddingStart=\"8dp\"\r\n                            android:paddingEnd=\"8dp\"\r\n                            android:textColor=\"@color/black\"\r\n                            android:textSize=\"14sp\" />\r\n\r\n                    </LinearLayout>\r\n\r\n                    <Button\r\n                        android:id=\"@+id/btnSend\"\r\n                        android:layout_width=\"150dp\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_gravity=\"center_horizontal\"\r\n                        android:layout_marginStart=\"8dp\"\r\n                        android:layout_marginTop=\"20dp\"\r\n                        android:layout_marginEnd=\"8dp\"\r\n                        android:layout_marginBottom=\"30dp\"\r\n                        android:background=\"@drawable/btn_shape2\"\r\n                        android:text=\"@string/send\"\r\n                        android:textColor=\"@color/white\"\r\n                        android:textSize=\"15sp\"\r\n\r\n                        />\r\n                </LinearLayout>\r\n            </androidx.core.widget.NestedScrollView>\r\n\r\n        </LinearLayout>\r\n\r\n\r\n    </FrameLayout>\r\n</layout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_contact_us.xml b/app/src/main/res/layout/activity_contact_us.xml
+--- a/app/src/main/res/layout/activity_contact_us.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/res/layout/activity_contact_us.xml	(date 1640690700992)
+@@ -5,6 +5,9 @@
+     <data>
+ 
+ 
++        <variable
++            name="settingModel"
++            type="com.apps.akkaber.model.SettingModel" />
+         <variable
+             name="contactUsModel"
+ 
+@@ -89,9 +92,11 @@
+                         app:cardElevation="5dp">
+ 
+                         <LinearLayout
++                            android:id="@+id/llContactus"
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:layout_margin="20dp"
++                            android:visibility="invisible"
+                             android:orientation="vertical">
+ 
+                             <ImageView
+@@ -117,7 +122,7 @@
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_marginStart="10dp"
+-                                    android:text="Location"
++                                    android:text="@{settingModel.address}"
+                                     android:textColor="@color/black1"
+                                     android:textSize="15sp" />
+                             </LinearLayout>
+@@ -145,7 +150,7 @@
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:layout_marginStart="10dp"
+-                                        android:text="01111111111"
++                                        android:text="@{settingModel.phone}"
+                                         android:textColor="@color/black1"
+                                         android:textSize="15sp" />
+                                 </LinearLayout>
+@@ -166,7 +171,7 @@
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:layout_marginStart="10dp"
+-                                        android:text="01111111111"
++                                        android:text="@{settingModel.whats}"
+                                         android:textColor="@color/black1"
+                                         android:textSize="15sp" />
+                                 </LinearLayout>
+@@ -187,11 +192,16 @@
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_marginStart="10dp"
+-                                    android:text="mmmm@example.com"
++                                    android:text="@{settingModel.gmail}"
+                                     android:textColor="@color/black1"
+                                     android:textSize="15sp" />
+                             </LinearLayout>
+                         </LinearLayout>
++                        <ProgressBar
++                            android:id="@+id/progBar"
++                            android:layout_width="35dp"
++                            android:layout_height="35dp"
++                            android:layout_gravity="center" />
+                     </androidx.cardview.widget.CardView>
+ 
+ 
+@@ -222,6 +232,8 @@
+                             android:layout_weight="1"
+                             android:background="@color/transparent"
+                             android:hint="@string/name"
++                            android:text="@={contactUsModel.name}"
++                            error="@{contactUsModel.error_name}"
+                             android:lines="1"
+                             android:paddingStart="8dp"
+                             android:paddingEnd="8dp"
+@@ -259,6 +271,9 @@
+                             android:layout_weight="1"
+                             android:background="@color/transparent"
+                             android:hint="@string/email"
++                            android:inputType="textEmailAddress"
++                            android:text="@={contactUsModel.email}"
++                            error="@{contactUsModel.error_email"
+                             android:lines="1"
+                             android:paddingStart="8dp"
+                             android:paddingEnd="8dp"
+@@ -296,6 +311,8 @@
+                             android:layout_weight="1"
+                             android:background="@color/transparent"
+                             android:hint="@string/subject"
++                            android:text="@={contactUsModel.title}"
++                            error="@{contactUsModel.error_title}"
+                             android:lines="1"
+                             android:paddingStart="8dp"
+                             android:paddingEnd="8dp"
+@@ -335,6 +352,8 @@
+                             android:background="@color/transparent"
+                             android:gravity="top"
+                             android:hint="@string/message"
++                            android:text="@={contactUsModel.message}"
++                            error="@{contactUsModel.error_message}"
+                             android:inputType="textMultiLine"
+                             android:paddingStart="8dp"
+                             android:paddingEnd="8dp"
+Index: app/src/main/java/com/apps/akkaber/uis/activity_home/HomeActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.uis.activity_home;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.graphics.PorterDuff;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.view.View;\r\n\r\nimport androidx.activity.result.ActivityResultLauncher;\r\nimport androidx.activity.result.contract.ActivityResultContracts;\r\nimport androidx.appcompat.app.ActionBarDrawerToggle;\r\nimport androidx.core.content.ContextCompat;\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.lifecycle.ViewModelProviders;\r\nimport androidx.navigation.NavController;\r\nimport androidx.navigation.Navigation;\r\nimport androidx.navigation.ui.NavigationUI;\r\n\r\n\r\nimport com.apps.akkaber.interfaces.Listeners;\r\nimport com.apps.akkaber.model.UserModel;\r\nimport com.apps.akkaber.mvvm.HomeActivityMvvm;\r\nimport com.apps.akkaber.preferences.Preferences;\r\nimport com.apps.akkaber.uis.activity_base.BaseActivity;\r\n\r\nimport com.apps.akkaber.R;\r\n\r\nimport com.apps.akkaber.databinding.ActivityHomeBinding;\r\nimport com.apps.akkaber.language.Language;\r\nimport com.apps.akkaber.uis.activity_contact_us.ContactUsActivity;\r\nimport com.apps.akkaber.uis.activity_login.LoginActivity;\r\nimport com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;\r\nimport com.apps.akkaber.uis.activity_notification.NotificationActivity;\r\nimport com.apps.akkaber.uis.activity_share.ShareActivity;\r\nimport com.apps.akkaber.uis.activity_wallet.WalletActivity;\r\nimport com.apps.akkaber.uis.activity_favourite.FavouriteActivity;\r\n\r\nimport io.paperdb.Paper;\r\n\r\npublic class HomeActivity extends BaseActivity implements Listeners.VerificationListener {\r\n    private ActivityHomeBinding binding;\r\n    private NavController navController;\r\n    private HomeActivityMvvm homeActivityMvvm;\r\n    private ActionBarDrawerToggle toggle;\r\n    private Preferences preferences;\r\n    private UserModel userModel;\r\n    private ActivityResultLauncher<Intent> launcher;\r\n    private int req = 1;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        binding = DataBindingUtil.setContentView(this, R.layout.activity_home);\r\n        initView();\r\n\r\n\r\n    }\r\n\r\n    private void initView() {\r\n\r\n        preferences = Preferences.getInstance();\r\n        userModel = preferences.getUserData(this);\r\n        if (userModel != null) {\r\n            binding.setModel(userModel);\r\n        }\r\n        homeActivityMvvm = ViewModelProviders.of(this).get(HomeActivityMvvm.class);\r\n        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {\r\n            if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {\r\n                userModel = getUserModel();\r\n                binding.setModel(getUserModel());\r\n                updateFirebase();\r\n            }\r\n        });\r\n\r\n        setSupportActionBar(binding.toolBar);\r\n        navController = Navigation.findNavController(this, R.id.navHostFragment);\r\n        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout);\r\n        NavigationUI.setupWithNavController(binding.navView, navController);\r\n\r\n        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {\r\n            if (binding.toolBar.getNavigationIcon() != null) {\r\n                binding.toolBar.getNavigationIcon().setColorFilter(ContextCompat.getColor(HomeActivity.this, R.color.black), PorterDuff.Mode.SRC_ATOP);\r\n\r\n            }\r\n        });\r\n        toggle = new ActionBarDrawerToggle(this, binding.drawerLayout, binding.toolBar, R.string.open, R.string.close);\r\n//\r\n//        toggle.setHomeAsUpIndicator(R.drawable.ic_menu);\r\n\r\n\r\n        toggle.syncState();\r\n        binding.imgNotification.setOnClickListener(v -> {\r\n\r\n\r\n        });\r\n        homeActivityMvvm.logout.observe(this, aBoolean -> {\r\n            if (aBoolean) {\r\n                logout();\r\n            }\r\n        });\r\n        homeActivityMvvm.firebase.observe(this, token -> {\r\n            if (getUserModel() != null) {\r\n                UserModel userModel = getUserModel();\r\n                userModel.getData().setFirebase_token(token);\r\n                setUserModel(userModel);\r\n            }\r\n        });\r\n\r\n        binding.imgNotification.setOnClickListener(v -> {\r\n            if (getUserModel() != null) {\r\n                Intent intent = new Intent(this, NotificationActivity.class);\r\n                startActivity(intent);\r\n            } else {\r\n                Intent intent = new Intent(this, LoginActivity.class);\r\n                startActivity(intent);\r\n            }\r\n        });\r\n        if (getUserModel() != null) {\r\n            homeActivityMvvm.updateFirebase(this, getUserModel());\r\n        }\r\n        binding.wallet.setOnClickListener(view -> {\r\n            if (userModel != null) {\r\n                Intent intent = new Intent(HomeActivity.this, WalletActivity.class);\r\n                startActivity(intent);\r\n            } else {\r\n                navigationToLoginActivity();\r\n            }\r\n        });\r\n        binding.contactUs.setOnClickListener(view -> {\r\n            Intent intent = new Intent(HomeActivity.this, ContactUsActivity.class);\r\n            startActivity(intent);\r\n\r\n        });\r\n        binding.favourite.setOnClickListener(view -> {\r\n            if (userModel != null) {\r\n                Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);\r\n                startActivity(intent);\r\n            } else {\r\n                navigationToLoginActivity();\r\n            }\r\n\r\n        });\r\n        binding.llMyOrders.setOnClickListener(view -> {\r\n            Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);\r\n            startActivity(intent);\r\n        });\r\n        binding.imLogOut.setOnClickListener(view -> {\r\n            if (getUserModel() == null) {\r\n                logout();\r\n            } else {\r\n                homeActivityMvvm.logout(this, getUserModel());\r\n            }\r\n\r\n        });\r\n        binding.shareApp.setOnClickListener(view -> {\r\n            if (userModel != null) {\r\n                Intent intent = new Intent(HomeActivity.this, ShareActivity.class);\r\n                startActivity(intent);\r\n            } else {\r\n                navigationToLoginActivity();\r\n            }\r\n\r\n        });\r\n        if (userModel == null) {\r\n            binding.tvName.setOnClickListener(view -> navigationToLoginActivity());\r\n        }\r\n    }\r\n\r\n    private void navigationToLoginActivity() {\r\n        req = 1;\r\n        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);\r\n        launcher.launch(intent);\r\n    }\r\n\r\n\r\n    public void refreshActivity(String lang) {\r\n        Paper.book().write(\"lang\", lang);\r\n        Language.setNewLocale(this, lang);\r\n        new Handler()\r\n                .postDelayed(() -> {\r\n\r\n                    Intent intent = getIntent();\r\n                    finish();\r\n                    startActivity(intent);\r\n                }, 500);\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean onNavigateUp() {\r\n\r\n        return NavigationUI.navigateUp(navController, binding.drawerLayout);\r\n    }\r\n\r\n    @Override\r\n    public void onBackPressed() {\r\n        int currentFragmentId = navController.getCurrentDestination().getId();\r\n        if (currentFragmentId == R.id.home) {\r\n            finish();\r\n\r\n        } else {\r\n            navController.popBackStack();\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onVerificationSuccess() {\r\n\r\n    }\r\n\r\n\r\n    public void updateFirebase() {\r\n        if (getUserModel() != null) {\r\n            homeActivityMvvm.updateFirebase(this, getUserModel());\r\n        }\r\n    }\r\n\r\n    private void logout() {\r\n        clearUserModel(this);\r\n        binding.setModel(null);\r\n        navigationToLoginActivity();\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/uis/activity_home/HomeActivity.java b/app/src/main/java/com/apps/akkaber/uis/activity_home/HomeActivity.java
+--- a/app/src/main/java/com/apps/akkaber/uis/activity_home/HomeActivity.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/uis/activity_home/HomeActivity.java	(date 1640688166795)
+@@ -11,9 +11,11 @@
+ import androidx.activity.result.contract.ActivityResultContracts;
+ import androidx.appcompat.app.ActionBarDrawerToggle;
+ import androidx.core.content.ContextCompat;
++import androidx.core.view.GravityCompat;
+ import androidx.databinding.DataBindingUtil;
+ import androidx.lifecycle.ViewModelProviders;
+ import androidx.navigation.NavController;
++import androidx.navigation.NavOptions;
+ import androidx.navigation.Navigation;
+ import androidx.navigation.ui.NavigationUI;
+ 
+@@ -160,11 +162,20 @@
+             } else {
+                 navigationToLoginActivity();
+             }
++        });
++
++
++        binding.home.setOnClickListener(view -> {
++binding.drawerLayout.closeDrawer(GravityCompat.START);
++
++
+ 
+         });
+         if (userModel == null) {
+             binding.tvName.setOnClickListener(view -> navigationToLoginActivity());
++
+         }
++
+     }
+ 
+     private void navigationToLoginActivity() {
+@@ -219,7 +230,9 @@
+     }
+ 
+     private void logout() {
++
+         clearUserModel(this);
++        userModel=getUserModel();
+         binding.setModel(null);
+         navigationToLoginActivity();
+     }
+Index: app/src/main/res/layout/activity_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n        <variable\r\n            name=\"model\"\r\n            type=\"com.apps.akkaber.model.UserModel\" />\r\n\r\n        <variable\r\n            name=\"lang\"\r\n            type=\"String\" />\r\n\r\n        <import type=\"android.view.View\" />\r\n    </data>\r\n\r\n    <androidx.coordinatorlayout.widget.CoordinatorLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        tools:context=\".uis.activity_home.HomeActivity\"\r\n\r\n        >\r\n\r\n        <androidx.drawerlayout.widget.DrawerLayout\r\n            android:id=\"@+id/drawerLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            tools:openDrawer=\"start\"\r\n\r\n            >\r\n\r\n            <androidx.constraintlayout.widget.ConstraintLayout\r\n                android:id=\"@+id/consData\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\">\r\n\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:orientation=\"vertical\"\r\n                    app:layout_constraintEnd_toEndOf=\"parent\"\r\n                    app:layout_constraintStart_toStartOf=\"parent\"\r\n                    app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n                    <com.google.android.material.appbar.AppBarLayout\r\n                        android:id=\"@+id/appBar\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\">\r\n\r\n                        <androidx.appcompat.widget.Toolbar\r\n                            android:id=\"@+id/toolBar\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"56dp\"\r\n                            android:background=\"@color/white\"\r\n                            app:layout_scrollFlags=\"scroll|enterAlways|snap\">\r\n\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"end\"\r\n                                android:layout_marginStart=\"8dp\"\r\n                                android:layout_marginEnd=\"8dp\"\r\n                                android:src=\"@drawable/ic_search\"\r\n                                android:visibility=\"gone\"\r\n\r\n                                />\r\n\r\n                            <ImageView\r\n                                android:id=\"@+id/imgNotification\"\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"end\"\r\n                                android:layout_marginStart=\"12dp\"\r\n                                android:layout_marginEnd=\"12dp\"\r\n                                android:src=\"@drawable/ic_notification\"\r\n\r\n                                />\r\n\r\n\r\n                        </androidx.appcompat.widget.Toolbar>\r\n                    </com.google.android.material.appbar.AppBarLayout>\r\n\r\n                    <fragment\r\n                        android:id=\"@+id/navHostFragment\"\r\n                        android:name=\"androidx.navigation.fragment.NavHostFragment\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"0dp\"\r\n                        android:layout_weight=\"1\"\r\n                        app:defaultNavHost=\"true\"\r\n                        app:navGraph=\"@navigation/nav_graph\" />\r\n\r\n\r\n                </LinearLayout>\r\n\r\n            </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n            <com.google.android.material.navigation.NavigationView\r\n                android:id=\"@+id/navView\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_gravity=\"start\"\r\n                app:elevation=\"0dp\">\r\n\r\n                <ScrollView\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:fillViewport=\"true\">\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:orientation=\"vertical\">\r\n\r\n                        <androidx.cardview.widget.CardView\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n                            app:cardBackgroundColor=\"@color/gray3\"\r\n                            app:cardCornerRadius=\"15dp\">\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"match_parent\"\r\n                                android:orientation=\"horizontal\"\r\n\r\n                                >\r\n\r\n                                <androidx.cardview.widget.CardView\r\n                                    android:id=\"@+id/imgProfile\"\r\n                                    android:layout_width=\"60dp\"\r\n                                    android:layout_height=\"60dp\"\r\n                                    android:layout_margin=\"8dp\"\r\n                                    app:cardCornerRadius=\"20dp\">\r\n\r\n                                    <ImageView\r\n                                        image=\"@{model.data.photo}\"\r\n                                        android:layout_width=\"match_parent\"\r\n                                        android:layout_height=\"match_parent\"\r\n                                        android:scaleType=\"fitXY\"\r\n                                        android:src=\"@drawable/circle_avatar\" />\r\n                                </androidx.cardview.widget.CardView>\r\n\r\n\r\n                                <LinearLayout\r\n                                    android:layout_width=\"0dp\"\r\n                                    android:layout_height=\"match_parent\"\r\n                                    android:layout_weight=\"1\"\r\n                                    android:gravity=\"center_vertical\"\r\n                                    android:orientation=\"vertical\">\r\n\r\n                                    <LinearLayout\r\n                                        android:layout_width=\"wrap_content\"\r\n                                        android:layout_height=\"wrap_content\"\r\n                                        android:gravity=\"center_horizontal\"\r\n                                        android:orientation=\"horizontal\">\r\n\r\n                                        <ImageView\r\n                                            android:layout_width=\"24dp\"\r\n                                            android:layout_height=\"24dp\"\r\n                                            android:src=\"@drawable/ic_hi\" />\r\n\r\n                                        <TextView\r\n                                            android:layout_width=\"wrap_content\"\r\n                                            android:layout_height=\"wrap_content\"\r\n                                            android:layout_marginStart=\"5dp\"\r\n                                            android:text=\"@string/hi\"\r\n                                            android:textColor=\"@color/gray4\"\r\n                                            android:textSize=\"15sp\" />\r\n                                    </LinearLayout>\r\n\r\n                                    <TextView\r\n                                        android:id=\"@+id/tvName\"\r\n                                        android:layout_width=\"wrap_content\"\r\n                                        android:layout_height=\"wrap_content\"\r\n                                        android:layout_margin=\"5dp\"\r\n                                        android:layout_marginTop=\"10dp\"\r\n                                        android:text='@{model==null?@string/login:model.data.first_name+\" \"+model.data.last_name,default=@string/login}'\r\n                                        android:textColor=\"@color/black2\"\r\n                                        android:textSize=\"15sp\"\r\n\r\n                                        />\r\n\r\n\r\n                                </LinearLayout>\r\n\r\n\r\n                                <ImageView\r\n                                    android:id=\"@+id/imLogOut\"\r\n                                    android:layout_width=\"24dp\"\r\n                                    android:layout_height=\"24dp\"\r\n                                    android:layout_gravity=\"end\"\r\n                                    android:layout_margin=\"8dp\"\r\n                                    android:src=\"@drawable/ic_logout\"\r\n                                    android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}' />\r\n                            </LinearLayout>\r\n                        </androidx.cardview.widget.CardView>\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/home\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_home\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/home\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/llMyOrders\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_orders\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/myOrders\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/favourite\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_favourite\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/favourite\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/cart\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_cart\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/cart\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/editAcc\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_edit_acc\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/edit_profile\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/wallet\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_wallet\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/wallet\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/shareApp\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_share\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/share\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"2dp\"\r\n                            android:layout_margin=\"5dp\"\r\n                            android:background=\"@drawable/horizontal_line\"\r\n                            android:layerType=\"software\" />\r\n\r\n                        <LinearLayout\r\n                            android:id=\"@+id/contactUs\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_margin=\"10dp\"\r\n\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <ImageView\r\n                                android:layout_width=\"24dp\"\r\n                                android:layout_height=\"24dp\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:src=\"@drawable/ic_contact_us\" />\r\n\r\n                            <TextView\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_vertical\"\r\n                                android:layout_marginStart=\"5dp\"\r\n                                android:gravity=\"center_vertical\"\r\n                                android:text=\"@string/contact_us\"\r\n                                android:textSize=\"18sp\" />\r\n                        </LinearLayout>\r\n\r\n                    </LinearLayout>\r\n                </ScrollView>\r\n\r\n            </com.google.android.material.navigation.NavigationView>\r\n\r\n        </androidx.drawerlayout.widget.DrawerLayout>\r\n\r\n\r\n    </androidx.coordinatorlayout.widget.CoordinatorLayout>\r\n\r\n</layout>\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_home.xml b/app/src/main/res/layout/activity_home.xml
+--- a/app/src/main/res/layout/activity_home.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/res/layout/activity_home.xml	(date 1640691939816)
+@@ -203,13 +203,14 @@
+                             android:id="@+id/home"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_home" />
+ 
+@@ -217,7 +218,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/home"
+                                 android:textSize="18sp" />
+@@ -226,7 +227,7 @@
+                         <View
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -234,13 +235,14 @@
+                             android:id="@+id/llMyOrders"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_orders" />
+ 
+@@ -248,7 +250,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/myOrders"
+                                 android:textSize="18sp" />
+@@ -257,7 +259,7 @@
+                         <View
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -265,13 +267,14 @@
+                             android:id="@+id/favourite"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_favourite" />
+ 
+@@ -279,7 +282,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/favourite"
+                                 android:textSize="18sp" />
+@@ -288,7 +291,7 @@
+                         <View
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -296,13 +299,14 @@
+                             android:id="@+id/cart"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_cart" />
+ 
+@@ -310,7 +314,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/cart"
+                                 android:textSize="18sp" />
+@@ -319,7 +323,7 @@
+                         <View
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -327,13 +331,14 @@
+                             android:id="@+id/editAcc"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_edit_acc" />
+ 
+@@ -341,16 +346,18 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/edit_profile"
+                                 android:textSize="18sp" />
+                         </LinearLayout>
+ 
+                         <View
++                            android:id="@+id/viewEditAcc"
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
++                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -358,13 +365,14 @@
+                             android:id="@+id/wallet"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_wallet" />
+ 
+@@ -372,7 +380,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/wallet"
+                                 android:textSize="18sp" />
+@@ -381,7 +389,7 @@
+                         <View
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -389,13 +397,14 @@
+                             android:id="@+id/shareApp"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_share" />
+ 
+@@ -403,7 +412,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/share"
+                                 android:textSize="18sp" />
+@@ -412,7 +421,7 @@
+                         <View
+                             android:layout_width="match_parent"
+                             android:layout_height="2dp"
+-                            android:layout_margin="5dp"
++                            android:padding="8dp"
+                             android:background="@drawable/horizontal_line"
+                             android:layerType="software" />
+ 
+@@ -420,13 +429,14 @@
+                             android:id="@+id/contactUs"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+-                            android:layout_margin="10dp"
+-
++                            android:padding="10dp"
++                            android:background="@drawable/item_clicked"
+                             android:orientation="horizontal">
+ 
+                             <ImageView
+                                 android:layout_width="24dp"
+                                 android:layout_height="24dp"
++                                android:layout_marginStart="5dp"
+                                 android:layout_gravity="center_vertical"
+                                 android:src="@drawable/ic_contact_us" />
+ 
+@@ -434,7 +444,7 @@
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center_vertical"
+-                                android:layout_marginStart="5dp"
++                                android:layout_marginStart="8dp"
+                                 android:gravity="center_vertical"
+                                 android:text="@string/contact_us"
+                                 android:textSize="18sp" />
+Index: app/src/main/java/com/apps/akkaber/uis/activity_contact_us/ContactUsActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.uis.activity_contact_us;\r\n\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.lifecycle.ViewModelProviders;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Toast;\r\n\r\nimport com.apps.akkaber.R;\r\nimport com.apps.akkaber.databinding.ActivityContactUsBinding;\r\nimport com.apps.akkaber.model.ContactUsModel;\r\nimport com.apps.akkaber.model.UserModel;\r\nimport com.apps.akkaber.mvvm.ContactusActivityMvvm;\r\nimport com.apps.akkaber.preferences.Preferences;\r\nimport com.apps.akkaber.uis.activity_base.BaseActivity;\r\n\r\npublic class ContactUsActivity extends BaseActivity {\r\n    private ActivityContactUsBinding binding;\r\n    private ContactUsModel contactUsModel;\r\n    private ContactusActivityMvvm contactusActivityMvvm;\r\n    private UserModel userModel;\r\n    private Preferences preferences;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        binding = DataBindingUtil.setContentView(this, R.layout.activity_contact_us);\r\n        initView();\r\n\r\n    }\r\n\r\n    private void initView() {\r\n        preferences = Preferences.getInstance();\r\n        userModel = preferences.getUserData(this);\r\n        contactusActivityMvvm = ViewModelProviders.of(this).get(ContactusActivityMvvm.class);\r\n        //  setUpToolbar(binding.toolbar, getString(R.string.contact_us), R.color.white, R.color.black);\r\n\r\n        contactUsModel = new ContactUsModel();\r\n        if (userModel != null) {\r\n            // contactUsModel.setName(userModel.getData().getName());\r\n\r\n        }\r\n\r\n        //   binding.setContactModel(contactUsModel);\r\n        binding.btnSend.setOnClickListener(view -> {\r\n            if (contactUsModel.isDataValid(this)) {\r\n                contactusActivityMvvm.contactus(this, contactUsModel);\r\n            }\r\n        });\r\n        binding.llBack.setOnClickListener(view -> finish());\r\n        contactusActivityMvvm.send.observe(this, aBoolean -> {\r\n            if (aBoolean) {\r\n                Toast.makeText(ContactUsActivity.this, getResources().getString(R.string.suc), Toast.LENGTH_LONG).show();\r\n                finish();\r\n            }\r\n        });\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/uis/activity_contact_us/ContactUsActivity.java b/app/src/main/java/com/apps/akkaber/uis/activity_contact_us/ContactUsActivity.java
+--- a/app/src/main/java/com/apps/akkaber/uis/activity_contact_us/ContactUsActivity.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/uis/activity_contact_us/ContactUsActivity.java	(date 1640684424237)
+@@ -1,6 +1,7 @@
+ package com.apps.akkaber.uis.activity_contact_us;
+ 
+ import androidx.databinding.DataBindingUtil;
++import androidx.lifecycle.Observer;
+ import androidx.lifecycle.ViewModelProviders;
+ 
+ import android.os.Bundle;
+@@ -10,16 +11,20 @@
+ import com.apps.akkaber.R;
+ import com.apps.akkaber.databinding.ActivityContactUsBinding;
+ import com.apps.akkaber.model.ContactUsModel;
++import com.apps.akkaber.model.SettingModel;
+ import com.apps.akkaber.model.UserModel;
+ import com.apps.akkaber.mvvm.ContactusActivityMvvm;
+ import com.apps.akkaber.preferences.Preferences;
+ import com.apps.akkaber.uis.activity_base.BaseActivity;
+ 
++import java.util.List;
++
+ public class ContactUsActivity extends BaseActivity {
+     private ActivityContactUsBinding binding;
+     private ContactUsModel contactUsModel;
+     private ContactusActivityMvvm contactusActivityMvvm;
+     private UserModel userModel;
++    SettingModel settingModel;
+     private Preferences preferences;
+ 
+     @Override
+@@ -31,30 +36,52 @@
+     }
+ 
+     private void initView() {
++
+         preferences = Preferences.getInstance();
+         userModel = preferences.getUserData(this);
++        binding.setSettingModel(settingModel);
+         contactusActivityMvvm = ViewModelProviders.of(this).get(ContactusActivityMvvm.class);
+-        //  setUpToolbar(binding.toolbar, getString(R.string.contact_us), R.color.white, R.color.black);
++//         setUpToolbar(binding.toolbar, getString(R.string.contact_us), R.color.white, R.color.black);
++        contactusActivityMvvm.getIsLoading().observe(this, new Observer<Boolean>() {
++            @Override
++            public void onChanged(Boolean aBoolean) {
++                if (aBoolean) {
++                    binding.progBar.setVisibility(View.VISIBLE);
++                    binding.llContactus.setVisibility(View.INVISIBLE);
++                } else {
++                    binding.progBar.setVisibility(View.GONE);
++                    binding.llContactus.setVisibility(View.VISIBLE);
++                }
++            }
++        });
++        contactusActivityMvvm.getMutableLiveData().observe(this, settingModels -> {
++            settingModel = settingModels;
++            binding.setSettingModel(settingModel);
++        });
++
++        contactusActivityMvvm.getSetting(getLang());
++
+ 
+         contactUsModel = new ContactUsModel();
+         if (userModel != null) {
+-            // contactUsModel.setName(userModel.getData().getName());
++               contactUsModel.setName(userModel.getData().getFirst_name()+" "+userModel.getData().getLast_name());
+ 
+         }
++        binding.setContactUsModel(contactUsModel);
+ 
+-        //   binding.setContactModel(contactUsModel);
+         binding.btnSend.setOnClickListener(view -> {
+             if (contactUsModel.isDataValid(this)) {
+                 contactusActivityMvvm.contactus(this, contactUsModel);
+             }
+         });
+-        binding.llBack.setOnClickListener(view -> finish());
+         contactusActivityMvvm.send.observe(this, aBoolean -> {
+             if (aBoolean) {
+                 Toast.makeText(ContactUsActivity.this, getResources().getString(R.string.suc), Toast.LENGTH_LONG).show();
+                 finish();
+             }
+         });
++        binding.llBack.setOnClickListener(view -> finish());
++
+     }
+ 
+ 
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_12_27_2021_4_28_PM__Default_Changelist_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_12_27_2021_4_28_PM__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_12_27_2021_4_28_PM__Default_Changelist_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_12_27_2021_4_28_PM__Default_Changelist_.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ /dev/null	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_12_27_2021_4_28_PM_[Default_Changelist]" date="1640615288587" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_27_2021_4_28_PM_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12/27/2021 4:28 PM [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: app/src/main/java/com/apps/akkaber/model/SettingModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/model/SettingModel.java b/app/src/main/java/com/apps/akkaber/model/SettingModel.java
+new file mode 100644
+--- /dev/null	(date 1640673741975)
++++ b/app/src/main/java/com/apps/akkaber/model/SettingModel.java	(date 1640673741975)
+@@ -0,0 +1,71 @@
++package com.apps.akkaber.model;
++
++import java.io.Serializable;
++
++public class SettingModel implements Serializable {
++    private String phone;
++    private String gmail;
++    private String whats;
++    private String address;
++    private double lat;
++    private double longitude;
++    private int price_per_kilo;
++    private int gift_value;
++    private int total_value;
++    private int share_price;
++    private String about_us;
++    private String terms;
++    private String privacy;
++
++    public String getPhone() {
++        return phone;
++    }
++
++    public String getGmail() {
++        return gmail;
++    }
++
++    public String getWhats() {
++        return whats;
++    }
++
++    public String getAddress() {
++        return address;
++    }
++
++    public double getLat() {
++        return lat;
++    }
++
++    public double getLongitude() {
++        return longitude;
++    }
++
++    public int getPrice_per_kilo() {
++        return price_per_kilo;
++    }
++
++    public int getGift_value() {
++        return gift_value;
++    }
++
++    public int getTotal_value() {
++        return total_value;
++    }
++
++    public int getShare_price() {
++        return share_price;
++    }
++
++    public String getAbout_us() {
++        return about_us;
++    }
++
++    public String getTerms() {
++        return terms;
++    }
++
++    public String getPrivacy() {
++        return privacy;
++    }
++}
+Index: app/src/main/res/layout/notification_row.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n    <data>\r\n        <variable\r\n            name=\"model\"\r\n            type=\"com.apps.akkaber.model.NotificationModel\" />\r\n    </data>\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:cardCornerRadius=\"5dp\"\r\n        app:cardBackgroundColor=\"@color/white\"\r\n        app:contentPadding=\"5dp\"\r\n        app:cardElevation=\"3dp\"\r\n        android:layout_margin=\"5dp\"\r\n        >\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\"\r\n            android:background=\"@color/white\"\r\n            android:padding=\"8dp\"\r\n\r\n            >\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"horizontal\"\r\n                android:gravity=\"center_vertical\"\r\n                >\r\n                <TextView\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_weight=\"1\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:textColor=\"@color/black\"\r\n                    android:textSize=\"15sp\"\r\n                    android:textStyle=\"bold\"\r\n                    android:gravity=\"start\"\r\n                    android:textAlignment=\"viewStart\"\r\n                    android:layout_marginStart=\"8dp\"\r\n                    android:layout_marginEnd=\"8dp\"\r\n                    android:text=\"@{model.title}\"\r\n\r\n\r\n                    />\r\n\r\n                <TextView\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:textColor=\"@color/black\"\r\n                    android:textSize=\"12sp\"\r\n                    android:textStyle=\"bold\"\r\n                    android:gravity=\"start\"\r\n                    android:textAlignment=\"viewStart\"\r\n                    android:layout_marginStart=\"8dp\"\r\n                    android:layout_marginEnd=\"8dp\"\r\n                    createAt=\"@{model.created_at}\"\r\n\r\n\r\n                    />\r\n            </LinearLayout>\r\n            <TextView\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:textSize=\"13sp\"\r\n                android:layout_marginStart=\"8dp\"\r\n                android:layout_marginEnd=\"8dp\"\r\n                android:text=\"@{model.message}\"\r\n                android:layout_marginTop=\"8dp\"\r\n\r\n                />\r\n\r\n        </LinearLayout>\r\n\r\n    </androidx.cardview.widget.CardView>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/notification_row.xml b/app/src/main/res/layout/notification_row.xml
+--- a/app/src/main/res/layout/notification_row.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/res/layout/notification_row.xml	(date 1640681739527)
+@@ -66,7 +66,7 @@
+                 android:textSize="13sp"
+                 android:layout_marginStart="8dp"
+                 android:layout_marginEnd="8dp"
+-                android:text="@{model.message}"
++                android:text="@{model.note}"
+                 android:layout_marginTop="8dp"
+ 
+                 />
+Index: app/src/main/java/com/apps/akkaber/model/SettingDataModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/model/SettingDataModel.java b/app/src/main/java/com/apps/akkaber/model/SettingDataModel.java
+new file mode 100644
+--- /dev/null	(date 1640683021246)
++++ b/app/src/main/java/com/apps/akkaber/model/SettingDataModel.java	(date 1640683021246)
+@@ -0,0 +1,14 @@
++package com.apps.akkaber.model;
++
++import java.io.Serializable;
++import java.util.List;
++
++public class SettingDataModel extends StatusResponse implements Serializable {
++    private SettingModel data;
++
++    public SettingModel getData() {
++        return data;
++    }
++
++
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/circle_color2.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/circle_fill_color10.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/circle_fill_color2.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/circle_not_bg.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/ic_group_1537.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/rounded_color2.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/rounded_primary.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/rounded_top.xml\" value=\"0.15885416666666666\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/small_color9_stroke_color8.xml\" value=\"0.15885416666666666\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/small_gray15_stroke_color7.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/small_gray15_stroke_color8.xml\" value=\"0.15885416666666666\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/small_rounded_primary.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/small_stroke_color2.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/small_stroke_primary.xml\" value=\"0.15\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/toolbar_color8_shape.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/drawable/toolbar_shape.xml\" value=\"0.14479166666666668\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_category_detials.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_favourite.xml\" value=\"0.25885416666666666\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_home.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_login.xml\" value=\"0.2602739726027397\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_notification.xml\" value=\"0.25885416666666666\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_product_detials.xml\" value=\"0.21\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_share.xml\" value=\"0.4252651880424301\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_sign_up.xml\" value=\"0.2819634703196347\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_verification_code.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/activity_wallet.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/department_item_row.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/fragment_home.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/minced_item_row.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/offer_item_row.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/others_item_row.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/product_item_row.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/product_row.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/slider.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Akkaber/app/src/main/res/layout/sub_product_item_row.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable-v24/horizontal_line2.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/bottom_nav_item_bg.xml\" value=\"0.14635416666666667\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/btn_change_lang.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/btn_shape.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/card_shape.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/circle_primary.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/circle_white.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/horizontal_line.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_call.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_gmail.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_left_arrow.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_line.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_location.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_logout.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_nav_nearby.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_shape.xml\" value=\"0.19074074074074074\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_share.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_subject.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_user.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_wallet.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_whatts.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/line.xml\" value=\"0.14635416666666667\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape2.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/pin_view_item.xml\" value=\"0.14635416666666667\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/tab_gallery_indicator.xml\" value=\"0.14635416666666667\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/tab_intro_slider.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/drawable/toolbar_shape.xml\" value=\"0.26615384615384613\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout-v21/activity_contact_us.xml\" value=\"0.23822463768115942\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_about_app.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_category_detials.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_contact_us.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_favourite.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_home.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_intro_slider.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_language.xml\" value=\"0.11614583333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_login.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_notification.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_share.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_sign_up.xml\" value=\"0.38073394495412843\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_splash.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_verification_code.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_wallet.xml\" value=\"0.2513586956521739\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/bottom_sheet_dialog.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/department_item_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/department_item_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/exo_player_layout.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/favourite_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_app.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_current_reservation.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_home.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_my_reservations.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/fragment_profile.xml\" value=\"0.11614583333333334\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/home_cooking_item_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/home_cooking_item_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/intro_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/lamb_for_barbecue_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/lamb_for_barbecue_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/minced_item_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/minced_item_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/nested_recycler.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/notification_row.xml\" value=\"0.12360688956433637\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/offer_item_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/offer_item_row.xml\" value=\"0.152\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/others_item_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/others_item_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/product_item_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/product_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/recycler_wallet_row.xml\" value=\"0.2513586956521739\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/slider.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/slider_raw.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/toolbar.xml\" value=\"0.23822463768115942\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/trotters_item_raw.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/trotters_item_row.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/layout/wallet_row.xml\" value=\"0.24728260869565216\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/menu/drawer_menu.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Akaber/app/src/main/res/menu/menu.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Wedding-master/app/src/main/res/layout/activity_about_app.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Wedding-master/app/src/main/res/layout/activity_contact_us.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Wedding-master/app/src/main/res/layout/fragment_edit_profile.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/AndroidProjects/Wedding-master/app/src/main/res/layout/fragment_profile.xml\" value=\"0.24010416666666667\" />\r\n        <entry key=\"..\\:/AndroidProjects/Wedding-master/app/src/main/res/layout/toolbar.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/bottom_nav_item_bg.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/circle_color1.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/circle_primary.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/ic_language.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/ic_mask_group_3.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/ic_rate.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/ic_start_fill.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/ic_store.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/line.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/pin_view_item.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/rounded_colo1.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/rounded_color1.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/rounded_primary.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/rounded_top.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/shape_stroke_gray_color1.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/smakk_rounded_primary.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/small_rounded_primary.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/small_stroke_primary.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/small_stroke_white.xml\" value=\"0.1125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/stroke_fill_color2.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/stroke_gray.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/drawable/tab_gallery_indicator.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_about_app.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_contact_us.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_home.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_language.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_login.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_notification.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_sign_up.xml\" value=\"0.19010416666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_splash.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/activity_verification_code.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/basic_item_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/bottom_sheet_dialog.xml\" value=\"0.45180722891566266\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/bottom_sheet_service_details.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/category_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/exo_player_layout.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/filter_rate_row.xml\" value=\"0.67\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_app.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_choose_day.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_current_reservation.xml\" value=\"0.19010416666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_edit_reservation.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_home.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_login.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_my_reservations.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_nearby.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_notification.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_profile.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_reservation_confirmation.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_search.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_service_details.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_signup.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/fragment_verification_code.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/map_wedding_hall_row.xml\" value=\"0.5\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/notification_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/offer_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/order_row.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/previous_order_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/toolbar.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/layout/wedding_hall_row.xml\" value=\"0.5\" />\r\n        <entry key=\"..\\:/Users/Arb Develpor/Desktop/emad/Projects/Wedding/app/src/main/res/menu/menu.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/drawable/circle_white.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/drawable/ic_gallery.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/drawable/tab_gallery_indicator.xml\" value=\"0.15885416666666666\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_app.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_edit_profile.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_home.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_login.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_nearby.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_profile.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_reservation_confirmation.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_service_details.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_signup.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/fragment_verification_code.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/Wedding/app/src/main/res/layout/slider.xml\" value=\"0.25885416666666666\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/drawable/circle_color2.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/drawable/circle_not_bg.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/drawable/circle_primary.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/drawable/ic_calender.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/drawable/ic_calender2.xml\" value=\"0.2890625\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_category_detials.xml\" value=\"0.14351851851851852\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_favourite.xml\" value=\"0.14444444444444443\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_home.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_order_detials.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/activity_orders.xml\" value=\"0.5\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/order_row.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/Users/HP/Desktop/akaper/app/src/main/res/layout/product_row.xml\" value=\"0.14444444444444443\" />\r\n        <entry key=\"..\\:/android/FlutterProjects/Wedding/app/src/main/res/drawable/ic_left_arrow.xml\" value=\"0.1125\" />\r\n        <entry key=\"..\\:/android/FlutterProjects/Wedding/app/src/main/res/layout/activity_main.xml\" value=\"0.1935185185185185\" />\r\n        <entry key=\"..\\:/android/FlutterProjects/Wedding/app/src/main/res/layout/activity_splash.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/FlutterProjects/Wedding/app/src/main/res/layout/toolbar.xml\" value=\"0.1935185185185185\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/btn_change_lang.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_call.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_edit_account.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_empty_user.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_left_arrow.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_line.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_load_avatar.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_nav_home.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_search.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_subject.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/ic_user.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/pin_view_item.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/small_rounded_primary.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/small_rounded_red_strock.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/drawable/small_stroke_white.xml\" value=\"0.2203125\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_about_app.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_contact_us.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_home.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_language.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_login.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_notification.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_splash.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_user_sign_up.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/activity_verification_code.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/fragment_home.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/fragment_more.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/fragment_order.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/fragment_orders.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/fragment_profile.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/layout_not_sign_in.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/layout_user_profile.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/notification_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/order_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/place_holder_notification.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/slider_row.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/layout/toolbar.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/android/Projects/Wedding/app/src/main/res/menu/menu.xml\" value=\"0.20102564102564102\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/drawable/pin_view_item.xml\" value=\"0.15885416666666666\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/layout/additional_items_row.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/layout/basic_item_row.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/layout/fragment_login.xml\" value=\"0.14270833333333333\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/layout/fragment_reservation_confirmation.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/layout/fragment_service_details.xml\" value=\"0.27291666666666664\" />\r\n        <entry key=\"..\\:/wedding/app/src/main/res/layout/fragment_verification_code.xml\" value=\"0.21\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/.idea/misc.xml	(date 1640692064652)
+@@ -59,6 +59,7 @@
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_user.xml" value="0.26615384615384613" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_wallet.xml" value="0.2703125" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_whatts.xml" value="0.26615384615384613" />
++        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/item_clicked.xml" value="0.26615384615384613" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/line.xml" value="0.14635416666666667" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape.xml" value="0.26615384615384613" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape2.xml" value="0.26615384615384613" />
+@@ -69,7 +70,7 @@
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout-v21/activity_contact_us.xml" value="0.23822463768115942" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_about_app.xml" value="0.25416666666666665" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_category_detials.xml" value="0.25416666666666665" />
+-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_contact_us.xml" value="0.13020833333333334" />
++        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_contact_us.xml" value="0.264" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_favourite.xml" value="0.25416666666666665" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_home.xml" value="0.264" />
+         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_intro_slider.xml" value="0.25416666666666665" />
+Index: app/src/main/java/com/apps/akkaber/model/NotificationModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.model;\r\n\r\nimport java.io.Serializable;\r\n\r\npublic class NotificationModel implements Serializable {\r\n    private String id;\r\n    private String notification_info_id;\r\n    private String user_type;\r\n    private String from_user_id;\r\n    private String to_user_id;\r\n    private String title;\r\n    private String message;\r\n    private String notification_type;\r\n    private String action_type;\r\n    private String is_read;\r\n    private String created_at;\r\n    private String updated_at;\r\n\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    public String getNotification_info_id() {\r\n        return notification_info_id;\r\n    }\r\n\r\n    public String getUser_type() {\r\n        return user_type;\r\n    }\r\n\r\n    public String getFrom_user_id() {\r\n        return from_user_id;\r\n    }\r\n\r\n    public String getTo_user_id() {\r\n        return to_user_id;\r\n    }\r\n\r\n    public String getTitle() {\r\n        return title;\r\n    }\r\n\r\n    public String getMessage() {\r\n        return message;\r\n    }\r\n\r\n    public String getNotification_type() {\r\n        return notification_type;\r\n    }\r\n\r\n    public String getAction_type() {\r\n        return action_type;\r\n    }\r\n\r\n    public String getIs_read() {\r\n        return is_read;\r\n    }\r\n\r\n    public String getCreated_at() {\r\n        return created_at;\r\n    }\r\n\r\n    public String getUpdated_at() {\r\n        return updated_at;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/model/NotificationModel.java b/app/src/main/java/com/apps/akkaber/model/NotificationModel.java
+--- a/app/src/main/java/com/apps/akkaber/model/NotificationModel.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/model/NotificationModel.java	(date 1640681739401)
+@@ -3,57 +3,43 @@
+ import java.io.Serializable;
+ 
+ public class NotificationModel implements Serializable {
+-    private String id;
+-    private String notification_info_id;
+-    private String user_type;
+-    private String from_user_id;
+-    private String to_user_id;
+-    private String title;
+-    private String message;
+-    private String notification_type;
+-    private String action_type;
+-    private String is_read;
+-    private String created_at;
+-    private String updated_at;
++   private int id;
++   private String title;
++   private String note;
++   private int seen;
++   private int user_id;
++   private int rev_id;
++   private int order_id;
++   private String created_at;
++   private String updated_at;
+ 
+-    public String getId() {
++
++    public int getId() {
+         return id;
+     }
+ 
+-    public String getNotification_info_id() {
+-        return notification_info_id;
+-    }
+-
+-    public String getUser_type() {
+-        return user_type;
+-    }
+-
+-    public String getFrom_user_id() {
+-        return from_user_id;
+-    }
+-
+-    public String getTo_user_id() {
+-        return to_user_id;
+-    }
+-
+     public String getTitle() {
+         return title;
+     }
+ 
+-    public String getMessage() {
+-        return message;
++    public String getNote() {
++        return note;
++    }
++
++    public int getSeen() {
++        return seen;
+     }
+ 
+-    public String getNotification_type() {
+-        return notification_type;
++    public int getUser_id() {
++        return user_id;
+     }
+ 
+-    public String getAction_type() {
+-        return action_type;
++    public int getRev_id() {
++        return rev_id;
+     }
+ 
+-    public String getIs_read() {
+-        return is_read;
++    public int getOrder_id() {
++        return order_id;
+     }
+ 
+     public String getCreated_at() {
+Index: app/src/main/java/com/apps/akkaber/mvvm/ActivityNotificationMvvm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.mvvm;\r\n\r\nimport android.app.Application;\r\nimport android.content.Context;\r\nimport android.util.Log;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.lifecycle.AndroidViewModel;\r\nimport androidx.lifecycle.MutableLiveData;\r\n\r\nimport com.apps.akkaber.model.NotificationDataModel;\r\nimport com.apps.akkaber.model.NotificationModel;\r\nimport com.apps.akkaber.model.UserModel;\r\nimport com.apps.akkaber.remote.Api;\r\nimport com.apps.akkaber.tags.Tags;\r\n\r\nimport java.util.List;\r\n\r\nimport io.reactivex.SingleObserver;\r\nimport io.reactivex.android.schedulers.AndroidSchedulers;\r\nimport io.reactivex.disposables.CompositeDisposable;\r\nimport io.reactivex.disposables.Disposable;\r\nimport io.reactivex.schedulers.Schedulers;\r\nimport retrofit2.Response;\r\n\r\npublic class ActivityNotificationMvvm extends AndroidViewModel {\r\n    private static final String TAG = \"ActivityNotiMvvm\";\r\n    private Context context;\r\n\r\n    private MutableLiveData<List<NotificationModel>> notificationLiveData;\r\n    private MutableLiveData<Boolean> isLoadingLivData;\r\n\r\n    private CompositeDisposable disposable = new CompositeDisposable();\r\n\r\n\r\n    public ActivityNotificationMvvm(@NonNull Application application) {\r\n        super(application);\r\n        context = application.getApplicationContext();\r\n    }\r\n\r\n    public MutableLiveData<List<NotificationModel>> getNotification() {\r\n        if (notificationLiveData == null) {\r\n            notificationLiveData = new MutableLiveData<>();\r\n        }\r\n        return notificationLiveData;\r\n    }\r\n\r\n\r\n    public MutableLiveData<Boolean> getIsLoading() {\r\n        if (isLoadingLivData == null) {\r\n            isLoadingLivData = new MutableLiveData<>();\r\n        }\r\n        return isLoadingLivData;\r\n    }\r\n\r\n    //_________________________hitting api_________________________________\r\n\r\n    public void getNotifications(UserModel userModel) {\r\n        isLoadingLivData.setValue(true);\r\n\r\n       /* Api.getService(Tags.base_url)\r\n                .getNotifications(\"Bearer \" + userModel.getData().getToken(), Tags.api_key, userModel.getData().getId() + \"\")\r\n                .subscribeOn(Schedulers.io())\r\n                .observeOn(AndroidSchedulers.mainThread())\r\n                .subscribe(new SingleObserver<Response<NotificationDataModel>>() {\r\n                    @Override\r\n                    public void onSubscribe(@NonNull Disposable d) {\r\n                        disposable.add(d);\r\n                    }\r\n\r\n                    @Override\r\n                    public void onSuccess(@NonNull Response<NotificationDataModel> response) {\r\n                        isLoadingLivData.setValue(false);\r\n                        if (response.isSuccessful()) {\r\n                            if (response.body() != null) {\r\n                                if (response.body().getStatus() == 200) {\r\n                                    notificationLiveData.setValue(response.body().getData());\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n\r\n                    @Override\r\n                    public void onError(@NonNull Throwable e) {\r\n                        Log.d(TAG, \"onError: \", e);\r\n                    }\r\n                });*/\r\n\r\n    }\r\n\r\n\r\n    @Override\r\n    protected void onCleared() {\r\n        super.onCleared();\r\n        disposable.clear();\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/mvvm/ActivityNotificationMvvm.java b/app/src/main/java/com/apps/akkaber/mvvm/ActivityNotificationMvvm.java
+--- a/app/src/main/java/com/apps/akkaber/mvvm/ActivityNotificationMvvm.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/mvvm/ActivityNotificationMvvm.java	(date 1640681957741)
+@@ -58,8 +58,8 @@
+     public void getNotifications(UserModel userModel) {
+         isLoadingLivData.setValue(true);
+ 
+-       /* Api.getService(Tags.base_url)
+-                .getNotifications("Bearer " + userModel.getData().getToken(), Tags.api_key, userModel.getData().getId() + "")
++       Api.getService(Tags.base_url)
++                .getNotifications(userModel.getData().getId() + "")
+                 .subscribeOn(Schedulers.io())
+                 .observeOn(AndroidSchedulers.mainThread())
+                 .subscribe(new SingleObserver<Response<NotificationDataModel>>() {
+@@ -84,7 +84,7 @@
+                     public void onError(@NonNull Throwable e) {
+                         Log.d(TAG, "onError: ", e);
+                     }
+-                });*/
++                });
+ 
+     }
+ 
+Index: app/src/main/res/drawable/tab_intro_slider.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<selector xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n\r\n    <item android:state_selected=\"false\"\r\n\r\n        >\r\n        <shape android:shape=\"oval\"\r\n            >\r\n            <padding android:left=\"5dp\"/>\r\n\r\n            <stroke android:width=\"1dp\" android:color=\"@color/color2\"/>\r\n        </shape>\r\n    </item>\r\n\r\n    <item android:state_selected=\"true\">\r\n        <shape android:shape=\"oval\"\r\n            >\r\n            <padding android:left=\"5dp\"/>\r\n            <solid android:color=\"@color/colorPrimary\"/>\r\n        </shape>\r\n    </item>\r\n\r\n</selector>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/tab_intro_slider.xml b/app/src/main/res/drawable/tab_intro_slider.xml
+--- a/app/src/main/res/drawable/tab_intro_slider.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/res/drawable/tab_intro_slider.xml	(date 1640687663685)
+@@ -16,7 +16,7 @@
+         <shape android:shape="oval"
+             >
+             <padding android:left="5dp"/>
+-            <solid android:color="@color/colorPrimary"/>
++            <solid android:color="@color/color2"/>
+         </shape>
+     </item>
+ 
+Index: app/src/main/java/com/apps/akkaber/mvvm/ContactusActivityMvvm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.mvvm;\r\n\r\nimport android.app.Application;\r\nimport android.app.ProgressDialog;\r\nimport android.content.Context;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.lifecycle.AndroidViewModel;\r\nimport androidx.lifecycle.MutableLiveData;\r\n\r\nimport com.apps.akkaber.R;\r\nimport com.apps.akkaber.model.ContactUsModel;\r\nimport com.apps.akkaber.model.StatusResponse;\r\nimport com.apps.akkaber.remote.Api;\r\nimport com.apps.akkaber.share.Common;\r\nimport com.apps.akkaber.tags.Tags;\r\n\r\nimport io.reactivex.SingleObserver;\r\nimport io.reactivex.android.schedulers.AndroidSchedulers;\r\nimport io.reactivex.disposables.CompositeDisposable;\r\nimport io.reactivex.disposables.Disposable;\r\nimport io.reactivex.schedulers.Schedulers;\r\nimport retrofit2.Response;\r\n\r\npublic class ContactusActivityMvvm extends AndroidViewModel {\r\n    private Context context;\r\n\r\n    public MutableLiveData<Boolean> send = new MutableLiveData<>();\r\n\r\n    private CompositeDisposable disposable = new CompositeDisposable();\r\n\r\n    public ContactusActivityMvvm(@NonNull Application application) {\r\n        super(application);\r\n        context = application.getApplicationContext();\r\n\r\n\r\n    }\r\n\r\n    public void contactus(Context context, ContactUsModel contactUsModel) {\r\n       /* ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));\r\n        dialog.setCancelable(false);\r\n        dialog.show();\r\n        Api.getService(Tags.base_url).contactUs(Tags.api_key, contactUsModel.getName(), contactUsModel.getEmail(), contactUsModel.getSubject(), contactUsModel.getMessage()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())\r\n                .subscribeOn(Schedulers.io())\r\n                .subscribe(new SingleObserver<Response<StatusResponse>>() {\r\n            @Override\r\n            public void onSubscribe(@NonNull Disposable d) {\r\n                disposable.add(d);\r\n            }\r\n\r\n            @Override\r\n            public void onSuccess(@NonNull Response<StatusResponse> statusResponseResponse) {\r\n                dialog.dismiss();\r\n                if (statusResponseResponse.isSuccessful()) {\r\n                    if (statusResponseResponse.body().getStatus() == 200) {\r\n                        send.postValue(true);\r\n                    }\r\n                }\r\n            }\r\n\r\n            @Override\r\n            public void onError(@NonNull Throwable throwable) {\r\n                dialog.dismiss();\r\n            }\r\n        });*/\r\n\r\n\r\n    }\r\n\r\n\r\n    @Override\r\n    protected void onCleared() {\r\n        super.onCleared();\r\n        disposable.clear();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/mvvm/ContactusActivityMvvm.java b/app/src/main/java/com/apps/akkaber/mvvm/ContactusActivityMvvm.java
+--- a/app/src/main/java/com/apps/akkaber/mvvm/ContactusActivityMvvm.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/mvvm/ContactusActivityMvvm.java	(date 1640684018150)
+@@ -10,11 +10,16 @@
+ 
+ import com.apps.akkaber.R;
+ import com.apps.akkaber.model.ContactUsModel;
++import com.apps.akkaber.model.SettingDataModel;
++import com.apps.akkaber.model.SettingModel;
+ import com.apps.akkaber.model.StatusResponse;
+ import com.apps.akkaber.remote.Api;
+ import com.apps.akkaber.share.Common;
+ import com.apps.akkaber.tags.Tags;
+ 
++import java.util.ArrayList;
++import java.util.List;
++
+ import io.reactivex.SingleObserver;
+ import io.reactivex.android.schedulers.AndroidSchedulers;
+ import io.reactivex.disposables.CompositeDisposable;
+@@ -25,6 +30,23 @@
+ public class ContactusActivityMvvm extends AndroidViewModel {
+     private Context context;
+ 
++    private MutableLiveData<SettingModel> mutableLiveData;
++    private MutableLiveData<Boolean> isLoading;
++
++    public MutableLiveData<SettingModel> getMutableLiveData() {
++        if (mutableLiveData==null){
++            mutableLiveData=new MutableLiveData<>();
++        }
++        return mutableLiveData;
++    }
++
++    public MutableLiveData<Boolean> getIsLoading() {
++        if (isLoading==null){
++            isLoading=new MutableLiveData<>();
++        }
++        return isLoading;
++    }
++
+     public MutableLiveData<Boolean> send = new MutableLiveData<>();
+ 
+     private CompositeDisposable disposable = new CompositeDisposable();
+@@ -33,19 +55,56 @@
+         super(application);
+         context = application.getApplicationContext();
+ 
++    }
++
++    public void getSetting(String lang){
++
+ 
++        isLoading.setValue(true);
++
++        Api.getService(Tags.base_url)
++                .getSetting(lang)
++                .subscribeOn(Schedulers.io())
++                .observeOn(AndroidSchedulers.mainThread())
++                .subscribe(new SingleObserver<Response<SettingDataModel>>() {
++                    @Override
++                    public void onSubscribe(@NonNull Disposable d) {
++                        disposable.add(d);
++                    }
++
++                    @Override
++                    public void onSuccess(@NonNull Response<SettingDataModel> response) {
++                        isLoading.postValue(false);
++                        if (response.isSuccessful() && response.body()!=null){
++                            if (response.body().getStatus()==200){
++
++                                mutableLiveData.setValue(response.body().getData());
++                            }
++                        }
++                    }
++
++                    @Override
++                    public void onError(@NonNull Throwable e) {
++                        isLoading.setValue(false);
++                    }
++                });
+     }
++
+ 
+     public void contactus(Context context, ContactUsModel contactUsModel) {
+-       /* ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
++        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
+         dialog.setCancelable(false);
+         dialog.show();
+-        Api.getService(Tags.base_url).contactUs(Tags.api_key, contactUsModel.getName(), contactUsModel.getEmail(), contactUsModel.getSubject(), contactUsModel.getMessage()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
++        Api.getService(Tags.base_url)
++                .contactUs(contactUsModel.getName(), contactUsModel.getEmail(), contactUsModel.getTitle(), contactUsModel.getMessage())
++                .subscribeOn(Schedulers.io())
++                .observeOn(AndroidSchedulers.mainThread())
+                 .subscribeOn(Schedulers.io())
+                 .subscribe(new SingleObserver<Response<StatusResponse>>() {
+             @Override
+             public void onSubscribe(@NonNull Disposable d) {
+                 disposable.add(d);
++
+             }
+ 
+             @Override
+@@ -62,7 +121,7 @@
+             public void onError(@NonNull Throwable throwable) {
+                 dialog.dismiss();
+             }
+-        });*/
++        });
+ 
+ 
+     }
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+new file mode 100644
+--- /dev/null	(date 1640684890149)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1640684890149)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <runningDeviceTargetSelectedWithDropDown>
++      <Target>
++        <type value="RUNNING_DEVICE_TARGET" />
++        <deviceKey>
++          <Key>
++            <type value="SERIAL_NUMBER" />
++            <value value="99PFDYKNU8YDOF99" />
++          </Key>
++        </deviceKey>
++      </Target>
++    </runningDeviceTargetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2021-12-28T09:27:32.720339800Z" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_favourite.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n        <variable\r\n            name=\"lang\"\r\n            type=\"String\" />\r\n    </data>\r\n\r\n    <FrameLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:background=\"@color/gray3\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <androidx.appcompat.widget.Toolbar\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:background=\"@drawable/toolbar_shape\">\r\n\r\n                <androidx.constraintlayout.widget.ConstraintLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\">\r\n\r\n                    <androidx.cardview.widget.CardView\r\n                        android:id=\"@+id/llBack\"\r\n                        android:layout_width=\"35dp\"\r\n                        android:layout_height=\"35dp\"\r\n                        android:layout_gravity=\"start\"\r\n                        app:cardBackgroundColor=\"@color/color7\"\r\n                        app:cardCornerRadius=\"10dp\"\r\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n                        app:layout_constraintStart_toStartOf=\"parent\"\r\n                        app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n                        <ImageView\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:padding=\"5dp\"\r\n                            android:rotation='@{lang.equals(\"ar\")?180:0}'\r\n                            android:src=\"@drawable/ic_left\" />\r\n                    </androidx.cardview.widget.CardView>\r\n\r\n                    <TextView\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:gravity=\"center\"\r\n                        android:text=\"المفضلة\"\r\n                        android:textSize=\"18sp\"\r\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n                        app:layout_constraintEnd_toEndOf=\"parent\"\r\n                        app:layout_constraintStart_toStartOf=\"parent\"\r\n                        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n                </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n            </androidx.appcompat.widget.Toolbar>\r\n\r\n            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n                android:id=\"@+id/swipeRefresh\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\">\r\n\r\n                <FrameLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\">\r\n\r\n                    <androidx.recyclerview.widget.RecyclerView\r\n                        android:id=\"@+id/recyclerFavourite\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_margin=\"10dp\" />\r\n\r\n                    <androidx.cardview.widget.CardView\r\n                        android:id=\"@+id/cardNoData\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_gravity=\"center\"\r\n                        android:layout_marginStart=\"8dp\"\r\n                        android:layout_marginTop=\"8dp\"\r\n                        android:layout_marginEnd=\"8dp\"\r\n                        android:layout_marginBottom=\"60dp\"\r\n                        android:visibility=\"gone\"\r\n                        app:cardBackgroundColor=\"@color/white\"\r\n                        app:cardCornerRadius=\"5dp\"\r\n                        app:cardElevation=\"2dp\"\r\n                        app:contentPadding=\"16sp\">\r\n\r\n                        <LinearLayout\r\n                            android:layout_width=\"wrap_content\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_gravity=\"center\"\r\n                            android:gravity=\"center\"\r\n                            android:orientation=\"vertical\">\r\n\r\n                            <TextView\r\n                                android:layout_width=\"wrap_content\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center\"\r\n                                android:text=\"@string/no_data_to_show\"\r\n                                android:textColor=\"@color/black\"\r\n                                android:textSize=\"18sp\"\r\n                                android:textStyle=\"bold\" />\r\n                        </LinearLayout>\r\n                    </androidx.cardview.widget.CardView>\r\n\r\n\r\n                </FrameLayout>\r\n\r\n            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n        </LinearLayout>\r\n    </FrameLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_favourite.xml b/app/src/main/res/layout/activity_favourite.xml
+--- a/app/src/main/res/layout/activity_favourite.xml	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/res/layout/activity_favourite.xml	(date 1640692775999)
+@@ -52,7 +52,7 @@
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:gravity="center"
+-                        android:text="المفضلة"
++                        android:text="@string/favourite"
+                         android:textSize="18sp"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintEnd_toEndOf="parent"
+Index: app/src/main/res/drawable/item_clicked.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/item_clicked.xml b/app/src/main/res/drawable/item_clicked.xml
+new file mode 100644
+--- /dev/null	(date 1640691126656)
++++ b/app/src/main/res/drawable/item_clicked.xml	(date 1640691126656)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:state_pressed="true">
++        <shape android:shape="rectangle"
++            >
++            <solid android:color="@color/gray13"/>
++        </shape>
++    </item>
++    <item android:state_pressed="false">
++        <shape android:shape="rectangle"
++            >
++            <solid android:color="@color/transparent"/>
++        </shape>
++    </item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/java/com/apps/akkaber/model/ContactUsModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.model;\r\n\r\nimport android.content.Context;\r\nimport android.util.Patterns;\r\n\r\nimport androidx.databinding.BaseObservable;\r\nimport androidx.databinding.Bindable;\r\nimport androidx.databinding.ObservableField;\r\n\r\nimport com.apps.akkaber.BR;\r\nimport com.apps.akkaber.R;\r\n\r\n\r\npublic class ContactUsModel extends BaseObservable {\r\n    private String name;\r\n    private String email;\r\n    private String subject;\r\n    private String message;\r\n    public ObservableField<String> error_name = new ObservableField<>();\r\n    public ObservableField<String> error_email = new ObservableField<>();\r\n    public ObservableField<String> error_subject = new ObservableField<>();\r\n    public ObservableField<String> error_message = new ObservableField<>();\r\n\r\n\r\n    public boolean isDataValid(Context context) {\r\n\r\n        if (!name.isEmpty() &&\r\n                !email.isEmpty() &&\r\n                Patterns.EMAIL_ADDRESS.matcher(email).matches() &&\r\n                !subject.isEmpty() &&\r\n                !message.isEmpty()\r\n\r\n        ) {\r\n\r\n\r\n            error_name.set(null);\r\n            error_email.set(null);\r\n            error_subject.set(null);\r\n            error_message.set(null);\r\n\r\n\r\n            return true;\r\n\r\n        } else {\r\n\r\n            if (name.isEmpty()){\r\n                error_name.set(context.getString(R.string.field_required));\r\n            }else {\r\n                error_name.set(null);\r\n\r\n            }\r\n\r\n\r\n            if (email.isEmpty()){\r\n                error_email.set(context.getString(R.string.field_required));\r\n            }if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){\r\n                error_email.set(context.getString(R.string.inv_email));\r\n            }else {\r\n                error_email.set(null);\r\n\r\n            }\r\n\r\n            if (subject.isEmpty()){\r\n                error_subject.set(context.getString(R.string.field_required));\r\n            }else {\r\n                error_subject.set(null);\r\n\r\n            }\r\n\r\n            if (message.isEmpty()){\r\n                error_message.set(context.getString(R.string.field_required));\r\n            }else {\r\n                error_message.set(null);\r\n\r\n            }\r\n\r\n            return false;\r\n\r\n        }\r\n\r\n    }\r\n\r\n    public ContactUsModel() {\r\n        name = \"\";\r\n        email = \"\";\r\n        subject =\"\";\r\n        message=\"\";\r\n    }\r\n\r\n    @Bindable\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public void setName(String name) {\r\n        this.name = name;\r\n        notifyPropertyChanged(BR.name);\r\n    }\r\n\r\n    @Bindable\r\n    public String getEmail() {\r\n        return email;\r\n    }\r\n\r\n    public void setEmail(String email) {\r\n        this.email = email;\r\n        notifyPropertyChanged(BR.email);\r\n\r\n    }\r\n\r\n    @Bindable\r\n    public String getSubject() {\r\n        return subject;\r\n    }\r\n\r\n    public void setSubject(String subject) {\r\n        this.subject = subject;\r\n        notifyPropertyChanged(BR.subject);\r\n\r\n    }\r\n\r\n    @Bindable\r\n    public String getMessage() {\r\n        return message;\r\n    }\r\n\r\n    public void setMessage(String message) {\r\n        this.message = message;\r\n        notifyPropertyChanged(BR.message);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/model/ContactUsModel.java b/app/src/main/java/com/apps/akkaber/model/ContactUsModel.java
+--- a/app/src/main/java/com/apps/akkaber/model/ContactUsModel.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/model/ContactUsModel.java	(date 1640679191709)
+@@ -14,11 +14,11 @@
+ public class ContactUsModel extends BaseObservable {
+     private String name;
+     private String email;
+-    private String subject;
++    private String title;
+     private String message;
+     public ObservableField<String> error_name = new ObservableField<>();
+     public ObservableField<String> error_email = new ObservableField<>();
+-    public ObservableField<String> error_subject = new ObservableField<>();
++    public ObservableField<String> error_title = new ObservableField<>();
+     public ObservableField<String> error_message = new ObservableField<>();
+ 
+ 
+@@ -27,7 +27,7 @@
+         if (!name.isEmpty() &&
+                 !email.isEmpty() &&
+                 Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
+-                !subject.isEmpty() &&
++                !title.isEmpty() &&
+                 !message.isEmpty()
+ 
+         ) {
+@@ -35,7 +35,7 @@
+ 
+             error_name.set(null);
+             error_email.set(null);
+-            error_subject.set(null);
++            error_title.set(null);
+             error_message.set(null);
+ 
+ 
+@@ -60,10 +60,10 @@
+ 
+             }
+ 
+-            if (subject.isEmpty()){
+-                error_subject.set(context.getString(R.string.field_required));
++            if (title.isEmpty()){
++                error_title.set(context.getString(R.string.field_required));
+             }else {
+-                error_subject.set(null);
++                error_title.set(null);
+ 
+             }
+ 
+@@ -83,7 +83,7 @@
+     public ContactUsModel() {
+         name = "";
+         email = "";
+-        subject ="";
++        title ="";
+         message="";
+     }
+ 
+@@ -109,13 +109,13 @@
+     }
+ 
+     @Bindable
+-    public String getSubject() {
+-        return subject;
++    public String getTitle() {
++        return title;
+     }
+ 
+-    public void setSubject(String subject) {
+-        this.subject = subject;
+-        notifyPropertyChanged(BR.subject);
++    public void setTitle(String title) {
++        this.title = title;
++        notifyPropertyChanged(BR.title);
+ 
+     }
+ 
+Index: app/src/main/java/com/apps/akkaber/services/Service.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.apps.akkaber.services;\r\n\r\n\r\nimport com.apps.akkaber.model.DepartmentDataModel;\r\nimport com.apps.akkaber.model.ProductDataModel;\r\nimport com.apps.akkaber.model.NotificationDataModel;\r\nimport com.apps.akkaber.model.PlaceGeocodeData;\r\nimport com.apps.akkaber.model.SingleDepartmentDataModel;\r\nimport com.apps.akkaber.model.SingleProductDataModel;\r\nimport com.apps.akkaber.model.SliderDataModel;\r\nimport com.apps.akkaber.model.StatusResponse;\r\nimport com.apps.akkaber.model.UserModel;\r\n\r\nimport io.reactivex.Observable;\r\nimport io.reactivex.Single;\r\nimport okhttp3.MultipartBody;\r\nimport okhttp3.RequestBody;\r\nimport retrofit2.Response;\r\nimport retrofit2.http.Field;\r\nimport retrofit2.http.FormUrlEncoded;\r\nimport retrofit2.http.GET;\r\nimport retrofit2.http.Header;\r\nimport retrofit2.http.Multipart;\r\nimport retrofit2.http.POST;\r\nimport retrofit2.http.Part;\r\nimport retrofit2.http.Query;\r\n\r\npublic interface Service {\r\n\r\n    @GET(\"geocode/json\")\r\n    Single<Response<PlaceGeocodeData>> getGeoData(@Query(value = \"latlng\") String latlng,\r\n                                                  @Query(value = \"language\") String language,\r\n                                                  @Query(value = \"key\") String key);\r\n\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/login\")\r\n    Single<Response<UserModel>> login(@Field(\"phone\") String phone);\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/register\")\r\n    Single<Response<UserModel>> signUp(@Field(\"first_name\") String first_name,\r\n                                       @Field(\"last_name\") String last_name,\r\n                                       @Field(\"phone_code\") String phone_code,\r\n                                       @Field(\"phone\") String phone,\r\n                                       @Field(\"register_by\") String register_by\r\n\r\n\r\n    );\r\n\r\n\r\n    @Multipart\r\n    @POST(\"api/register\")\r\n    Observable<Response<UserModel>> signUpwithImage(\r\n            @Part(\"first_name\") RequestBody first_name,\r\n            @Part(\"last_name\") RequestBody last_name,\r\n            @Part(\"phone_code\") RequestBody phone_code,\r\n            @Part(\"phone\") RequestBody phone,\r\n            @Part(\"register_by\") RequestBody register_by,\r\n            @Part MultipartBody.Part logo\r\n\r\n\r\n    );\r\n\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/logout\")\r\n    Single<Response<StatusResponse>> logout(@Field(\"user_id\") String user_id,\r\n                                            @Field(\"token\") String token\r\n\r\n\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/store_user_token\")\r\n    Single<Response<StatusResponse>> updateFirebasetoken(@Field(\"token\") String token,\r\n                                                         @Field(\"user_id\") String user_id,\r\n                                                         @Field(\"type\") String type\r\n\r\n\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/contact-us\")\r\n    Single<Response<StatusResponse>> contactUs(\r\n            @Field(\"name\") String name,\r\n            @Field(\"email\") String email,\r\n            @Field(\"subject\") String phone,\r\n            @Field(\"message\") String message\r\n\r\n\r\n    );\r\n\r\n\r\n    @GET(\"api/notifications\")\r\n    Single<Response<NotificationDataModel>> getNotifications(@Header(\"AUTHORIZATION\") String token,\r\n                                                             @Query(value = \"api_key\") String api_key,\r\n                                                             @Query(value = \"user_id\") String user_id\r\n    );\r\n\r\n\r\n    @GET(\"api/my_favourites\")\r\n    Single<Response<ProductDataModel>> getFavourites(@Header(\"lang\") String lang,\r\n                                                     @Query(value = \"user_id\") int user_id);\r\n\r\n    @GET(\"api/banners\")\r\n    Single<Response<SliderDataModel>> getSlider();\r\n\r\n    @GET(\"api/categories\")\r\n    Single<Response<DepartmentDataModel>> getDepartments(@Header(\"lang\") String lang);\r\n\r\n    @GET(\"api/getCategoryById\")\r\n    Single<Response<SingleDepartmentDataModel>> getSingleDepartment(@Header(\"lang\") String lang,\r\n                                                                    @Query(value = \"id\") String id);\r\n    @GET(\"api/offers\")\r\n    Single<Response<ProductDataModel>> getOffers(@Header(\"lang\") String lang);\r\n    @GET(\"api/box\")\r\n    Single<Response<SingleProductDataModel>> getBox(@Header(\"lang\") String lang);\r\n    @GET(\"api/featured\")\r\n    Single<Response<DepartmentDataModel>> getFeatured(@Header(\"lang\") String lang);\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/apps/akkaber/services/Service.java b/app/src/main/java/com/apps/akkaber/services/Service.java
+--- a/app/src/main/java/com/apps/akkaber/services/Service.java	(revision 2957287eafb1d7787fac20eb62d53eafb7018201)
++++ b/app/src/main/java/com/apps/akkaber/services/Service.java	(date 1640681957751)
+@@ -5,6 +5,7 @@
+ import com.apps.akkaber.model.ProductDataModel;
+ import com.apps.akkaber.model.NotificationDataModel;
+ import com.apps.akkaber.model.PlaceGeocodeData;
++import com.apps.akkaber.model.SettingDataModel;
+ import com.apps.akkaber.model.SingleDepartmentDataModel;
+ import com.apps.akkaber.model.SingleProductDataModel;
+ import com.apps.akkaber.model.SliderDataModel;
+@@ -80,23 +81,9 @@
+ 
+     );
+ 
+-    @FormUrlEncoded
+-    @POST("api/contact-us")
+-    Single<Response<StatusResponse>> contactUs(
+-            @Field("name") String name,
+-            @Field("email") String email,
+-            @Field("subject") String phone,
+-            @Field("message") String message
+-
+ 
+-    );
+-
+-
+-    @GET("api/notifications")
+-    Single<Response<NotificationDataModel>> getNotifications(@Header("AUTHORIZATION") String token,
+-                                                             @Query(value = "api_key") String api_key,
+-                                                             @Query(value = "user_id") String user_id
+-    );
++    @GET("api/my_notifications")
++    Single<Response<NotificationDataModel>> getNotifications(@Query(value = "user_id") String user_id);
+ 
+ 
+     @GET("api/my_favourites")
+@@ -119,4 +106,13 @@
+     @GET("api/featured")
+     Single<Response<DepartmentDataModel>> getFeatured(@Header("lang") String lang);
+ 
++    @GET("api/settings")
++    Single<Response<SettingDataModel>> getSetting(@Header("lang") String lang);
++
++    @FormUrlEncoded
++    @POST("api/contact_us")
++    Single<Response<StatusResponse>> contactUs(@Field("name")String name,
++                                               @Field("email") String email,
++                                               @Field("title") String title,
++                                               @Field("message") String message);
+ }
+\ No newline at end of file

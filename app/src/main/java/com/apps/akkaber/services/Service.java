@@ -5,6 +5,7 @@ import com.apps.akkaber.model.DepartmentDataModel;
 import com.apps.akkaber.model.ProductDataModel;
 import com.apps.akkaber.model.NotificationDataModel;
 import com.apps.akkaber.model.PlaceGeocodeData;
+import com.apps.akkaber.model.SettingDataModel;
 import com.apps.akkaber.model.SingleDepartmentDataModel;
 import com.apps.akkaber.model.SingleProductDataModel;
 import com.apps.akkaber.model.SliderDataModel;
@@ -80,23 +81,9 @@ public interface Service {
 
     );
 
-    @FormUrlEncoded
-    @POST("api/contact-us")
-    Single<Response<StatusResponse>> contactUs(
-            @Field("name") String name,
-            @Field("email") String email,
-            @Field("subject") String phone,
-            @Field("message") String message
 
-
-    );
-
-
-    @GET("api/notifications")
-    Single<Response<NotificationDataModel>> getNotifications(@Header("AUTHORIZATION") String token,
-                                                             @Query(value = "api_key") String api_key,
-                                                             @Query(value = "user_id") String user_id
-    );
+    @GET("api/my_notifications")
+    Single<Response<NotificationDataModel>> getNotifications(@Query(value = "user_id") String user_id);
 
 
     @GET("api/my_favourites")
@@ -119,4 +106,13 @@ public interface Service {
     @GET("api/featured")
     Single<Response<DepartmentDataModel>> getFeatured(@Header("lang") String lang);
 
+    @GET("api/settings")
+    Single<Response<SettingDataModel>> getSetting(@Header("lang") String lang);
+
+    @FormUrlEncoded
+    @POST("api/contact_us")
+    Single<Response<StatusResponse>> contactUs(@Field("name")String name,
+                                               @Field("email") String email,
+                                               @Field("title") String title,
+                                               @Field("message") String message);
 }

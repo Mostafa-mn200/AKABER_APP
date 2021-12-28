@@ -58,8 +58,8 @@ public class ActivityNotificationMvvm extends AndroidViewModel {
     public void getNotifications(UserModel userModel) {
         isLoadingLivData.setValue(true);
 
-       /* Api.getService(Tags.base_url)
-                .getNotifications("Bearer " + userModel.getData().getToken(), Tags.api_key, userModel.getData().getId() + "")
+       Api.getService(Tags.base_url)
+                .getNotifications(userModel.getData().getId() + "")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<NotificationDataModel>>() {
@@ -84,7 +84,7 @@ public class ActivityNotificationMvvm extends AndroidViewModel {
                     public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "onError: ", e);
                     }
-                });*/
+                });
 
     }
 

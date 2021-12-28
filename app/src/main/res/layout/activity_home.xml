@@ -68,6 +68,22 @@
                                 android:visibility="gone"
 
                                 />
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/home_logo"/>
+
+                            <ImageView
+                                android:id="@+id/imgCart"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="end"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cart2"
+
+                                />
 
                             <ImageView
                                 android:id="@+id/imgNotification"
@@ -203,13 +219,14 @@
                             android:id="@+id/home"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_home" />
 
@@ -217,7 +234,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/home"
                                 android:textSize="18sp" />
@@ -226,7 +243,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -234,13 +251,14 @@
                             android:id="@+id/llMyOrders"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_orders" />
 
@@ -248,7 +266,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/myOrders"
                                 android:textSize="18sp" />
@@ -257,7 +275,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -265,13 +283,14 @@
                             android:id="@+id/favourite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_favourite" />
 
@@ -279,7 +298,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/favourite"
                                 android:textSize="18sp" />
@@ -288,7 +307,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -296,13 +315,14 @@
                             android:id="@+id/cart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_cart" />
 
@@ -310,7 +330,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/cart"
                                 android:textSize="18sp" />
@@ -319,7 +339,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -327,13 +347,14 @@
                             android:id="@+id/editAcc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_edit_acc" />
 
@@ -341,16 +362,18 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/edit_profile"
                                 android:textSize="18sp" />
                         </LinearLayout>
 
                         <View
+                            android:id="@+id/viewEditAcc"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
+                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -358,13 +381,14 @@
                             android:id="@+id/wallet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_wallet" />
 
@@ -372,7 +396,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/wallet"
                                 android:textSize="18sp" />
@@ -381,7 +405,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -389,13 +413,14 @@
                             android:id="@+id/shareApp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_share" />
 
@@ -403,7 +428,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/share"
                                 android:textSize="18sp" />
@@ -412,7 +437,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_margin="5dp"
+                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
                             android:layerType="software" />
 
@@ -420,13 +445,14 @@
                             android:id="@+id/contactUs"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-
+                            android:padding="10dp"
+                            android:background="@drawable/item_clicked"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_contact_us" />
 
@@ -434,7 +460,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/contact_us"
                                 android:textSize="18sp" />

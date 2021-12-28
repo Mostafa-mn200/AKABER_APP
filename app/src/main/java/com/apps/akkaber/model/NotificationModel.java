@@ -3,57 +3,43 @@ package com.apps.akkaber.model;
 import java.io.Serializable;
 
 public class NotificationModel implements Serializable {
-    private String id;
-    private String notification_info_id;
-    private String user_type;
-    private String from_user_id;
-    private String to_user_id;
-    private String title;
-    private String message;
-    private String notification_type;
-    private String action_type;
-    private String is_read;
-    private String created_at;
-    private String updated_at;
+   private int id;
+   private String title;
+   private String note;
+   private int seen;
+   private int user_id;
+   private int rev_id;
+   private int order_id;
+   private String created_at;
+   private String updated_at;
 
-    public String getId() {
+
+    public int getId() {
         return id;
-    }
-
-    public String getNotification_info_id() {
-        return notification_info_id;
-    }
-
-    public String getUser_type() {
-        return user_type;
-    }
-
-    public String getFrom_user_id() {
-        return from_user_id;
-    }
-
-    public String getTo_user_id() {
-        return to_user_id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getMessage() {
-        return message;
+    public String getNote() {
+        return note;
     }
 
-    public String getNotification_type() {
-        return notification_type;
+    public int getSeen() {
+        return seen;
     }
 
-    public String getAction_type() {
-        return action_type;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public String getIs_read() {
-        return is_read;
+    public int getRev_id() {
+        return rev_id;
+    }
+
+    public int getOrder_id() {
+        return order_id;
     }
 
     public String getCreated_at() {

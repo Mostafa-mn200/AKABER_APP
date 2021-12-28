@@ -16,7 +16,7 @@
         <shape android:shape="oval"
             >
             <padding android:left="5dp"/>
-            <solid android:color="@color/colorPrimary"/>
+            <solid android:color="@color/color2"/>
         </shape>
     </item>
 
