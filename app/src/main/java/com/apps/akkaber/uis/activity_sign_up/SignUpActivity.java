@@ -102,7 +102,10 @@ public class SignUpActivity extends BaseActivity {
             finish();
         });
 
-        binding.flImage.setOnClickListener(view -> openSheet());
+        binding.flImage.setOnClickListener(view -> {
+            Common.CloseKeyBoard(this,binding.edtPhone);
+            openSheet();
+        });
         binding.flGallery.setOnClickListener(view -> {
             closeSheet();
             checkReadPermission();

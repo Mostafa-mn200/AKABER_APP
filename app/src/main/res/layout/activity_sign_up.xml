@@ -157,10 +157,7 @@
                         android:alpha=".7"
                         android:textColor="@color/gray16"
                         android:textSize="15sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    />
 
                 </LinearLayout>
             <LinearLayout
