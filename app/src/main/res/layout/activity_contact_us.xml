@@ -8,6 +8,7 @@
         <variable
             name="settingModel"
             type="com.apps.akkaber.model.SettingModel" />
+
         <variable
             name="contactUsModel"
 
@@ -96,8 +97,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="20dp"
-                            android:visibility="invisible"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="invisible">
 
                             <ImageView
                                 android:id="@+id/logo"
@@ -197,6 +198,7 @@
                                     android:textSize="15sp" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <ProgressBar
                             android:id="@+id/progBar"
                             android:layout_width="35dp"
@@ -225,6 +227,7 @@
                             />
 
                         <EditText
+                            error="@{contactUsModel.error_name}"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
@@ -232,18 +235,18 @@
                             android:layout_weight="1"
                             android:background="@color/transparent"
                             android:hint="@string/name"
-                            android:text="@={contactUsModel.name}"
-                            error="@{contactUsModel.error_name}"
                             android:lines="1"
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
                             android:singleLine="true"
+                            android:text="@={contactUsModel.name}"
                             android:textColor="@color/black"
                             android:textSize="14sp"
 
                             />
 
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -264,6 +267,7 @@
                             />
 
                         <EditText
+                            error="@{contactUsModel.error_email}"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
@@ -272,12 +276,11 @@
                             android:background="@color/transparent"
                             android:hint="@string/email"
                             android:inputType="textEmailAddress"
-                            android:text="@={contactUsModel.email}"
-                            error="@{contactUsModel.error_email"
                             android:lines="1"
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
                             android:singleLine="true"
+                            android:text="@={contactUsModel.email}"
                             android:textColor="@color/black"
                             android:textSize="14sp"
 
@@ -304,6 +307,7 @@
                             />
 
                         <EditText
+                            error="@{contactUsModel.error_title}"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
@@ -311,12 +315,11 @@
                             android:layout_weight="1"
                             android:background="@color/transparent"
                             android:hint="@string/subject"
-                            android:text="@={contactUsModel.title}"
-                            error="@{contactUsModel.error_title}"
                             android:lines="1"
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
                             android:singleLine="true"
+                            android:text="@={contactUsModel.title}"
                             android:textColor="@color/black"
                             android:textSize="14sp"
 
@@ -344,6 +347,7 @@
                             />
 
                         <EditText
+                            error="@{contactUsModel.error_message}"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
@@ -352,11 +356,10 @@
                             android:background="@color/transparent"
                             android:gravity="top"
                             android:hint="@string/message"
-                            android:text="@={contactUsModel.message}"
-                            error="@{contactUsModel.error_message}"
                             android:inputType="textMultiLine"
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
+                            android:text="@={contactUsModel.message}"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
