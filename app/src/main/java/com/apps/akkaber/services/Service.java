@@ -105,6 +105,11 @@ public interface Service {
     Single<Response<SingleProductDataModel>> getBox(@Header("lang") String lang);
     @GET("api/featured")
     Single<Response<DepartmentDataModel>> getFeatured(@Header("lang") String lang);
+    @GET("api/product")
+    Single<Response<SingleProductDataModel>> getSingleProduct(@Header("lang") String lang,
+                                                     @Query(value = "user_id") String user_id,
+                                                           @Query(value = "id") String id
+                                                           );
 
     @GET("api/settings")
     Single<Response<SettingDataModel>> getSetting(@Header("lang") String lang);

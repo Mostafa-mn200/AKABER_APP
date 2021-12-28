@@ -117,4 +117,6 @@
     <string name="no_department_to_show">لا يوجد  اقسام</string>
     <string name="no_offer_to_show">لا يوجد عروض</string>
     <string name="product_detials">تفاصيل المنتج</string>
+    <string name="choose_age">اختر العمر : </string>
+    <string name="choose_sizes">اختر الحجم : </string>
 </resources>

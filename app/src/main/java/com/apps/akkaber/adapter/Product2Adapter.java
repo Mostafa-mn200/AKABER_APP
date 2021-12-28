@@ -2,6 +2,7 @@ package com.apps.akkaber.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.ProductRowBinding;
 import com.apps.akkaber.model.ProductModel;
+import com.apps.akkaber.uis.activity_category_detials.CategoryDetialsActivity;
+import com.apps.akkaber.uis.activity_home.fragments_home_navigaion.FragmentHome;
 
 import java.util.List;
 
@@ -37,6 +40,15 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
         myHolder.binding.setModel(list.get(position));
+myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        if(context instanceof CategoryDetialsActivity){
+            CategoryDetialsActivity categoryDetialsActivity=(CategoryDetialsActivity) context;
+            categoryDetialsActivity.showProductDetials(list.get(holder.getLayoutPosition()).getId());
+        }
+    }
+});
 //Minced
 
 //Others

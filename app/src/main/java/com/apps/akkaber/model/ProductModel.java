@@ -1,6 +1,7 @@
 package com.apps.akkaber.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ProductModel implements Serializable {
     private String product_id;
@@ -18,7 +19,8 @@ public class ProductModel implements Serializable {
     private String price;
     private String background;
     private String is_favorite;
-
+    private OfferModel offer;
+    private List<TypeModel> types;
     public String getProduct_id() {
         return product_id;
     }
@@ -77,5 +79,13 @@ public class ProductModel implements Serializable {
 
     public String getIs_favorite() {
         return is_favorite;
+    }
+
+    public OfferModel getOffer() {
+        return offer;
+    }
+
+    public List<TypeModel> getTypes() {
+        return types;
     }
 }

@@ -13,6 +13,7 @@
         <entry key="..\:/Akkaber/app/src/main/res/drawable/ic_fill_heart.xml" value="0.2890625" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/ic_group_1537.xml" value="0.2890625" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/ic_lines.xml" value="0.2890625" />
+        <entry key="..\:/Akkaber/app/src/main/res/drawable/radio_bg.xml" value="0.15885416666666666" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/rounded_color2.xml" value="0.14479166666666668" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/rounded_primary.xml" value="0.14479166666666668" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/rounded_top.xml" value="0.15885416666666666" />
@@ -21,10 +22,14 @@
         <entry key="..\:/Akkaber/app/src/main/res/drawable/small_gray15_stroke_color8.xml" value="0.15885416666666666" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/small_rounded_primary.xml" value="0.14479166666666668" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/small_stroke_color2.xml" value="0.14479166666666668" />
+        <entry key="..\:/Akkaber/app/src/main/res/drawable/small_stroke_color2_color7.xml" value="0.2890625" />
+        <entry key="..\:/Akkaber/app/src/main/res/drawable/small_stroke_gray_white.xml" value="0.15885416666666666" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/small_stroke_primary.xml" value="0.15" />
+        <entry key="..\:/Akkaber/app/src/main/res/drawable/small_stroke_white_gray.xml" value="0.2890625" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/toolbar_color8_shape.xml" value="0.14479166666666668" />
         <entry key="..\:/Akkaber/app/src/main/res/drawable/toolbar_shape.xml" value="0.14479166666666668" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/activity_category_detials.xml" value="0.14270833333333333" />
+        <entry key="..\:/Akkaber/app/src/main/res/layout/activity_contact_us.xml" value="0.25" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/activity_favourite.xml" value="0.25885416666666666" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/activity_home.xml" value="0.14270833333333333" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/activity_login.xml" value="0.2602739726027397" />
@@ -41,8 +46,11 @@
         <entry key="..\:/Akkaber/app/src/main/res/layout/others_item_row.xml" value="0.27291666666666664" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/product_item_row.xml" value="0.14270833333333333" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/product_row.xml" value="0.14270833333333333" />
+        <entry key="..\:/Akkaber/app/src/main/res/layout/size_row.xml" value="0.5" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/slider.xml" value="0.27291666666666664" />
         <entry key="..\:/Akkaber/app/src/main/res/layout/sub_product_item_row.xml" value="0.27291666666666664" />
+        <entry key="..\:/Akkaber/app/src/main/res/layout/trotters_item_row.xml" value="0.27291666666666664" />
+        <entry key="..\:/Akkaber/app/src/main/res/layout/type_row.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable-v24/horizontal_line2.xml" value="0.2703125" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/bottom_nav_item_bg.xml" value="0.14635416666666667" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/btn_change_lang.xml" value="0.26615384615384613" />
@@ -64,7 +72,6 @@
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_user.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_wallet.xml" value="0.2703125" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/ic_whatts.xml" value="0.26615384615384613" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/item_clicked.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/line.xml" value="0.14635416666666667" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/drawable/linear_shape2.xml" value="0.26615384615384613" />
@@ -75,7 +82,7 @@
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout-v21/activity_contact_us.xml" value="0.23822463768115942" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_about_app.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_category_detials.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_contact_us.xml" value="0.264" />
+        <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_contact_us.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_favourite.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/AndroidProjects/Akaber/app/src/main/res/layout/activity_intro_slider.xml" value="0.25416666666666665" />

@@ -28,6 +28,7 @@ import com.apps.akkaber.uis.activity_base.BaseFragment;
 import com.apps.akkaber.databinding.FragmentHomeBinding;
 import com.apps.akkaber.uis.activity_category_detials.CategoryDetialsActivity;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
+import com.apps.akkaber.uis.activity_product_detials.ProductDetialsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,7 @@ public class FragmentHome extends BaseFragment {
     private List<SliderDataModel.SliderModel> sliderModelList;
     private CompositeDisposable disposable = new CompositeDisposable();
     private Timer timer;
+    private ProductModel productBoxmodel;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -169,9 +171,12 @@ public class FragmentHome extends BaseFragment {
             }
         });
         fragmentHomeMvvm.getbox().observe(activity, new androidx.lifecycle.Observer<ProductModel>() {
+
             @Override
             public void onChanged(ProductModel productModel) {
+
                 if (productModel != null) {
+                    FragmentHome.this.productBoxmodel=productModel;
                     binding.progBarBox.setVisibility(View.GONE);
 
                     binding.setModel(productModel);
@@ -217,6 +222,13 @@ public class FragmentHome extends BaseFragment {
         fragmentHomeMvvm.getOffers(getLang());
         fragmentHomeMvvm.getBox(getLang());
         fragmentHomeMvvm.getFeatured(getLang());
+        binding.imBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(productBoxmodel!=null){
+                showProductDetials(productBoxmodel.getId());
+            }}
+        });
     }
 
 
@@ -229,6 +241,12 @@ public class FragmentHome extends BaseFragment {
     public void showcategory(DepartmentModel departmentModel) {
         Intent intent = new Intent(activity, CategoryDetialsActivity.class);
         intent.putExtra("catid", departmentModel.getId());
+        startActivity(intent);
+    }
+
+    public void showProductDetials(String productid) {
+        Intent intent=new Intent(activity, ProductDetialsActivity.class);
+        intent.putExtra("proid", productid);
         startActivity(intent);
     }
 

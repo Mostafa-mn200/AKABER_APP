@@ -2,29 +2,32 @@ package com.apps.akkaber.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.SubProductItemRowBinding;
 import com.apps.akkaber.model.ProductModel;
+import com.apps.akkaber.uis.activity_home.fragments_home_navigaion.FragmentHome;
 
 import java.util.List;
 
-public class SubProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class SubProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<ProductModel> list;
     private Context context;
     private LayoutInflater inflater;
+    private Fragment fragment;
 
-
-    public SubProductAdapter(List<ProductModel> list, Context context) {
-        this.list=list;
-        this.context=context;
-        inflater=LayoutInflater.from(context);
-
+    public SubProductAdapter(List<ProductModel> list, Context context, Fragment fragment) {
+        this.list = list;
+        this.context = context;
+        inflater = LayoutInflater.from(context);
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -36,15 +39,24 @@ public class SubProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-     MyHolder myHolder = (MyHolder) holder;
-     myHolder.binding.setModel(list.get(position));
+        MyHolder myHolder = (MyHolder) holder;
+        myHolder.binding.setModel(list.get(position));
+        myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (fragment instanceof FragmentHome) {
+                    FragmentHome fragmentHome = (FragmentHome) fragment;
+                    fragmentHome.showProductDetials(list.get(holder.getLayoutPosition()).getId());
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        if (list!=null){
+        if (list != null) {
             return list.size();
-        }else {
+        } else {
             return 0;
         }
     }

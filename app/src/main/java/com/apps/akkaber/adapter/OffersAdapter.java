@@ -3,6 +3,7 @@ package com.apps.akkaber.adapter;
 import android.content.Context;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.OfferItemRowBinding;
 import com.apps.akkaber.model.ProductModel;
+import com.apps.akkaber.uis.activity_home.fragments_home_navigaion.FragmentHome;
 
 import java.util.List;
 
@@ -41,6 +43,15 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.binding.setModel(list.get(position));
         myHolder.binding.priceOld.setPaintFlags(myHolder.binding.priceOld.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         myHolder.binding.amountOld.setPaintFlags(myHolder.binding.amountOld.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(fragment instanceof FragmentHome){
+                    FragmentHome fragmentHome=(FragmentHome) fragment;
+                    fragmentHome.showProductDetials(list.get(holder.getLayoutPosition()).getProduct_id());
+                }
+            }
+        });
     }
 
     @Override

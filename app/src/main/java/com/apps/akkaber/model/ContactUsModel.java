@@ -1,6 +1,7 @@
 package com.apps.akkaber.model;
 
 import android.content.Context;
+import android.util.Log;
 import android.util.Patterns;
 
 import androidx.databinding.BaseObservable;
@@ -52,6 +53,7 @@ public class ContactUsModel extends BaseObservable {
 
 
             if (email.isEmpty()){
+               // Log.e("D;dlllld","d;ldldlldl");
                 error_email.set(context.getString(R.string.field_required));
             }if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 error_email.set(context.getString(R.string.inv_email));

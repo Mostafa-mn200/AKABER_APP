@@ -24,6 +24,7 @@ import com.apps.akkaber.mvvm.ActivityCategoryDetialsMvvm;
 import com.apps.akkaber.mvvm.ContactusActivityMvvm;
 import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
+import com.apps.akkaber.uis.activity_product_detials.ProductDetialsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,4 +97,9 @@ public class CategoryDetialsActivity extends BaseActivity {
     }
 
 
+    public void showProductDetials(String productid) {
+        Intent intent=new Intent(this, ProductDetialsActivity.class);
+        intent.putExtra("proid", productid);
+        startActivity(intent);
+    }
 }
