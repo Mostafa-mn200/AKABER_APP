@@ -92,14 +92,21 @@ public class ProductDetialsActivity extends BaseActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    if(productmodel!=null){
-                    if (productmodel.getIs_favorite().equals("yes")) {
-                        productmodel.setIs_favorite("no");
-                    } else {
-                        productmodel.setIs_favorite("yes");
+                    if (productmodel != null) {
+                        if (productmodel.getIs_favorite() == null) {
+                            productmodel.setIs_favorite("yes");
+
+                        } else {
+                            if (productmodel.getIs_favorite().equals("yes")) {
+                                productmodel.setIs_favorite("no");
+                            } else {
+                                productmodel.setIs_favorite("yes");
+                            }
+                        }
+                        binding.setModel(productmodel);
+
                     }
-                    binding.setModel(productmodel);
-                }}
+                }
             }
         });
         activityProductDetialsMvvm.getAmount().observe(this, new Observer<Integer>() {
@@ -226,8 +233,8 @@ public class ProductDetialsActivity extends BaseActivity {
         binding.flFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(userModel!=null){
-                    activityProductDetialsMvvm.addRemoveFavourite(productmodel.getId(),user_id);
+                if (userModel != null) {
+                    activityProductDetialsMvvm.addRemoveFavourite(productmodel.getId(), user_id);
                 }
             }
         });
