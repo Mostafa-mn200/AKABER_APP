@@ -21,6 +21,9 @@ public class ProductModel implements Serializable {
     private String is_favorite;
     private OfferModel offer;
     private List<TypeModel> types;
+    private List<WayModel> ways;
+    private List<WrapModel> wrapping;
+
     public String getProduct_id() {
         return product_id;
     }
@@ -81,11 +84,23 @@ public class ProductModel implements Serializable {
         return is_favorite;
     }
 
+    public void setIs_favorite(String is_favorite) {
+        this.is_favorite = is_favorite;
+    }
+
     public OfferModel getOffer() {
         return offer;
     }
 
     public List<TypeModel> getTypes() {
         return types;
+    }
+
+    public List<WayModel> getWays() {
+        return ways;
+    }
+
+    public List<WrapModel> getWrapping() {
+        return wrapping;
     }
 }

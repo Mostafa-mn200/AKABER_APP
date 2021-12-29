@@ -30,6 +30,7 @@ import com.apps.akkaber.R;
 
 import com.apps.akkaber.databinding.ActivityHomeBinding;
 import com.apps.akkaber.language.Language;
+import com.apps.akkaber.uis.activity_cart.CartActivity;
 import com.apps.akkaber.uis.activity_contact_us.ContactUsActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
 import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
@@ -62,6 +63,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
     private void initView() {
 
         preferences = Preferences.getInstance();
+        updateCartCount();
         userModel = preferences.getUserData(this);
         if (userModel != null) {
             binding.setModel(userModel);
@@ -69,6 +71,11 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         homeActivityMvvm = ViewModelProviders.of(this).get(HomeActivityMvvm.class);
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
+                userModel = getUserModel();
+                binding.setModel(getUserModel());
+                updateFirebase();
+            } else if (req == 2 && result.getResultCode() == Activity.RESULT_OK) {
+                updateCartCount();
                 userModel = getUserModel();
                 binding.setModel(getUserModel());
                 updateFirebase();
@@ -166,15 +173,27 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
 
         binding.home.setOnClickListener(view -> {
-binding.drawerLayout.closeDrawer(GravityCompat.START);
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
 
 
+        });
+        binding.flCart.setOnClickListener(v -> {
+            req = 2;
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            launcher.launch(intent);
+
+        });
+        binding.llcart.setOnClickListener(v -> {
+            req = 2;
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            launcher.launch(intent);
 
         });
         if (userModel == null) {
             binding.tvName.setOnClickListener(view -> navigationToLoginActivity());
 
         }
+
 
     }
 
@@ -232,9 +251,17 @@ binding.drawerLayout.closeDrawer(GravityCompat.START);
     private void logout() {
 
         clearUserModel(this);
-        userModel=getUserModel();
+        userModel = getUserModel();
         binding.setModel(null);
         navigationToLoginActivity();
+    }
+
+    public void updateCartCount() {
+        if (preferences.getCartData(this) != null) {
+            binding.setCartCount(preferences.getCartData(this).getDetails().size() + "");
+        } else {
+            binding.setCartCount(String.valueOf(0));
+        }
     }
 
 

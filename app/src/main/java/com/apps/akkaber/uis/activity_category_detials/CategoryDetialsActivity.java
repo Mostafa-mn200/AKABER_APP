@@ -1,10 +1,13 @@
 package com.apps.akkaber.uis.activity_category_detials;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -36,6 +39,8 @@ public class CategoryDetialsActivity extends BaseActivity {
     private Preferences preferences;
     private String catid;
     private Product2Adapter product2Adapter;
+    private ActivityResultLauncher<Intent> launcher;
+    private int req = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,12 +99,18 @@ public class CategoryDetialsActivity extends BaseActivity {
             }
         });
         categoryDetialsMvvm.getDepartmentDetials(getLang(), catid);
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (req == 2 && result.getResultCode() == Activity.RESULT_OK) {
+                setResult(RESULT_OK);
+            }
+        });
     }
 
 
     public void showProductDetials(String productid) {
+        req=2;
         Intent intent=new Intent(this, ProductDetialsActivity.class);
         intent.putExtra("proid", productid);
-        startActivity(intent);
+        launcher.launch(intent);
     }
 }

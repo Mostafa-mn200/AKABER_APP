@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="5dp"
                 android:text="@{model.offer!=null?model.offer.price_after:model.price}"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -138,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
+                android:layout_marginEnd="5dp"
                 android:text="@{model.offer!=null?model.offer.price_before:model.price}"
                 android:textSize="12sp"
                 android:visibility='@{model.offer==null?View.GONE:View.VISIBLE,default=gone}' />
@@ -148,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:text="@string/price2"
                 android:textSize="11sp"
 

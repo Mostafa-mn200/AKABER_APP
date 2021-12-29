@@ -1,9 +1,12 @@
 package com.apps.akkaber.uis.activity_home.fragments_home_navigaion;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -57,11 +60,18 @@ public class FragmentHome extends BaseFragment {
     private CompositeDisposable disposable = new CompositeDisposable();
     private Timer timer;
     private ProductModel productBoxmodel;
+    private ActivityResultLauncher<Intent> launcher;
+    private int req = 1;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         activity = (HomeActivity) context;
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (req == 2 && result.getResultCode() == Activity.RESULT_OK) {
+                activity.updateCartCount();
+            }
+        });
     }
 
     @Override
@@ -108,7 +118,7 @@ public class FragmentHome extends BaseFragment {
 
         fragmentHomeMvvm.getIsLoading().observe(activity, isLoading -> {
             if (isLoading) {
-                 binding.progBarSlider.setVisibility(View.VISIBLE);
+                binding.progBarSlider.setVisibility(View.VISIBLE);
                 binding.progBarDepartment.setVisibility(View.VISIBLE);
                 binding.progBarOffers.setVisibility(View.VISIBLE);
                 binding.progBarBox.setVisibility(View.VISIBLE);
@@ -176,7 +186,7 @@ public class FragmentHome extends BaseFragment {
             public void onChanged(ProductModel productModel) {
 
                 if (productModel != null) {
-                    FragmentHome.this.productBoxmodel=productModel;
+                    FragmentHome.this.productBoxmodel = productModel;
                     binding.progBarBox.setVisibility(View.GONE);
 
                     binding.setModel(productModel);
@@ -225,9 +235,10 @@ public class FragmentHome extends BaseFragment {
         binding.imBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(productBoxmodel!=null){
-                showProductDetials(productBoxmodel.getId());
-            }}
+                if (productBoxmodel != null) {
+                    showProductDetials(productBoxmodel.getId());
+                }
+            }
         });
     }
 
@@ -239,15 +250,17 @@ public class FragmentHome extends BaseFragment {
     }
 
     public void showcategory(DepartmentModel departmentModel) {
+        req=2;
         Intent intent = new Intent(activity, CategoryDetialsActivity.class);
         intent.putExtra("catid", departmentModel.getId());
-        startActivity(intent);
+        launcher.launch(intent);
     }
 
     public void showProductDetials(String productid) {
-        Intent intent=new Intent(activity, ProductDetialsActivity.class);
+        req = 2;
+        Intent intent = new Intent(activity, ProductDetialsActivity.class);
         intent.putExtra("proid", productid);
-        startActivity(intent);
+        launcher.launch(intent);
     }
 
     public class MyTask extends TimerTask {

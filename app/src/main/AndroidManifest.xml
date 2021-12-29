@@ -27,6 +27,13 @@
         tools:ignore="AllowBackup"
         tools:targetApi="q">
         <activity
+            android:name=".uis.activity_cart.CartActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".uis.activity_share.ShareActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="adjustPan"

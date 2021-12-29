@@ -119,4 +119,12 @@
     <string name="product_detials">تفاصيل المنتج</string>
     <string name="choose_age">اختر العمر : </string>
     <string name="choose_sizes">اختر الحجم : </string>
+    <string name="slicing_method">طريقة التقطيع : </string>
+    <string name="packaging_method">طريقة التغليف : </string>
+    <string name="free">مجانا</string>
+    <string name="total">الاجمالى</string>
+    <string name="add_to_cart">اضافة الى السله</string>
+    <string name="ch_size">اختر الحجم</string>
+    <string name="suc_add_to_cart">تم الاضافه الى السله بنجاح</string>
+    <string name="pay">دفع</string>
 </resources>

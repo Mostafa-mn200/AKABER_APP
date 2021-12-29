@@ -118,6 +118,14 @@
     <string name="product_detials">Product Detials</string>
     <string name="choose_age">Choose Age : </string>
     <string name="choose_sizes">Choose Sizes :</string>
+    <string name="slicing_method">Slicing Method:</string>
+    <string name="packaging_method">Packaging Method :</string>
+    <string name="free">Free</string>
+    <string name="total">Total :</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="ch_size">Choose Size</string>
+    <string name="suc_add_to_cart">Sucess Add To Cart</string>
+    <string name="pay">Pay</string>
 
 
 </resources>

@@ -99,25 +99,34 @@ public interface Service {
     @GET("api/getCategoryById")
     Single<Response<SingleDepartmentDataModel>> getSingleDepartment(@Header("lang") String lang,
                                                                     @Query(value = "id") String id);
+
     @GET("api/offers")
     Single<Response<ProductDataModel>> getOffers(@Header("lang") String lang);
+
     @GET("api/box")
     Single<Response<SingleProductDataModel>> getBox(@Header("lang") String lang);
+
     @GET("api/featured")
     Single<Response<DepartmentDataModel>> getFeatured(@Header("lang") String lang);
+
     @GET("api/product")
     Single<Response<SingleProductDataModel>> getSingleProduct(@Header("lang") String lang,
-                                                     @Query(value = "user_id") String user_id,
-                                                           @Query(value = "id") String id
-                                                           );
+                                                              @Query(value = "user_id") String user_id,
+                                                              @Query(value = "id") String id
+    );
 
     @GET("api/settings")
     Single<Response<SettingDataModel>> getSetting(@Header("lang") String lang);
 
     @FormUrlEncoded
     @POST("api/contact_us")
-    Single<Response<StatusResponse>> contactUs(@Field("name")String name,
+    Single<Response<StatusResponse>> contactUs(@Field("name") String name,
                                                @Field("email") String email,
                                                @Field("title") String title,
                                                @Field("message") String message);
+
+    @FormUrlEncoded
+    @POST("api/make_favourite")
+    Single<Response<StatusResponse>> addRemoveFav(@Field("user_id") String user_id,
+                                                  @Field("product_id") String product_id);
 }

@@ -12,6 +12,10 @@
         <variable
             name="lang"
             type="String" />
+        <variable
+            name="cartCount"
+            type="String" />
+
 
         <import type="android.view.View" />
     </data>
@@ -74,16 +78,40 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/home_logo"/>
 
-                            <ImageView
-                                android:id="@+id/imgCart"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_gravity="end"
-                                android:layout_marginStart="12dp"
-                                android:layout_marginEnd="12dp"
-                                android:src="@drawable/ic_cart2"
+                            <FrameLayout
+                                android:id="@+id/flCart"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center_vertical|end"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp">
 
-                                />
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_cart2"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="17dp"
+                                    android:layout_height="17dp"
+                                    android:layout_margin="2dp"
+                                    android:background="@drawable/circle_primary"
+                                    android:clickable="false"
+                                    android:gravity="center"
+                                    android:longClickable="false"
+                                    android:singleLine="true"
+                                    android:text='@{String.valueOf(cartCount),default="0"}'
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+                            </FrameLayout>
+
 
                             <ImageView
                                 android:id="@+id/imgNotification"
@@ -312,7 +340,7 @@
                             android:layerType="software" />
 
                         <LinearLayout
-                            android:id="@+id/cart"
+                            android:id="@+id/llcart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
