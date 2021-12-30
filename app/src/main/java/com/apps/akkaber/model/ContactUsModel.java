@@ -44,34 +44,35 @@ public class ContactUsModel extends BaseObservable {
 
         } else {
 
-            if (name.isEmpty()){
+            if (name.isEmpty()) {
                 error_name.set(context.getString(R.string.field_required));
-            }else {
+            } else {
                 error_name.set(null);
 
             }
 
 
-            if (email.isEmpty()){
-               // Log.e("D;dlllld","d;ldldlldl");
+            if (email.isEmpty()) {
+                // Log.e("D;dlllld","d;ldldlldl");
                 error_email.set(context.getString(R.string.field_required));
-            }if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 error_email.set(context.getString(R.string.inv_email));
-            }else {
+            } else {
                 error_email.set(null);
 
             }
 
-            if (title.isEmpty()){
+            if (title.isEmpty()) {
                 error_title.set(context.getString(R.string.field_required));
-            }else {
+            } else {
                 error_title.set(null);
 
             }
 
-            if (message.isEmpty()){
+            if (message.isEmpty()) {
                 error_message.set(context.getString(R.string.field_required));
-            }else {
+            } else {
                 error_message.set(null);
 
             }
@@ -85,8 +86,8 @@ public class ContactUsModel extends BaseObservable {
     public ContactUsModel() {
         name = "";
         email = "";
-        title ="";
-        message="";
+        title = "";
+        message = "";
     }
 
     @Bindable

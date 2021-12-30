@@ -112,9 +112,9 @@ public class WrapAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void updateData(List<WrapModel> list) {
 
         if (list != null) {
-            oldPos=0;
-            currentPos=0;
-          //  Log.e("dlldldl", list.size() + "");
+            oldPos = 0;
+            currentPos = 0;
+            //  Log.e("dlldldl", list.size() + "");
             this.list = list;
 
         }

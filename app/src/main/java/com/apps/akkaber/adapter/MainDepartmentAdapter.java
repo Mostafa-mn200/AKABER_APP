@@ -42,7 +42,7 @@ public class MainDepartmentAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         MyHolder myHolder = (MyHolder) holder;
         myHolder.binding.setModel(list.get(position));
 //Minced
-        SubProductAdapter subProductAdapter = new SubProductAdapter(list.get(position).getProducts(), context,fragment);
+        SubProductAdapter subProductAdapter = new SubProductAdapter(list.get(position).getProducts(), context, fragment);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         myHolder.binding.recyclerMinced.setLayoutManager(layoutManager);
         myHolder.binding.recyclerMinced.setAdapter(subProductAdapter);

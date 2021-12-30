@@ -114,9 +114,9 @@ public class WayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void updateData(List<WayModel> list) {
 
         if (list != null) {
-            oldPos=0;
-            currentPos=0;
-          //  Log.e("dlldldl", list.size() + "");
+            oldPos = 0;
+            currentPos = 0;
+            //  Log.e("dlldldl", list.size() + "");
             this.list = list;
 
         }

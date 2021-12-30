@@ -18,6 +18,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private List<NotificationModel> list;
     private Context context;
     private LayoutInflater inflater;
+
     public NotificationAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -43,7 +44,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return list!=null?list.size():0;
+        return list != null ? list.size() : 0;
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {
@@ -58,8 +59,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     }
 
-    public void updateList(List<NotificationModel> list){
-        if (list!=null){
+    public void updateList(List<NotificationModel> list) {
+        if (list != null) {
             this.list = list;
         }
         notifyDataSetChanged();

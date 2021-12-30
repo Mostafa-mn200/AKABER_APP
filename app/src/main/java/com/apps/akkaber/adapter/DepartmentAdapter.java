@@ -17,16 +17,16 @@ import com.apps.akkaber.uis.activity_home.fragments_home_navigaion.FragmentHome;
 
 import java.util.List;
 
-public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
+public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<DepartmentModel> list;
     private Context context;
     private LayoutInflater inflater;
     private Fragment fragment;
 
-    public DepartmentAdapter(Context context,Fragment fragment) {
-        this.context=context;
-        inflater=LayoutInflater.from(context);
-        this.fragment=fragment;
+    public DepartmentAdapter(Context context, Fragment fragment) {
+        this.context = context;
+        inflater = LayoutInflater.from(context);
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -43,8 +43,8 @@ public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(fragment instanceof FragmentHome){
-                    FragmentHome fragmentHome=(FragmentHome) fragment;
+                if (fragment instanceof FragmentHome) {
+                    FragmentHome fragmentHome = (FragmentHome) fragment;
                     fragmentHome.showcategory(list.get(holder.getLayoutPosition()));
                 }
             }
@@ -53,17 +53,17 @@ public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public int getItemCount() {
-        if (list!=null){
+        if (list != null) {
             return list.size();
-        }else {
+        } else {
             return 0;
         }
     }
 
-        public void updateList(List<DepartmentModel> list) {
-            this.list = list;
-            notifyDataSetChanged();
-        }
+    public void updateList(List<DepartmentModel> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
 
 
     public static class MyHolder extends RecyclerView.ViewHolder {

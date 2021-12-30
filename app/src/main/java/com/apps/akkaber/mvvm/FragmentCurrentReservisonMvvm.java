@@ -28,8 +28,6 @@ public class FragmentCurrentReservisonMvvm extends AndroidViewModel {
     }
 
 
-
-
     public MutableLiveData<Boolean> getIsLoading() {
         if (isLoadingLivData == null) {
             isLoadingLivData = new MutableLiveData<>();
@@ -39,7 +37,6 @@ public class FragmentCurrentReservisonMvvm extends AndroidViewModel {
 
 
     //_________________________hitting api_________________________________
-
 
 
     @Override

@@ -38,7 +38,7 @@ public class GeneralMethod {
 
     @BindingAdapter("image")
     public static void image(View view, String imageUrl) {
-        if(imageUrl!=null) {
+        if (imageUrl != null) {
             String imageUrl1 = Tags.base_url + imageUrl;
 
             view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -226,6 +226,21 @@ public class GeneralMethod {
 
     }
 
+    @BindingAdapter("order_status")
+    public static void orderStatus(TextView textView, String status) {
+        if (status.equals("new")) {
+            textView.setText(textView.getContext().getString(R.string.order_sent));
+        } else if (status.equals("accepted")) {
+            textView.setText(textView.getContext().getString(R.string.delivered_to_the_delegate));
+
+        } else if (status.equals("delivering")) {
+            textView.setText(textView.getContext().getString(R.string.delivery_in_progress));
+
+        } else if (status.equals("ended")) {
+            textView.setText(textView.getContext().getString(R.string.end));
+
+        }
+    }
 
 }
 

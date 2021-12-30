@@ -30,6 +30,7 @@ import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 import com.apps.akkaber.uis.activity_home.HomeActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
+import com.apps.akkaber.uis.activity_payment.PaymentActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,6 +70,8 @@ public class CartActivity extends BaseActivity {
             if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
                 userModel = getUserModel();
                 isDataChanged = true;
+            } else if (req == 2 && result.getResultCode() == Activity.RESULT_OK) {
+                checkdata();
             }
         });
         itemCartModelList = new ArrayList<>();
@@ -92,7 +95,9 @@ public class CartActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 if (userModel != null) {
-
+                    req = 2;
+                    Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
+                    launcher.launch(intent);
                 } else {
                     navigationToLoginActivity();
                 }
@@ -127,8 +132,9 @@ public class CartActivity extends BaseActivity {
     private void checkdata() {
         if (preferences != null) {
             cartDataModel = preferences.getCartData(this);
+            itemCartModelList.clear();
+            cartAdapter.notifyDataSetChanged();
             if (cartDataModel != null) {
-                itemCartModelList.clear();
                 itemCartModelList.addAll(cartDataModel.getDetails());
                 cartAdapter.notifyDataSetChanged();
                 if (itemCartModelList.size() > 0) {
@@ -140,6 +146,11 @@ public class CartActivity extends BaseActivity {
                 }
                 calculateTotal();
 
+            } else {
+                if (itemCartModelList.size() == 0) {
+                    binding.llEmptyCart.setVisibility(View.VISIBLE);
+                    binding.flTotal.setVisibility(View.GONE);
+                }
             }
         }
     }
@@ -150,8 +161,9 @@ public class CartActivity extends BaseActivity {
         cartAdapter.notifyItemChanged(adapterPosition);
 
         cartDataModel.setDetails(itemCartModelList);
-        preferences.createUpdateCartData(this, cartDataModel);
         calculateTotal();
+        preferences.createUpdateCartData(this, cartDataModel);
+
 
     }
 
@@ -162,6 +174,8 @@ public class CartActivity extends BaseActivity {
             total += model.getTotal_price();
 
         }
+        cartDataModel.setSub_total(total);
+
         binding.tvTotal.setText(total + "");
         //   binding.tvtotal.setText(String.valueOf(total));
     }

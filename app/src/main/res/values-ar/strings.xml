@@ -127,4 +127,13 @@
     <string name="ch_size">اختر الحجم</string>
     <string name="suc_add_to_cart">تم الاضافه الى السله بنجاح</string>
     <string name="pay">دفع</string>
+    <string name="products">المنتجات</string>
+    <string name="shipping_site">موقع الشحن</string>
+    <string name="payment">الدفع</string>
+    <string name="electronic_payment">دفع الكترونى</string>
+    <string name="cash">كاش</string>
+    <string name="total_cart">اجمالى سالة المشتريات</string>
+    <string name="subtotal">المجموع الفرعى</string>
+    <string name="shipping">الشحن</string>
+    <string name="total_payments">اجمالى المدفوعات</string>
 </resources>

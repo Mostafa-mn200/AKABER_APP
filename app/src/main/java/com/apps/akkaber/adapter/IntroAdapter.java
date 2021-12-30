@@ -25,12 +25,12 @@ public class IntroAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater inflater;
 
-    public IntroAdapter( Context context) {
+    public IntroAdapter(Context context) {
 
-       imagetopList = new ArrayList<>();
+        imagetopList = new ArrayList<>();
         inflater = LayoutInflater.from(context);
         title = new ArrayList<>();
-        content=new ArrayList<>();
+        content = new ArrayList<>();
         imagetopList.add(R.drawable.intro1);
         imagetopList.add(R.drawable.intro2);
         imagetopList.add(R.drawable.intro3);
@@ -53,7 +53,7 @@ public class IntroAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        IntroRowBinding rowBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.intro_row,container,false);
+        IntroRowBinding rowBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.intro_row, container, false);
         container.addView(rowBinding.getRoot());
         rowBinding.topImage.setImageResource(imagetopList.get(position));
         return rowBinding.getRoot();

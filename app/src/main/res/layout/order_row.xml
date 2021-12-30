@@ -8,6 +8,10 @@
         <import type="android.view.View" />
 
         <variable
+            name="model"
+            type="com.apps.akkaber.model.OrderModel" />
+
+        <variable
             name="lang"
             type="String" />
     </data>
@@ -59,7 +63,7 @@
                     android:ellipsize="end"
                     android:gravity="end"
                     android:maxLines="2"
-                    android:text="#299949"
+                    android:text='@{model.id+"#"}'
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -69,34 +73,36 @@
                     android:layout_weight="1"
 
                     />
-<LinearLayout
-    android:id="@+id/llShow"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <TextView
-        android:id="@+id/tvShow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginStart="5dp"
-        android:ellipsize="end"
-        android:gravity="end"
-        android:maxLines="2"
-        android:text="@string/show_detials"
-        android:textColor="@color/color2"
-        android:textSize="15sp" />
 
-    <ImageView
-        android:id="@+id/imageShow"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="5dp"
-        android:rotation='@{lang.equals("ar")?180:0}'
-        android:src="@drawable/ic_arrow_right"
-        app:tint="@color/color6" />
-</LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="5dp"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:maxLines="2"
+                        android:text="@string/show_detials"
+                        android:textColor="@color/color2"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/imageShow"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:rotation='@{lang.equals("ar")?180:0}'
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="@color/color6" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -130,7 +136,7 @@
                             android:ellipsize="end"
                             android:gravity="end"
                             android:maxLines="2"
-                            android:text="5 / 10 / 2021"
+                            android:text='@{model.created_at.split("T")[0]}'
                             android:textColor="@color/gray10"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -188,6 +194,7 @@
                     />
 
                 <TextView
+                    order_status="@{model.status}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -195,21 +202,23 @@
                     android:ellipsize="end"
                     android:gravity="end"
                     android:maxLines="2"
-                    android:text="تم استلام طلبك"
                     android:textColor="@color/color2"
                     android:textSize="15sp" />
             </LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="3px"
-    android:background="@color/color7"
-    android:layout_marginTop="8dp"
-    />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3px"
+                android:layout_marginTop="8dp"
+                android:background="@color/color7"
+                android:visibility="gone" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/image"

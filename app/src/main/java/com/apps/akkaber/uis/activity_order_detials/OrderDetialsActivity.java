@@ -1,18 +1,23 @@
 package com.apps.akkaber.uis.activity_order_detials;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.adapter.NotificationAdapter;
+import com.apps.akkaber.adapter.Order2ProductAdapter;
 import com.apps.akkaber.databinding.ActivityNotificationBinding;
 import com.apps.akkaber.databinding.ActivityOrderDetialsBinding;
+import com.apps.akkaber.model.OrderModel;
 import com.apps.akkaber.mvvm.ActivityNotificationMvvm;
 import com.apps.akkaber.mvvm.ActivityOrderDetialsMvvm;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
@@ -21,22 +26,47 @@ public class OrderDetialsActivity extends BaseActivity {
 
     private ActivityOrderDetialsBinding binding;
     private ActivityOrderDetialsMvvm activityOrderDetialsMvvm;
+    private String order_id;
+    private OrderModel orderModel;
+    private Order2ProductAdapter order2ProductAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_order_detials);
+        getDataFromIntent();
         initView();
+    }
 
-
+    private void getDataFromIntent() {
+        Intent intent = getIntent();
+        order_id = intent.getStringExtra("order_id");
     }
 
 
     private void initView() {
+        order2ProductAdapter = new Order2ProductAdapter(this);
+        binding.recView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        binding.recView.setAdapter(order2ProductAdapter);
         binding.setLang(getLang());
         activityOrderDetialsMvvm = ViewModelProviders.of(this).get(ActivityOrderDetialsMvvm.class);
         activityOrderDetialsMvvm.getIsLoading().observe(this, loading -> {
-
+            if (loading) {
+                binding.progBar.setVisibility(View.VISIBLE);
+                binding.nested.setVisibility(View.GONE);
+            } else {
+                binding.progBar.setVisibility(View.GONE);
+                binding.nested.setVisibility(View.VISIBLE);
+            }
+        });
+        activityOrderDetialsMvvm.getOrder().observe(this, new Observer<OrderModel>() {
+            @Override
+            public void onChanged(OrderModel orderModel) {
+                if (orderModel != null) {
+                    binding.setModel(orderModel);
+                    updateData(orderModel);
+                }
+            }
         });
         binding.llBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +74,23 @@ public class OrderDetialsActivity extends BaseActivity {
                 finish();
             }
         });
-        updateUi1();
+        // updateUi1();
+        activityOrderDetialsMvvm.getorderDetials(order_id);
 
+    }
+
+    private void updateData(OrderModel orderModel) {
+        this.orderModel = orderModel;
+        order2ProductAdapter.updateList(orderModel.getDetials());
+        if (orderModel.getStatus().equals("new")) {
+            updateUi2();
+        } else if (orderModel.getStatus().equals("accepted")) {
+            updateUi3();
+        } else if (orderModel.getStatus().equals("delivering")) {
+            updateUi4();
+        } else if (orderModel.getStatus().equals("ended")) {
+            updateUi5();
+        }
     }
 
     private void updateUi1() {

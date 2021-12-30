@@ -15,6 +15,7 @@ import com.apps.akkaber.databinding.SizeRowBinding;
 import com.apps.akkaber.databinding.TypeRowBinding;
 import com.apps.akkaber.model.SizeModel;
 import com.apps.akkaber.model.TypeModel;
+import com.apps.akkaber.model.WrapModel;
 import com.apps.akkaber.uis.activity_product_detials.ProductDetialsActivity;
 
 import java.util.List;
@@ -102,14 +103,23 @@ public class SizeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void updateData(List<SizeModel> list) {
 
         if (list != null) {
-            oldPos=0;
-            currentPos=0;
-            Log.e("dlldldl", list.size() + "");
             this.list = list;
 
         }
         notifyDataSetChanged();
     }
 
+    public void updateslection() {
+        if (oldPos != -1) {
+            SizeModel old = list.get(oldPos);
+            if (old.isIsselected()) {
+                old.setIsselected(false);
+                list.set(oldPos, old);
+                notifyItemChanged(oldPos);
+            }
+
+        }
+
+    }
 
 }

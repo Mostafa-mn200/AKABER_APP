@@ -103,7 +103,7 @@ public class SignUpActivity extends BaseActivity {
         });
 
         binding.flImage.setOnClickListener(view -> {
-            Common.CloseKeyBoard(this,binding.edtPhone);
+            Common.CloseKeyBoard(this, binding.edtPhone);
             openSheet();
         });
         binding.flGallery.setOnClickListener(view -> {
@@ -132,10 +132,9 @@ public class SignUpActivity extends BaseActivity {
         binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
+                if (b) {
                     binding.llCode.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     binding.llCode.setVisibility(View.GONE);
                 }
                 model.setIscheck(b);

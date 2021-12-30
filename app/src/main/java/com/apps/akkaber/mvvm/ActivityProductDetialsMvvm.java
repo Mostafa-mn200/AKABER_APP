@@ -72,12 +72,14 @@ public class ActivityProductDetialsMvvm extends AndroidViewModel {
         }
         return isLoadingLivData;
     }
+
     public MutableLiveData<Boolean> getFav() {
         if (addremove == null) {
             addremove = new MutableLiveData<>();
         }
         return addremove;
     }
+
     public void getProductDetials(String lang, String id, String user_id) {
         isLoadingLivData.postValue(true);
         Api.getService(Tags.base_url)
@@ -93,6 +95,7 @@ public class ActivityProductDetialsMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<SingleProductDataModel> response) {
+                        isLoadingLivData.postValue(false);
 
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {
@@ -111,9 +114,10 @@ public class ActivityProductDetialsMvvm extends AndroidViewModel {
                 });
 
     }
+
     public void addRemoveFavourite(String id, String user_id) {
         Api.getService(Tags.base_url)
-                .addRemoveFav( user_id, id)
+                .addRemoveFav(user_id, id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 

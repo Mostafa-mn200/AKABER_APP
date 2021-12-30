@@ -3,7 +3,7 @@ package com.apps.akkaber.model;
 import java.io.Serializable;
 
 public class UserSettingsModel implements Serializable {
-    private boolean isLanguageSelected= false;
+    private boolean isLanguageSelected = false;
     private boolean showIntroSlider = true;
 
     public boolean isLanguageSelected() {
@@ -13,6 +13,7 @@ public class UserSettingsModel implements Serializable {
     public void setLanguageSelected(boolean languageSelected) {
         isLanguageSelected = languageSelected;
     }
+
     public boolean isShowIntroSlider() {
         return showIntroSlider;
     }

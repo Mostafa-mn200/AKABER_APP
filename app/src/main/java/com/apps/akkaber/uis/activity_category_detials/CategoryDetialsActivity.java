@@ -108,8 +108,8 @@ public class CategoryDetialsActivity extends BaseActivity {
 
 
     public void showProductDetials(String productid) {
-        req=2;
-        Intent intent=new Intent(this, ProductDetialsActivity.class);
+        req = 2;
+        Intent intent = new Intent(this, ProductDetialsActivity.class);
         intent.putExtra("proid", productid);
         launcher.launch(intent);
     }

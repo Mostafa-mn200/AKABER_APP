@@ -151,8 +151,12 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
         });
         binding.llMyOrders.setOnClickListener(view -> {
-            Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);
-            startActivity(intent);
+            if (userModel != null) {
+                Intent intent = new Intent(HomeActivity.this, MyOrderActivity.class);
+                startActivity(intent);
+            } else {
+                navigationToLoginActivity();
+            }
         });
         binding.imLogOut.setOnClickListener(view -> {
             if (getUserModel() == null) {
@@ -264,5 +268,9 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         }
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCartCount();
+    }
 }

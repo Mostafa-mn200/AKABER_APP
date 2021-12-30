@@ -256,6 +256,7 @@ public class ProductDetialsActivity extends BaseActivity {
     private void addTocart() {
         double total = ((price * amount) + wayprice + wrapprice);
         ;
+        desc = "";
         desc += typedesc + " " + sizedesc + " " + waydesc + " " + wrapdesc;
         activityProductDetialsMvvm.add_to_cart(productmodel, desc, amount, wayprice, wrapprice, total, price, this);
     }
@@ -281,7 +282,7 @@ public class ProductDetialsActivity extends BaseActivity {
         }
         binding.setTypeModel(currentModel);
         if (currentModel.getPrice().equals("0")) {
-
+            sizeAdapter.updateslection();
             sizeAdapter.updateData(currentModel.getSizes());
             price = 0;
             binding.tvTotal.setText(((price * amount) + wayprice + wrapprice) + "");

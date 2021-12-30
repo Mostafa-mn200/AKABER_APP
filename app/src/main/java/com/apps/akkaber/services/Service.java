@@ -1,12 +1,17 @@
 package com.apps.akkaber.services;
 
 
+import com.apps.akkaber.model.CartDataModel;
 import com.apps.akkaber.model.DepartmentDataModel;
+import com.apps.akkaber.model.OrderDataModel;
+import com.apps.akkaber.model.PlaceMapDetailsData;
 import com.apps.akkaber.model.ProductDataModel;
 import com.apps.akkaber.model.NotificationDataModel;
 import com.apps.akkaber.model.PlaceGeocodeData;
 import com.apps.akkaber.model.SettingDataModel;
+import com.apps.akkaber.model.ShipModel;
 import com.apps.akkaber.model.SingleDepartmentDataModel;
+import com.apps.akkaber.model.SingleOrderDataModel;
 import com.apps.akkaber.model.SingleProductDataModel;
 import com.apps.akkaber.model.SliderDataModel;
 import com.apps.akkaber.model.StatusResponse;
@@ -17,6 +22,7 @@ import io.reactivex.Single;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Response;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -48,6 +54,13 @@ public interface Service {
 
 
     );
+
+    @GET("place/findplacefromtext/json")
+    Single<Response<PlaceMapDetailsData>> searchOnMap(@Query(value = "inputtype") String inputtype,
+                                                      @Query(value = "input") String input,
+                                                      @Query(value = "fields") String fields,
+                                                      @Query(value = "language") String language,
+                                                      @Query(value = "key") String key);
 
 
     @Multipart
@@ -129,4 +142,18 @@ public interface Service {
     @POST("api/make_favourite")
     Single<Response<StatusResponse>> addRemoveFav(@Field("user_id") String user_id,
                                                   @Field("product_id") String product_id);
+
+    @GET("api/shipping_price")
+    Single<Response<ShipModel>> getship(@Query("latitude") String latitude,
+                                        @Query("longitude") String longitude);
+
+    @POST("api/store_order")
+    Single<Response<StatusResponse>> sendOrder(@Body CartDataModel cartDataModel
+    );
+
+    @GET("api/my_orders")
+    Single<Response<OrderDataModel>> getMyOrders(@Query("user_id") String user_id);
+
+    @GET("api/order_details")
+    Single<Response<SingleOrderDataModel>> getSingleOrders(@Query(value = "order_id") String order_id);
 }

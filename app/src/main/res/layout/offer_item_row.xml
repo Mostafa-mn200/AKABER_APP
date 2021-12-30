@@ -29,19 +29,18 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    image="@{model.photo}"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_margin="8dp"
-                    android:src="@drawable/meat"
-                    image="@{model.photo}"
-                    />
+                    android:src="@drawable/meat" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/black"
                     android:text="@{model.title}"
+                    android:textColor="@color/black"
                     android:textSize="10sp" />
 
                 <TextView
@@ -67,7 +66,6 @@
             android:orientation="horizontal">
 
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,6 +75,7 @@
                 android:textSize="12sp"
 
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,6 +85,7 @@
                 android:textSize="11sp"
 
                 />
+
             <Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -97,10 +97,11 @@
                 android:id="@+id/priceOld"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{model.price_before}"
                 android:layout_marginEnd="5dp"
+                android:text="@{model.price_before}"
                 android:textSize="12sp"
                 android:visibility='@{model.value.equals("0")?View.GONE:View.VISIBLE,default=gone}' />
+
             <TextView
                 android:id="@+id/amountOld"
                 android:layout_width="wrap_content"

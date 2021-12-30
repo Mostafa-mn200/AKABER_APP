@@ -34,7 +34,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
     private CompositeDisposable disposable = new CompositeDisposable();
     private MutableLiveData<Boolean> isLoadingLiveData;
     private MutableLiveData<List<DepartmentModel>> departmentLivData;
-   private MutableLiveData<List<ProductModel>> offerlistMutableLiveData;
+    private MutableLiveData<List<ProductModel>> offerlistMutableLiveData;
     private MutableLiveData<ProductModel> boxMutableLiveData;
     private MutableLiveData<List<DepartmentModel>> departmentfeaturedLivData;
 
@@ -50,12 +50,14 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         }
         return offerlistMutableLiveData;
     }
+
     public MutableLiveData<ProductModel> getbox() {
         if (boxMutableLiveData == null) {
             boxMutableLiveData = new MutableLiveData<>();
         }
         return boxMutableLiveData;
     }
+
     public MutableLiveData<SliderDataModel> getSliderDataModelMutableLiveData() {
         if (sliderDataModelMutableLiveData == null) {
             sliderDataModelMutableLiveData = new MutableLiveData<>();
@@ -69,6 +71,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         }
         return isLoadingLiveData;
     }
+
     public LiveData<List<DepartmentModel>> getCategoryData() {
         if (departmentLivData == null) {
             departmentLivData = new MutableLiveData<>();
@@ -76,6 +79,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         }
         return departmentLivData;
     }
+
     public LiveData<List<DepartmentModel>> getCategoryfeaturedData() {
         if (departmentfeaturedLivData == null) {
             departmentfeaturedLivData = new MutableLiveData<>();
@@ -83,6 +87,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         }
         return departmentfeaturedLivData;
     }
+
     public void getSlider() {
 
 
@@ -100,9 +105,11 @@ public class FragmentHomeMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<SliderDataModel> response) {
+                        isLoadingLiveData.postValue(false);
+
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {
-                               sliderDataModelMutableLiveData.postValue(response.body());
+                                sliderDataModelMutableLiveData.postValue(response.body());
                             }
                         }
                     }
@@ -113,6 +120,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                     }
                 });
     }
+
     public void getDepartment(String lang) {
         isLoadingLiveData.postValue(true);
         Api.getService(Tags.base_url)
@@ -128,6 +136,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<DepartmentDataModel> response) {
+                        isLoadingLiveData.postValue(false);
 
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {
@@ -149,6 +158,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                 });
 
     }
+
     public void getOffers(String lang) {
 
 
@@ -181,6 +191,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                     }
                 });
     }
+
     public void getBox(String lang) {
 
 
@@ -213,6 +224,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                     }
                 });
     }
+
     public void getFeatured(String lang) {
         isLoadingLiveData.postValue(true);
         Api.getService(Tags.base_url)
@@ -228,6 +240,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<DepartmentDataModel> response) {
+                        isLoadingLiveData.postValue(false);
 
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {

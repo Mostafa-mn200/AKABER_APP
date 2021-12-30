@@ -3,6 +3,7 @@ package com.apps.akkaber.uis.activity_language;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.databinding.DataBindingUtil;
 
 import com.apps.akkaber.R;

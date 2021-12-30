@@ -24,7 +24,7 @@ public class ContactUsActivity extends BaseActivity {
     private ContactUsModel contactUsModel;
     private ContactusActivityMvvm contactusActivityMvvm;
     private UserModel userModel;
-    SettingModel settingModel;
+    private SettingModel settingModel;
     private Preferences preferences;
 
     @Override
@@ -64,7 +64,7 @@ public class ContactUsActivity extends BaseActivity {
 
         contactUsModel = new ContactUsModel();
         if (userModel != null) {
-               contactUsModel.setName(userModel.getData().getFirst_name()+" "+userModel.getData().getLast_name());
+            contactUsModel.setName(userModel.getData().getFirst_name() + " " + userModel.getData().getLast_name());
 
         }
         binding.setContactUsModel(contactUsModel);

@@ -250,7 +250,7 @@ public class FragmentHome extends BaseFragment {
     }
 
     public void showcategory(DepartmentModel departmentModel) {
-        req=2;
+        req = 2;
         Intent intent = new Intent(activity, CategoryDetialsActivity.class);
         intent.putExtra("catid", departmentModel.getId());
         launcher.launch(intent);

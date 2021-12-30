@@ -107,6 +107,7 @@ public class SignUpModel extends BaseObservable {
     public void setIscheck(boolean ischeck) {
         this.ischeck = ischeck;
     }
+
     @Bindable
     public String getCode() {
         return code;

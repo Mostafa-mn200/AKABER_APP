@@ -40,15 +40,15 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
         myHolder.binding.setModel(list.get(position));
-myHolder.itemView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        if(context instanceof CategoryDetialsActivity){
-            CategoryDetialsActivity categoryDetialsActivity=(CategoryDetialsActivity) context;
-            categoryDetialsActivity.showProductDetials(list.get(holder.getLayoutPosition()).getId());
-        }
-    }
-});
+        myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (context instanceof CategoryDetialsActivity) {
+                    CategoryDetialsActivity categoryDetialsActivity = (CategoryDetialsActivity) context;
+                    categoryDetialsActivity.showProductDetials(list.get(holder.getLayoutPosition()).getId());
+                }
+            }
+        });
 //Minced
 
 //Others

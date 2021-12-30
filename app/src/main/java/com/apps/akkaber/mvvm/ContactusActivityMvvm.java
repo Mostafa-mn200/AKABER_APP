@@ -34,15 +34,15 @@ public class ContactusActivityMvvm extends AndroidViewModel {
     private MutableLiveData<Boolean> isLoading;
 
     public MutableLiveData<SettingModel> getMutableLiveData() {
-        if (mutableLiveData==null){
-            mutableLiveData=new MutableLiveData<>();
+        if (mutableLiveData == null) {
+            mutableLiveData = new MutableLiveData<>();
         }
         return mutableLiveData;
     }
 
     public MutableLiveData<Boolean> getIsLoading() {
-        if (isLoading==null){
-            isLoading=new MutableLiveData<>();
+        if (isLoading == null) {
+            isLoading = new MutableLiveData<>();
         }
         return isLoading;
     }
@@ -57,7 +57,7 @@ public class ContactusActivityMvvm extends AndroidViewModel {
 
     }
 
-    public void getSetting(String lang){
+    public void getSetting(String lang) {
 
 
         isLoading.setValue(true);
@@ -75,8 +75,8 @@ public class ContactusActivityMvvm extends AndroidViewModel {
                     @Override
                     public void onSuccess(@NonNull Response<SettingDataModel> response) {
                         isLoading.postValue(false);
-                        if (response.isSuccessful() && response.body()!=null){
-                            if (response.body().getStatus()==200){
+                        if (response.isSuccessful() && response.body() != null) {
+                            if (response.body().getStatus() == 200) {
 
                                 mutableLiveData.setValue(response.body().getData());
                             }
@@ -101,27 +101,27 @@ public class ContactusActivityMvvm extends AndroidViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                disposable.add(d);
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
 
-            }
-
-            @Override
-            public void onSuccess(@NonNull Response<StatusResponse> statusResponseResponse) {
-                dialog.dismiss();
-                if (statusResponseResponse.isSuccessful()) {
-                    if (statusResponseResponse.body().getStatus() == 200) {
-                        send.postValue(true);
                     }
-                }
-            }
 
-            @Override
-            public void onError(@NonNull Throwable throwable) {
-                dialog.dismiss();
-            }
-        });
+                    @Override
+                    public void onSuccess(@NonNull Response<StatusResponse> statusResponseResponse) {
+                        dialog.dismiss();
+                        if (statusResponseResponse.isSuccessful()) {
+                            if (statusResponseResponse.body().getStatus() == 200) {
+                                send.postValue(true);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable throwable) {
+                        dialog.dismiss();
+                    }
+                });
 
 
     }

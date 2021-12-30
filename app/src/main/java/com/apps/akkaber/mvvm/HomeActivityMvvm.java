@@ -39,11 +39,12 @@ public class HomeActivityMvvm extends AndroidViewModel {
 
 
     }
-    public void logout(Context context,  UserModel userModel) {
+
+    public void logout(Context context, UserModel userModel) {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService(Tags.base_url).logout( userModel.getData().getId()+"",userModel.getData().getFirebase_token()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<StatusResponse>>() {
+        Api.getService(Tags.base_url).logout(userModel.getData().getId() + "", userModel.getData().getFirebase_token()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<StatusResponse>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable.add(d);
@@ -67,11 +68,11 @@ public class HomeActivityMvvm extends AndroidViewModel {
     }
 
     public void updateFirebase(Context context, UserModel userModel) {
-       FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener((Activity) context, task -> {
+        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener((Activity) context, task -> {
             if (task.isSuccessful()) {
                 String token = task.getResult().getToken();
 
-                Api.getService(Tags.base_url).updateFirebasetoken( token, userModel.getData().getId() + "", "android").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<StatusResponse>>() {
+                Api.getService(Tags.base_url).updateFirebasetoken(token, userModel.getData().getId() + "", "android").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<StatusResponse>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
                         disposable.add(d);

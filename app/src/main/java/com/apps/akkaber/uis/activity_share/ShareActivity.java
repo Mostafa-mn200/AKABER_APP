@@ -15,7 +15,7 @@ import com.apps.akkaber.uis.activity_base.BaseActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
 
 public class ShareActivity extends BaseActivity {
-    ActivityShareBinding binding;
+    private ActivityShareBinding binding;
     private Preferences preferences;
     private UserModel userModel;
 

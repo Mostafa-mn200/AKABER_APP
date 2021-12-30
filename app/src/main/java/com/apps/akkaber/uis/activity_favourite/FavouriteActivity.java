@@ -15,9 +15,9 @@ import com.apps.akkaber.mvvm.ActivityFavouriteMvvm;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 
 public class FavouriteActivity extends BaseActivity {
-    ActivityFavouriteBinding binding;
-    ActivityFavouriteMvvm activityFavouriteMvvm;
-    FavouriteAdapter adapter;
+    private ActivityFavouriteBinding binding;
+    private ActivityFavouriteMvvm activityFavouriteMvvm;
+    private FavouriteAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

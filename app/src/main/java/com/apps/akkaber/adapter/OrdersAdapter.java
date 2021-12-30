@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.OfferItemRowBinding;
 import com.apps.akkaber.databinding.OrderRowBinding;
+import com.apps.akkaber.model.OrderModel;
+import com.apps.akkaber.model.ProductModel;
 import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
 
 import java.util.List;
@@ -20,7 +22,7 @@ import java.util.List;
 import io.paperdb.Paper;
 
 public class OrdersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<Object> list;
+    private List<OrderModel> list;
     private Context context;
     private LayoutInflater inflater;
 
@@ -41,12 +43,13 @@ public class OrdersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
         myHolder.binding.setLang(getLang());
+        myHolder.binding.setModel(list.get(position));
         myHolder.binding.llShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(context instanceof MyOrderActivity){
-                    MyOrderActivity myOrderActivity=(MyOrderActivity) context;
-                    myOrderActivity.show();
+                if (context instanceof MyOrderActivity) {
+                    MyOrderActivity myOrderActivity = (MyOrderActivity) context;
+                    myOrderActivity.show(list.get(holder.getLayoutPosition()));
                 }
             }
         });
@@ -58,7 +61,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (list != null) {
             return list.size();
         } else {
-            return 4;
+            return 0;
         }
     }
 
@@ -78,5 +81,13 @@ public class OrdersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         String lang = Paper.book().read("lang", "ar");
         return lang;
 
+    }
+
+    public void updateList(List<OrderModel> list) {
+        if (list != null) {
+            this.list = list;
+
+        }
+        notifyDataSetChanged();
     }
 }

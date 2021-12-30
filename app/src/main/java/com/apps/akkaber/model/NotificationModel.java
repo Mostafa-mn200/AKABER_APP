@@ -3,15 +3,15 @@ package com.apps.akkaber.model;
 import java.io.Serializable;
 
 public class NotificationModel implements Serializable {
-   private int id;
-   private String title;
-   private String note;
-   private int seen;
-   private int user_id;
-   private int rev_id;
-   private int order_id;
-   private String created_at;
-   private String updated_at;
+    private int id;
+    private String title;
+    private String note;
+    private int seen;
+    private int user_id;
+    private int rev_id;
+    private int order_id;
+    private String created_at;
+    private String updated_at;
 
 
     public int getId() {

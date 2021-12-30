@@ -71,6 +71,7 @@ public class ActivityCategoryDetialsMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<SingleDepartmentDataModel> response) {
+                        isLoadingLivData.postValue(false);
 
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getStatus() == 200) {

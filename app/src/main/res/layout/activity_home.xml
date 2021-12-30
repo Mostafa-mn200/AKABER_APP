@@ -12,6 +12,7 @@
         <variable
             name="lang"
             type="String" />
+
         <variable
             name="cartCount"
             type="String" />
@@ -72,11 +73,12 @@
                                 android:visibility="gone"
 
                                 />
+
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/home_logo"/>
+                                android:src="@drawable/home_logo" />
 
                             <FrameLayout
                                 android:id="@+id/flCart"
@@ -247,15 +249,15 @@
                             android:id="@+id/home"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_home" />
 
                             <TextView
@@ -271,23 +273,23 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp" />
 
                         <LinearLayout
                             android:id="@+id/llMyOrders"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_orders" />
 
                             <TextView
@@ -303,23 +305,23 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp" />
 
                         <LinearLayout
                             android:id="@+id/favourite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_favourite" />
 
                             <TextView
@@ -335,23 +337,23 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp" />
 
                         <LinearLayout
                             android:id="@+id/llcart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_cart" />
 
                             <TextView
@@ -367,23 +369,23 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp" />
 
                         <LinearLayout
                             android:id="@+id/editAcc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:orientation="horizontal"
                             android:padding="10dp"
-                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
-                            android:orientation="horizontal">
+                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'>
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_edit_acc" />
 
                             <TextView
@@ -400,24 +402,24 @@
                             android:id="@+id/viewEditAcc"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
-                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}'
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp"
+                            android:visibility='@{model==null?View.GONE:View.VISIBLE,default=gone}' />
 
                         <LinearLayout
                             android:id="@+id/wallet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_wallet" />
 
                             <TextView
@@ -433,23 +435,23 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp" />
 
                         <LinearLayout
                             android:id="@+id/shareApp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_share" />
 
                             <TextView
@@ -465,23 +467,23 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:padding="8dp"
                             android:background="@drawable/horizontal_line"
-                            android:layerType="software" />
+                            android:layerType="software"
+                            android:padding="8dp" />
 
                         <LinearLayout
                             android:id="@+id/contactUs"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:background="@drawable/item_clicked"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:layout_marginStart="5dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
                                 android:src="@drawable/ic_contact_us" />
 
                             <TextView

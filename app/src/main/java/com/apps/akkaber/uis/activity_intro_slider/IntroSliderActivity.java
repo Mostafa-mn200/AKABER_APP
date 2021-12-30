@@ -54,7 +54,7 @@ public class IntroSliderActivity extends AppCompatActivity {
             p.setMargins(10, 0, 10, 0);
             tab.requestLayout();
 
-            binding.btnSkip.setPaintFlags(binding.btnSkip.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+            binding.btnSkip.setPaintFlags(binding.btnSkip.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
             binding.pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -91,19 +91,20 @@ public class IntroSliderActivity extends AppCompatActivity {
 
             binding.btnNext.setOnClickListener(view -> binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1));
             binding.btnStart.setOnClickListener(view -> {
-              start();
+                start();
             });
 
         }
     }
+
     private void start() {
         UserSettingsModel defaultSettings = preferences.getAppSetting(this);
         if (defaultSettings != null) {
             // Log.e("lsdkdk","dkkdkkd");
             defaultSettings.setShowIntroSlider(false);
             preferences.createUpdateAppSetting(this, defaultSettings);
-        }else {
-            defaultSettings=new UserSettingsModel();
+        } else {
+            defaultSettings = new UserSettingsModel();
             defaultSettings.setShowIntroSlider(false);
             preferences.createUpdateAppSetting(this, defaultSettings);
         }

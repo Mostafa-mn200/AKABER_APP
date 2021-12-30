@@ -46,8 +46,8 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(fragment instanceof FragmentHome){
-                    FragmentHome fragmentHome=(FragmentHome) fragment;
+                if (fragment instanceof FragmentHome) {
+                    FragmentHome fragmentHome = (FragmentHome) fragment;
                     fragmentHome.showProductDetials(list.get(holder.getLayoutPosition()).getProduct_id());
                 }
             }

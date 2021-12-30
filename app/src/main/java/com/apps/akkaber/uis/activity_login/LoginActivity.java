@@ -55,7 +55,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.toString().startsWith("0")){
+                if (s.toString().startsWith("0")) {
                     binding.edtPhone.setText("");
                 }
             }
