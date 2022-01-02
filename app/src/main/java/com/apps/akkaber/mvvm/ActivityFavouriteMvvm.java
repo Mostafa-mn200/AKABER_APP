@@ -1,6 +1,7 @@
 package com.apps.akkaber.mvvm;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -71,9 +72,10 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
                     public void onSuccess(@NonNull Response<ProductDataModel> response) {
                         isLoadingLiveData.postValue(false);
                         if (response.isSuccessful() && response.body() != null) {
+                           // Log.e("ddlldldl",response.body().getStatus()+"");
                             if (response.body().getStatus() == 200) {
                                 // List<ProductModel> list = response.body().getData();
-                                listMutableLiveData.setValue(response.body().getData());
+                                listMutableLiveData.setValue(response.body().getProducts());
                             }
                         }
                     }

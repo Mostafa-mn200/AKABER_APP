@@ -2,9 +2,11 @@ package com.apps.akkaber.uis.activity_home;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Picture;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -24,6 +26,7 @@ import com.apps.akkaber.interfaces.Listeners;
 import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.mvvm.HomeActivityMvvm;
 import com.apps.akkaber.preferences.Preferences;
+import com.apps.akkaber.tags.Tags;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 
 import com.apps.akkaber.R;
@@ -36,8 +39,10 @@ import com.apps.akkaber.uis.activity_login.LoginActivity;
 import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
 import com.apps.akkaber.uis.activity_notification.NotificationActivity;
 import com.apps.akkaber.uis.activity_share.ShareActivity;
+import com.apps.akkaber.uis.activity_sign_up.SignUpActivity;
 import com.apps.akkaber.uis.activity_wallet.WalletActivity;
 import com.apps.akkaber.uis.activity_favourite.FavouriteActivity;
+import com.squareup.picasso.Picasso;
 
 import io.paperdb.Paper;
 
@@ -72,7 +77,11 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (req == 1 && result.getResultCode() == Activity.RESULT_OK) {
                 userModel = getUserModel();
-                binding.setModel(getUserModel());
+                // Log.e("sssssss", Tags.base_url+userModel.getData().getPhoto());
+                if (userModel.getData().getPhoto() != null) {
+                    Picasso.get().load(Tags.base_url + userModel.getData().getPhoto()).into(binding.image);
+                }
+                binding.setModel(userModel);
                 updateFirebase();
             } else if (req == 2 && result.getResultCode() == Activity.RESULT_OK) {
                 updateCartCount();
@@ -134,6 +143,16 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
                 startActivity(intent);
             } else {
                 navigationToLoginActivity();
+            }
+        });
+        binding.llEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (userModel == null) {
+                    navigationToLoginActivity();
+                } else {
+                    navigationToSignupActivity();
+                }
             }
         });
         binding.contactUs.setOnClickListener(view -> {
@@ -207,6 +226,11 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
         launcher.launch(intent);
     }
 
+    private void navigationToSignupActivity() {
+        req = 1;
+        Intent intent = new Intent(HomeActivity.this, SignUpActivity.class);
+        launcher.launch(intent);
+    }
 
     public void refreshActivity(String lang) {
         Paper.book().write("lang", lang);

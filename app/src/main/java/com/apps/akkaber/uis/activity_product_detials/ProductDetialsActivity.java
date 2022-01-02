@@ -48,7 +48,7 @@ public class ProductDetialsActivity extends BaseActivity {
     private TypeModel typeModel;
     private String sizeid = "";
     private String desc = "", typedesc = "", sizedesc = "", waydesc = "", wrapdesc = "";
-    private boolean isDataChanged = false;
+    private boolean isDataChanged = false,isfav=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +92,7 @@ public class ProductDetialsActivity extends BaseActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
+                    isfav=true;
                     if (productmodel != null) {
                         if (productmodel.getIs_favorite() == null) {
                             productmodel.setIs_favorite("yes");
@@ -242,7 +243,8 @@ public class ProductDetialsActivity extends BaseActivity {
     }
 
     private void back() {
-        if (isDataChanged) {
+        if (isDataChanged||isfav) {
+            Log.error("ldldll", String.valueOf(isDataChanged));
             setResult(RESULT_OK);
         }
         finish();

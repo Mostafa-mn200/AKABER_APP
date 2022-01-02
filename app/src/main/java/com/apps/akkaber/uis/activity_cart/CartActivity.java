@@ -175,7 +175,7 @@ public class CartActivity extends BaseActivity {
 
         }
         cartDataModel.setSub_total(total);
-
+        cartDataModel.setTotal(cartDataModel.getSub_total() + cartDataModel.getShipping());
         binding.tvTotal.setText(total + "");
         //   binding.tvtotal.setText(String.valueOf(total));
     }

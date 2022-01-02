@@ -65,17 +65,34 @@ public interface Service {
 
     @Multipart
     @POST("api/register")
-    Observable<Response<UserModel>> signUpwithImage(
-            @Part("first_name") RequestBody first_name,
-            @Part("last_name") RequestBody last_name,
-            @Part("phone_code") RequestBody phone_code,
-            @Part("phone") RequestBody phone,
-            @Part("register_by") RequestBody register_by,
-            @Part MultipartBody.Part logo
+    Observable<Response<UserModel>> signUpwithImage(@Part("first_name") RequestBody first_name,
+                                                    @Part("last_name") RequestBody last_name,
+                                                    @Part("phone_code") RequestBody phone_code,
+                                                    @Part("phone") RequestBody phone,
+                                                    @Part("register_by") RequestBody register_by,
+                                                    @Part MultipartBody.Part logo
 
 
     );
 
+    @FormUrlEncoded
+    @POST("api/updateProfile")
+    Single<Response<UserModel>> editprofile(@Field("first_name") String first_name,
+                                            @Field("last_name") String last_name,
+                                            @Field("user_id") String user_id
+
+
+    );
+
+    @Multipart
+    @POST("api/updateProfile")
+    Observable<Response<UserModel>> editprofilewithImage(@Part("first_name") RequestBody first_name,
+                                                         @Part("last_name") RequestBody last_name,
+                                                         @Part("user_id") RequestBody user_id,
+                                                         @Part MultipartBody.Part logo
+
+
+    );
 
     @FormUrlEncoded
     @POST("api/logout")

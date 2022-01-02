@@ -72,7 +72,7 @@ public class PaymentActivity extends BaseActivity {
         userModel = getUserModel();
         activityPaymentMvvm = ViewModelProviders.of(this).get(ActivityPaymentMvvm.class);
         checkdata();
-        cartDataModel.setPay("online");
+        cartDataModel.setPay("cash");
         activityPaymentMvvm.setContext(this);
         activityPaymentMvvm.setLang(getLang());
         activityPaymentMvvm.getLocationData().observe(this, locationModel -> {

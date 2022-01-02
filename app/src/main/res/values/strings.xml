@@ -84,7 +84,8 @@
     <string name="fresh">Fresh</string>
     <string name="wallet">Wallet</string>
     <string name="yourBalance">Your Balance</string>
-    <string name="shareContent">Share the app to get extra credit that you can use to buy from our store</string>
+    <string name="shareContent">Share the app to get extra credit that you_can_use </string>
+    <string name="to_buy">to buy from our store</string>
     <string name="shareNow">Share now</string>
     <string name="purchaseGifts">Purchase gifts</string>
     <string name="share">Share</string>
@@ -135,6 +136,7 @@
     <string name="subtotal">Subtotal</string>
     <string name="shipping">Shipping</string>
     <string name="total_payments">total_pay</string>
+    <string name="app_link">App Link : </string>
 
 
 </resources>

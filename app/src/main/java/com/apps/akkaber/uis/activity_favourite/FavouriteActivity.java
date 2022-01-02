@@ -1,23 +1,33 @@
 package com.apps.akkaber.uis.activity_favourite;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.apps.akkaber.R;
 import com.apps.akkaber.adapter.FavouriteAdapter;
 import com.apps.akkaber.databinding.ActivityFavouriteBinding;
+import com.apps.akkaber.model.ProductModel;
 import com.apps.akkaber.mvvm.ActivityFavouriteMvvm;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
+import com.apps.akkaber.uis.activity_product_detials.ProductDetialsActivity;
+
+import java.util.ArrayList;
 
 public class FavouriteActivity extends BaseActivity {
     private ActivityFavouriteBinding binding;
     private ActivityFavouriteMvvm activityFavouriteMvvm;
     private FavouriteAdapter adapter;
+    private ActivityResultLauncher<Intent> launcher;
+    private int req = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,8 @@ public class FavouriteActivity extends BaseActivity {
 
 
         activityFavouriteMvvm.getFavouriteList().observe(this, list -> {
+            adapter.updateList(new ArrayList<>());
+
             if (list != null && list.size() > 0) {
                 adapter.updateList(list);
                 binding.cardNoData.setVisibility(View.GONE);
@@ -58,6 +70,21 @@ public class FavouriteActivity extends BaseActivity {
         binding.recyclerFavourite.setLayoutManager(layoutManager);
         binding.recyclerFavourite.setAdapter(adapter);
         activityFavouriteMvvm.getFavourites(getUserModel(), getLang());
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (req == 2 && result.getResultCode() == Activity.RESULT_OK) {
+                activityFavouriteMvvm.getFavourites(getUserModel(), getLang());
+                setResult(RESULT_OK);
+
+            }
+        });
+
+    }
+
+    public void showdetials(ProductModel productModel) {
+        req = 2;
+        Intent intent = new Intent(this, ProductDetialsActivity.class);
+        intent.putExtra("proid", productModel.getId());
+        launcher.launch(intent);
 
     }
 }

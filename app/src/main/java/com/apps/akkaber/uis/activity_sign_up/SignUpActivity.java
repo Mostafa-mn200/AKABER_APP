@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -25,9 +26,11 @@ import android.widget.Toast;
 import com.apps.akkaber.R;
 import com.apps.akkaber.databinding.ActivitySignUpBinding;
 import com.apps.akkaber.model.SignUpModel;
+import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.mvvm.ActivitySignupMvvm;
 import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.share.Common;
+import com.apps.akkaber.tags.Tags;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +50,7 @@ public class SignUpActivity extends BaseActivity {
     private final int READ_REQ = 1, CAMERA_REQ = 2;
     private int selectedReq = 0;
     private Uri uri = null;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,14 +62,29 @@ public class SignUpActivity extends BaseActivity {
 
     private void getDataFromIntent() {
         Intent intent = getIntent();
-        phone_code = intent.getStringExtra("phone_code");
-        phone = intent.getStringExtra("phone");
+        if (intent.getStringExtra("phone_code") != null) {
+
+            phone_code = intent.getStringExtra("phone_code");
+            phone = intent.getStringExtra("phone");
+        }
     }
 
     private void initView() {
         preferences = Preferences.getInstance();
         activitySignupMvvm = ViewModelProviders.of(this).get(ActivitySignupMvvm.class);
         model = new SignUpModel();
+        userModel = getUserModel();
+        if (userModel != null) {
+            model.setFirst_name(userModel.getData().getFirst_name());
+            model.setSeconed_name(userModel.getData().getLast_name());
+            binding.llCode.setVisibility(View.GONE);
+            binding.checkbox.setVisibility(View.GONE);
+            if (userModel.getData().getPhoto() != null) {
+                binding.icon.setVisibility(View.GONE);
+                //Log.e("ldlldl", Tags.base_url + userModel.getData().getPhoto());
+                Picasso.get().load(Tags.base_url + userModel.getData().getPhoto()).into(binding.image);
+            }
+        }
         binding.setModel(model);
         binding.setLang(getLang());
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -120,13 +139,22 @@ public class SignUpActivity extends BaseActivity {
 
         binding.btnSignup.setOnClickListener(view -> {
             if (model.isDataValid(this)) {
-                if (model.isDataValid(this)) {
-                    if (uri == null) {
+
+                if (uri == null) {
+                    if (userModel == null) {
                         activitySignupMvvm.signupWithOutImage(this, model, phone_code, phone);
                     } else {
+                        activitySignupMvvm.updateProfileWithOutImage(this, model, userModel);
+                    }
+                } else {
+                    if (userModel == null) {
+
                         activitySignupMvvm.signupWithImage(this, model, phone_code, phone, uri);
+                    } else {
+                        activitySignupMvvm.updateProfileWithImage(this, model, uri, userModel);
                     }
                 }
+
             }
         });
         binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

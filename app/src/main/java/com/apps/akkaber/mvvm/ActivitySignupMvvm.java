@@ -124,6 +124,87 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         });
     }
 
+    public void updateProfileWithOutImage(Context context, SignUpModel model, UserModel userModel) {
+        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService(Tags.base_url).editprofile(model.getFirst_name(), model.getSeconed_name() + "", userModel.getData().getId() + "").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+                disposable.add(d);
+            }
+
+            @Override
+            public void onSuccess(@NonNull Response<UserModel> userModelResponse) {
+                dialog.dismiss();
+                if (userModelResponse.isSuccessful()) {
+                    if (userModelResponse.body().getStatus() == 200) {
+
+                        userModelMutableLiveData.postValue(userModelResponse.body());
+                    } else if (userModelResponse.body().getStatus() == 405) {
+                        Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+
+                }
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable throwable) {
+                dialog.dismiss();
+
+            }
+        });
+    }
+
+    public void updateProfileWithImage(Context context, SignUpModel model, Uri uri, UserModel userModel) {
+        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        RequestBody firts_name_part = Common.getRequestBodyText(model.getFirst_name());
+        RequestBody seconed_name_part = Common.getRequestBodyText(model.getSeconed_name());
+        RequestBody user_part = Common.getRequestBodyText(userModel.getData().getId() + "");
+
+
+        MultipartBody.Part image = Common.getMultiPart(context, uri, "photo");
+
+
+        Api.getService(Tags.base_url).editprofilewithImage(firts_name_part, seconed_name_part, user_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+                disposable.add(d);
+            }
+
+            @Override
+            public void onNext(@NonNull Response<UserModel> userModelResponse) {
+                dialog.dismiss();
+
+                if (userModelResponse.isSuccessful()) {
+                   // Log.e(";;dlldld",userModelResponse.body().getStatus()+"");
+                    if (userModelResponse.body().getStatus() == 200) {
+
+                        userModelMutableLiveData.postValue(userModelResponse.body());
+                    } else if (userModelResponse.body().getStatus() == 405) {
+                        Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onError(@NonNull Throwable throwable) {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onComplete() {
+                dialog.dismiss();
+            }
+        });
+    }
+
 
     @Override
     protected void onCleared() {

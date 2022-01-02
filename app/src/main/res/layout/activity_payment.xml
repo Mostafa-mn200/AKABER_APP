@@ -249,11 +249,22 @@
                         android:orientation="vertical">
 
                         <RadioButton
+                            android:id="@+id/radiocash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:button="@drawable/radio_bg"
+                            android:checked="true"
+                            android:text="@string/cash"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <RadioButton
                             android:id="@+id/radioonline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
                             android:button="@drawable/radio_bg"
-                            android:checked="true"
 
                             android:text="@string/electronic_payment"
                             android:textColor="@color/black"
@@ -269,15 +280,6 @@
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
-                        <RadioButton
-                            android:id="@+id/radiocash"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:button="@drawable/radio_bg"
-                            android:text="@string/cash"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
 
                     </RadioGroup>
 
