@@ -93,6 +93,9 @@ public class PaymentActivity extends BaseActivity {
                     startActivity(intent);
                     finish();
                 }
+                else{
+                    Toast.makeText(PaymentActivity.this,getResources().getString(R.string.wallet_not),Toast.LENGTH_LONG).show();
+                }
             }
         });
         activityPaymentMvvm.getShip().observe(this, new Observer<String>() {

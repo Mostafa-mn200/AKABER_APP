@@ -295,6 +295,9 @@ public class ActivityPaymentMvvm extends AndroidViewModel implements GoogleApiCl
                                 send.postValue(true);
 
                             }
+                            else if(response.body().getStatus()==405){
+                                send.postValue(false);
+                            }
                         }
                     }
 

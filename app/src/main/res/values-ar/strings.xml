@@ -139,4 +139,5 @@
     <string name="shipping">الشحن</string>
     <string name="total_payments">اجمالى المدفوعات</string>
     <string name="app_link">رابط التطبيق : </string>
+    <string name="wallet_not">رصيد المحفظه لا يكفى </string>
 </resources>
