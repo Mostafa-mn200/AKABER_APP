@@ -34,7 +34,6 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
 public class ActivityWalletMvvm extends AndroidViewModel {
-    private static final String TAG = "ActivityVerificationMvvm";
     private Context context;
 
     public MutableLiveData<UserModel> userModelMutableLiveData = new MutableLiveData<>();
@@ -57,7 +56,7 @@ public class ActivityWalletMvvm extends AndroidViewModel {
 
 
 
-    public void getProfile(Context context,String user_id) {
+    public void getProfile(String user_id) {
         isLoadingLiveData.postValue(true);
         Api.getService(Tags.base_url).getProfile(user_id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
             @Override
