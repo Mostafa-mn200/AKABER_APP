@@ -173,4 +173,7 @@ public interface Service {
 
     @GET("api/order_details")
     Single<Response<SingleOrderDataModel>> getSingleOrders(@Query(value = "order_id") String order_id);
+
+    @GET("api/profile")
+    Single<Response<UserModel>> getProfile(@Query("id") String id);
 }
