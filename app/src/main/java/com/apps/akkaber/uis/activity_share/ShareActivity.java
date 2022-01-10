@@ -43,6 +43,8 @@ public class ShareActivity extends BaseActivity {
     }
 
     private void initView() {
+        binding.setLang(getLang());
+
         preferences = Preferences.getInstance();
         userModel = getUserModel();
 

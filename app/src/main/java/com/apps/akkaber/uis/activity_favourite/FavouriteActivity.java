@@ -37,6 +37,7 @@ public class FavouriteActivity extends BaseActivity {
     }
 
     private void initView() {
+        binding.setLang(getLang());
         activityFavouriteMvvm = ViewModelProviders.of(this).get(ActivityFavouriteMvvm.class);
         activityFavouriteMvvm.getIsLoading().observe(this, isLoading -> {
             if (isLoading) {

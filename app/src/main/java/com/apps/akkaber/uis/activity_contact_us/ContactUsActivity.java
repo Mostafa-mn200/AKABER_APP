@@ -36,6 +36,7 @@ public class ContactUsActivity extends BaseActivity {
     }
 
     private void initView() {
+        binding.setLang(getLang());
 
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(this);

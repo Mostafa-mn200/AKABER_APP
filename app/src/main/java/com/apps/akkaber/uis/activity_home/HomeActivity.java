@@ -35,6 +35,7 @@ import com.apps.akkaber.databinding.ActivityHomeBinding;
 import com.apps.akkaber.language.Language;
 import com.apps.akkaber.uis.activity_cart.CartActivity;
 import com.apps.akkaber.uis.activity_contact_us.ContactUsActivity;
+import com.apps.akkaber.uis.activity_language.LanguageActivity;
 import com.apps.akkaber.uis.activity_login.LoginActivity;
 import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
 import com.apps.akkaber.uis.activity_notification.NotificationActivity;
@@ -88,6 +89,10 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
                 userModel = getUserModel();
                 binding.setModel(getUserModel());
                 updateFirebase();
+            }
+            else if (req == 3 && result.getResultCode() == Activity.RESULT_OK&&result.getData()!=null) {
+                String lang = result.getData().getStringExtra("lang");
+                refreshActivity(lang);
             }
         });
 
@@ -212,6 +217,12 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
             launcher.launch(intent);
 
         });
+        binding.llChangeLangeuage.setOnClickListener(v -> {
+            req = 3;
+            Intent intent = new Intent(this, LanguageActivity.class);
+            launcher.launch(intent);
+        });
+
         if (userModel == null) {
             binding.tvName.setOnClickListener(view -> navigationToLoginActivity());
 

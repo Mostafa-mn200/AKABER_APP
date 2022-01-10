@@ -55,7 +55,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="5dp"
-                            android:rotation='@{lang.equals("ar")?180:0}'
+                            android:rotation='@{lang.equals("en")?180:0}'
                             android:src="@drawable/ic_left" />
                     </androidx.cardview.widget.CardView>
 

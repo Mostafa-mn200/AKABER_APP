@@ -496,7 +496,38 @@
                                 android:text="@string/contact_us"
                                 android:textSize="18sp" />
                         </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/horizontal_line"
+                            android:layerType="software"
+                            android:padding="8dp" />
 
+                        <LinearLayout
+                            android:id="@+id/llChangeLangeuage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/item_clicked"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
+                                android:src="@drawable/ic_language"
+                                app:tint="@color/color2" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="8dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/language_setting"
+                                android:textSize="18sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </ScrollView>
 
