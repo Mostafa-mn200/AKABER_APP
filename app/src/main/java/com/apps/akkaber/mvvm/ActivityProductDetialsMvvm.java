@@ -177,7 +177,7 @@ public class ActivityProductDetialsMvvm extends AndroidViewModel {
             itemCartModel.setWay_price(wayprice);
             itemCartModel.setWrap_price(wrapprice);
             itemCartModel.setProduct_price(price);
-            itemCartModel.setImage(productModel.getBackground());
+            itemCartModel.setImage(productModel.getPhoto());
             itemCartModel.setTitle(productModel.getTitle());
             cartModelList.add(itemCartModel);
 
