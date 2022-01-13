@@ -175,7 +175,7 @@ public class PaymentActivity extends BaseActivity {
         binding.btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cartDataModel.getAddress().isEmpty()) {
+                if (cartDataModel.getAddress()==null||cartDataModel.getAddress().isEmpty()) {
                     Toast.makeText(PaymentActivity.this, getResources().getString(R.string.ch_address), Toast.LENGTH_LONG).show();
                 } else {
                     cartDataModel.setUser_id(userModel.getData().getId());
