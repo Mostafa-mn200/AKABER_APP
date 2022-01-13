@@ -92,6 +92,7 @@ public class OrderModel implements Serializable {
         private String qty;
         private String desc;
         private String product_price;
+        private ProductModel product;
 
         public String getId() {
             return id;
@@ -115,6 +116,10 @@ public class OrderModel implements Serializable {
 
         public String getProduct_price() {
             return product_price;
+        }
+
+        public ProductModel getProduct() {
+            return product;
         }
     }
 }
