@@ -139,6 +139,7 @@
     <string name="app_link">App Link : </string>
     <string name="wallet_not">The wallet balance is not enough</string>
     <string name="language_setting">Language Setting</string>
+    <string name="ch_address">Choose Address</string>
 
 
 </resources>

@@ -27,10 +27,8 @@ import com.apps.akkaber.model.UserModel;
 import com.apps.akkaber.mvvm.ActivityPaymentMvvm;
 import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
-import com.apps.akkaber.uis.activity_login.LoginActivity;
 import com.apps.akkaber.uis.activity_map.MapActivity;
 import com.apps.akkaber.uis.activity_my_orders.MyOrderActivity;
-import com.google.android.gms.maps.GoogleMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +44,7 @@ public class PaymentActivity extends BaseActivity {
     private OrderProductAdapter orderProductAdapter;
     private double total;
     private ActivityResultLauncher<Intent> launcher;
-    private int req = 1;
+    private int req = 0;
     private ActivityPaymentMvvm activityPaymentMvvm;
     private ActivityResultLauncher<String> permissionLauncher;
 
@@ -92,9 +90,8 @@ public class PaymentActivity extends BaseActivity {
                     Intent intent = new Intent(PaymentActivity.this, MyOrderActivity.class);
                     startActivity(intent);
                     finish();
-                }
-                else{
-                    Toast.makeText(PaymentActivity.this,getResources().getString(R.string.wallet_not),Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(PaymentActivity.this, getResources().getString(R.string.wallet_not), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -118,13 +115,16 @@ public class PaymentActivity extends BaseActivity {
                 cartDataModel.setLongitude(locationModel.getLng());
                 binding.setLocationModel(locationModel);
                 activityPaymentMvvm.getShip(locationModel.getLat(), locationModel.getLng());
-
+                req = 0;
             }
         });
         permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
-                activityPaymentMvvm.initGoogleApi();
-
+                if (req == 1) {
+                    navigatetomapActivity();
+                } else {
+                    activityPaymentMvvm.initGoogleApi();
+                }
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
 
@@ -169,15 +169,18 @@ public class PaymentActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 req = 1;
-                Intent intent = new Intent(PaymentActivity.this, MapActivity.class);
-                launcher.launch(intent);
+                checkPermission();
             }
         });
         binding.btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cartDataModel.setUser_id(userModel.getData().getId());
-                activityPaymentMvvm.sendOrder(cartDataModel, userModel);
+                if (cartDataModel.getAddress().isEmpty()) {
+                    Toast.makeText(PaymentActivity.this, getResources().getString(R.string.ch_address), Toast.LENGTH_LONG).show();
+                } else {
+                    cartDataModel.setUser_id(userModel.getData().getId());
+                    activityPaymentMvvm.sendOrder(cartDataModel, userModel);
+                }
             }
         });
         checkPermission();
@@ -187,9 +190,18 @@ public class PaymentActivity extends BaseActivity {
         if (ActivityCompat.checkSelfPermission(this, BaseActivity.fineLocPerm) != PackageManager.PERMISSION_GRANTED) {
             permissionLauncher.launch(BaseActivity.fineLocPerm);
         } else {
-
-            activityPaymentMvvm.initGoogleApi();
+            if (req == 1) {
+                navigatetomapActivity();
+            } else {
+                activityPaymentMvvm.initGoogleApi();
+            }
         }
+    }
+
+    public void navigatetomapActivity() {
+
+        Intent intent = new Intent(PaymentActivity.this, MapActivity.class);
+        launcher.launch(intent);
     }
 
     @Override

@@ -80,6 +80,11 @@ public class OrderDetialsActivity extends BaseActivity {
     }
 
     private void updateData(OrderModel orderModel) {
+           binding.tvOrder1.setVisibility(View.GONE);
+       binding.tvOrder2.setVisibility(View.GONE);
+        binding.tvOrder3.setVisibility(View.GONE);
+        binding.tvOrder4.setVisibility(View.GONE);
+        binding.tvOrder5.setVisibility(View.GONE);
         this.orderModel = orderModel;
         order2ProductAdapter.updateList(orderModel.getDetials());
         if (orderModel.getStatus().equals("new")) {
@@ -99,11 +104,11 @@ public class OrderDetialsActivity extends BaseActivity {
         binding.tv3.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv4.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv5.setTextColor(getResources().getColor(R.color.gray11));
-        binding.tvOrder1.setVisibility(View.VISIBLE);
-        binding.tvOrder2.setVisibility(View.GONE);
-        binding.tvOrder3.setVisibility(View.GONE);
-        binding.tvOrder4.setVisibility(View.GONE);
-        binding.tvOrder5.setVisibility(View.GONE);
+//        binding.tvOrder1.setVisibility(View.VISIBLE);
+//        binding.tvOrder2.setVisibility(View.GONE);
+//        binding.tvOrder3.setVisibility(View.GONE);
+//        binding.tvOrder4.setVisibility(View.GONE);
+//        binding.tvOrder5.setVisibility(View.GONE);
         binding.image1.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image2.setBackground(getResources().getDrawable(R.drawable.circle_not_bg));
         binding.image3.setBackground(getResources().getDrawable(R.drawable.circle_not_bg));
@@ -132,11 +137,11 @@ public class OrderDetialsActivity extends BaseActivity {
         binding.tv3.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv4.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv5.setTextColor(getResources().getColor(R.color.gray11));
-        binding.tvOrder1.setVisibility(View.VISIBLE);
-        binding.tvOrder2.setVisibility(View.VISIBLE);
-        binding.tvOrder3.setVisibility(View.GONE);
-        binding.tvOrder4.setVisibility(View.GONE);
-        binding.tvOrder5.setVisibility(View.GONE);
+//        binding.tvOrder1.setVisibility(View.VISIBLE);
+//        binding.tvOrder2.setVisibility(View.VISIBLE);
+//        binding.tvOrder3.setVisibility(View.GONE);
+//        binding.tvOrder4.setVisibility(View.GONE);
+//        binding.tvOrder5.setVisibility(View.GONE);
         binding.image1.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image2.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image3.setBackground(getResources().getDrawable(R.drawable.circle_not_bg));
@@ -165,11 +170,11 @@ public class OrderDetialsActivity extends BaseActivity {
         binding.tv3.setTextColor(getResources().getColor(R.color.color2));
         binding.tv4.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv5.setTextColor(getResources().getColor(R.color.gray11));
-        binding.tvOrder1.setVisibility(View.VISIBLE);
-        binding.tvOrder2.setVisibility(View.VISIBLE);
-        binding.tvOrder3.setVisibility(View.VISIBLE);
-        binding.tvOrder4.setVisibility(View.GONE);
-        binding.tvOrder5.setVisibility(View.GONE);
+//        binding.tvOrder1.setVisibility(View.VISIBLE);
+//        binding.tvOrder2.setVisibility(View.VISIBLE);
+//        binding.tvOrder3.setVisibility(View.VISIBLE);
+//        binding.tvOrder4.setVisibility(View.GONE);
+//        binding.tvOrder5.setVisibility(View.GONE);
         binding.image1.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image2.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image3.setBackground(getResources().getDrawable(R.drawable.circle_color2));
@@ -198,11 +203,11 @@ public class OrderDetialsActivity extends BaseActivity {
         binding.tv3.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv4.setTextColor(getResources().getColor(R.color.color2));
         binding.tv5.setTextColor(getResources().getColor(R.color.gray11));
-        binding.tvOrder1.setVisibility(View.VISIBLE);
-        binding.tvOrder2.setVisibility(View.VISIBLE);
-        binding.tvOrder3.setVisibility(View.VISIBLE);
-        binding.tvOrder4.setVisibility(View.VISIBLE);
-        binding.tvOrder5.setVisibility(View.GONE);
+//        binding.tvOrder1.setVisibility(View.VISIBLE);
+//        binding.tvOrder2.setVisibility(View.VISIBLE);
+//        binding.tvOrder3.setVisibility(View.VISIBLE);
+//        binding.tvOrder4.setVisibility(View.VISIBLE);
+//        binding.tvOrder5.setVisibility(View.GONE);
         binding.image1.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image2.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image3.setBackground(getResources().getDrawable(R.drawable.circle_color2));
@@ -231,11 +236,11 @@ public class OrderDetialsActivity extends BaseActivity {
         binding.tv3.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv4.setTextColor(getResources().getColor(R.color.gray11));
         binding.tv5.setTextColor(getResources().getColor(R.color.color2));
-        binding.tvOrder1.setVisibility(View.VISIBLE);
-        binding.tvOrder2.setVisibility(View.VISIBLE);
-        binding.tvOrder3.setVisibility(View.VISIBLE);
-        binding.tvOrder4.setVisibility(View.VISIBLE);
-        binding.tvOrder5.setVisibility(View.VISIBLE);
+//        binding.tvOrder1.setVisibility(View.VISIBLE);
+//        binding.tvOrder2.setVisibility(View.VISIBLE);
+//        binding.tvOrder3.setVisibility(View.VISIBLE);
+//        binding.tvOrder4.setVisibility(View.VISIBLE);
+//        binding.tvOrder5.setVisibility(View.VISIBLE);
         binding.image1.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image2.setBackground(getResources().getDrawable(R.drawable.circle_color2));
         binding.image3.setBackground(getResources().getDrawable(R.drawable.circle_color2));
