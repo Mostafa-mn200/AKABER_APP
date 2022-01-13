@@ -6,7 +6,7 @@ import java.util.List;
 public class CartDataModel implements Serializable {
     private List<ItemCartModel> details;
     private int user_id;
-    private String address="aaa" ;
+    private String address ;
     private double latitude;
     private double longitude;
     private String pay;
