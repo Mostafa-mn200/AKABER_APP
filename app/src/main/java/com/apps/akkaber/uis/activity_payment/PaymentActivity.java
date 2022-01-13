@@ -120,11 +120,8 @@ public class PaymentActivity extends BaseActivity {
         });
         permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
-                if (req == 1) {
-                    navigatetomapActivity();
-                } else {
-                    activityPaymentMvvm.initGoogleApi();
-                }
+                activityPaymentMvvm.initGoogleApi();
+
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
 
@@ -165,22 +162,16 @@ public class PaymentActivity extends BaseActivity {
 
             }
         });
-        binding.btChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                req = 1;
-                checkPermission();
-            }
+        binding.btChange.setOnClickListener(view -> {
+            req = 1;
+            navigatetomapActivity();
         });
-        binding.btnComplete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (cartDataModel.getAddress()==null||cartDataModel.getAddress().isEmpty()) {
-                    Toast.makeText(PaymentActivity.this, getResources().getString(R.string.ch_address), Toast.LENGTH_LONG).show();
-                } else {
-                    cartDataModel.setUser_id(userModel.getData().getId());
-                    activityPaymentMvvm.sendOrder(cartDataModel, userModel);
-                }
+        binding.btnComplete.setOnClickListener(view -> {
+            if (cartDataModel.getAddress() == null || cartDataModel.getAddress().isEmpty()) {
+                Toast.makeText(PaymentActivity.this, getResources().getString(R.string.ch_address), Toast.LENGTH_LONG).show();
+            } else {
+                cartDataModel.setUser_id(userModel.getData().getId());
+                activityPaymentMvvm.sendOrder(cartDataModel, userModel);
             }
         });
         checkPermission();
@@ -190,11 +181,8 @@ public class PaymentActivity extends BaseActivity {
         if (ActivityCompat.checkSelfPermission(this, BaseActivity.fineLocPerm) != PackageManager.PERMISSION_GRANTED) {
             permissionLauncher.launch(BaseActivity.fineLocPerm);
         } else {
-            if (req == 1) {
-                navigatetomapActivity();
-            } else {
-                activityPaymentMvvm.initGoogleApi();
-            }
+            activityPaymentMvvm.initGoogleApi();
+
         }
     }
 
