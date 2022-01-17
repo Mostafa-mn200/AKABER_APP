@@ -41,40 +41,6 @@ public class ActivitySignupMvvm extends AndroidViewModel {
 
     }
 
-    public void signupWithOutImage(Context context, SignUpModel model, String phone_code, String phone) {
-        // Log.e("Dlfllfl",phone_code+" "+phone);
-        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
-        dialog.setCancelable(false);
-        dialog.show();
-        Api.getService(Tags.base_url).signUp(model.getFirst_name(), model.getSeconed_name(), phone_code.replace("+", ""), phone, model.getCode()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                disposable.add(d);
-            }
-
-            @Override
-            public void onSuccess(@NonNull Response<UserModel> userModelResponse) {
-                dialog.dismiss();
-                if (userModelResponse.isSuccessful()) {
-                    if (userModelResponse.body().getStatus() == 200) {
-
-                        userModelMutableLiveData.postValue(userModelResponse.body());
-                    } else if (userModelResponse.body().getStatus() == 400) {
-                        Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
-                    }
-                } else {
-
-                }
-
-            }
-
-            @Override
-            public void onError(@NonNull Throwable throwable) {
-                dialog.dismiss();
-
-            }
-        });
-    }
 
     public void signupWithImage(Context context, SignUpModel model, String phone_code, String phone, Uri uri) {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
@@ -88,7 +54,10 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         RequestBody phone_code_part = Common.getRequestBodyText(phone_code.replace("+", ""));
 
 
-        MultipartBody.Part image = Common.getMultiPart(context, uri, "photo");
+        MultipartBody.Part image = null;
+        if (uri!=null){
+            image = Common.getMultiPart(context, uri, "photo");
+        }
 
 
         Api.getService(Tags.base_url).signUpwithImage(name_part, seconded_name_part, phone_code_part, phone_part, code_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
@@ -124,39 +93,6 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         });
     }
 
-    public void updateProfileWithOutImage(Context context, SignUpModel model, UserModel userModel) {
-        ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
-        dialog.setCancelable(false);
-        dialog.show();
-        Api.getService(Tags.base_url).editprofile(model.getFirst_name(), model.getSeconed_name() + "", userModel.getData().getId() + "").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new SingleObserver<Response<UserModel>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                disposable.add(d);
-            }
-
-            @Override
-            public void onSuccess(@NonNull Response<UserModel> userModelResponse) {
-                dialog.dismiss();
-                if (userModelResponse.isSuccessful()) {
-                    if (userModelResponse.body().getStatus() == 200) {
-
-                        userModelMutableLiveData.postValue(userModelResponse.body());
-                    } else if (userModelResponse.body().getStatus() == 405) {
-                        Toast.makeText(context, context.getResources().getString(R.string.user_found), Toast.LENGTH_LONG).show();
-                    }
-                } else {
-
-                }
-
-            }
-
-            @Override
-            public void onError(@NonNull Throwable throwable) {
-                dialog.dismiss();
-
-            }
-        });
-    }
 
     public void updateProfileWithImage(Context context, SignUpModel model, Uri uri, UserModel userModel) {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
@@ -167,8 +103,10 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         RequestBody user_part = Common.getRequestBodyText(userModel.getData().getId() + "");
 
 
-        MultipartBody.Part image = Common.getMultiPart(context, uri, "photo");
-
+        MultipartBody.Part image = null;
+        if (uri!=null){
+            image = Common.getMultiPart(context, uri, "photo");
+        }
 
         Api.getService(Tags.base_url).editprofilewithImage(firts_name_part, seconed_name_part, user_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
             @Override
