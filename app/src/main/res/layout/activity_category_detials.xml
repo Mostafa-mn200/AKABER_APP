@@ -40,7 +40,6 @@
                     image="@{model.slider}"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    android:src="@drawable/sss"
                     app:riv_corner_radius="20dp"
                     app:riv_mutate_background="true" />
 

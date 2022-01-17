@@ -8,7 +8,7 @@
         <variable
             name="lang"
             type="String" />
-
+<import type="android.view.View"/>
         <variable
             name="title"
             type="String" />
@@ -353,7 +353,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:gravity="center_vertical"
-                                    android:text='@{model.sub_total+""}'
+                                    android:text='@{String.format("%.2f",model.sub_total)+""}'
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
 
@@ -380,6 +380,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:visibility='@{model.shipping==0.0?View.GONE:View.VISIBLE,default=gone}'
                                 android:orientation="horizontal">
 
                                 <TextView
@@ -402,7 +403,7 @@
                                     android:layout_gravity="center_vertical"
 
                                     android:gravity="center_vertical"
-                                    android:text='@{model.shipping+""}'
+                                    android:text='@{String.format("%.2f",model.shipping)+""}'
                                     android:textColor="@color/black"
                                     android:textSize="15sp"
 
@@ -426,6 +427,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1px"
                                 android:background="@color/gray19"
+                                android:visibility='@{model.shipping==0.0?View.GONE:View.VISIBLE,default=gone}'
 
                                 />
 
@@ -457,8 +459,8 @@
                                     android:layout_gravity="center_vertical"
 
                                     android:gravity="center_vertical"
-                                    android:text='@{model.total+""}'
-                                    android:textColor="@color/black"
+                                    android:text='@{String.format("%.2f",model.total)+""}'
+                                    android:textColor="@color/color2"
                                     android:textSize="15sp"
 
                                     />
@@ -471,7 +473,7 @@
 
                                     android:gravity="center_vertical"
                                     android:text='@string/price2'
-                                    android:textColor="@color/color2"
+                                    android:textColor="@color/black"
                                     android:textSize="15sp"
 
                                     />

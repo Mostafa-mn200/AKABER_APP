@@ -229,7 +229,7 @@ public class GeneralMethod {
     @BindingAdapter("order_status")
     public static void orderStatus(TextView textView, String status) {
         if (status.equals("new")) {
-            textView.setText(textView.getContext().getString(R.string.order_sent));
+            textView.setText(textView.getContext().getString(R.string.preparing));
         } else if (status.equals("accepted")) {
             textView.setText(textView.getContext().getString(R.string.delivered_to_the_delegate));
 
