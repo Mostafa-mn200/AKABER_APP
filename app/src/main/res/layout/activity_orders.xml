@@ -145,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="12dp"
-                            android:text="@string/no_notifications_to_show"
+                            android:text="@string/no_orders_found"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
                     </LinearLayout>

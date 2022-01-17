@@ -22,6 +22,7 @@ import com.apps.akkaber.preferences.Preferences;
 import com.apps.akkaber.uis.activity_base.BaseActivity;
 import com.apps.akkaber.uis.activity_order_detials.OrderDetialsActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyOrderActivity extends BaseActivity {
@@ -51,16 +52,22 @@ public class MyOrderActivity extends BaseActivity {
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
                     binding.progBar.setVisibility(View.VISIBLE);
+                    binding.cardNoData.setVisibility(View.GONE);
                 } else {
                     binding.progBar.setVisibility(View.GONE);
+
                 }
             }
         });
         activityMyOrdersMvvm.getOrders().observe(this, new Observer<List<OrderModel>>() {
             @Override
             public void onChanged(List<OrderModel> orderModels) {
-                if (orderModels != null) {
+                if (ordersAdapter!=null&&orderModels != null&&orderModels.size()>0) {
                     ordersAdapter.updateList(orderModels);
+                }else{
+                    ordersAdapter.updateList(new ArrayList<>());
+                    binding.cardNoData.setVisibility(View.VISIBLE);
+
                 }
             }
         });

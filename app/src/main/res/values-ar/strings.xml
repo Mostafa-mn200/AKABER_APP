@@ -142,4 +142,5 @@
     <string name="wallet_not">رصيد المحفظه لا يكفى </string>
     <string name="language_setting">اعدادات اللغه</string>
     <string name="ch_address">اختر العنوان</string>
+    <string name="no_orders_found">لايوجد طلبات</string>
 </resources>
