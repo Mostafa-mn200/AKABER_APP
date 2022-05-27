@@ -25,6 +25,7 @@ public class LanguageActivity extends BaseActivity {
         initView();
     }
 
+
     private void initView() {
         lang = getLang();
         selectedLang = lang;

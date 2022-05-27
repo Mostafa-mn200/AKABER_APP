@@ -30,6 +30,7 @@ public class SubProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.fragment = fragment;
     }
 
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

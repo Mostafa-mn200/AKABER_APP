@@ -33,6 +33,7 @@ public class PlaceMapDetailsData implements Serializable {
         }
     }
 
+
     public class Geometry implements Serializable {
         private Location location;
 

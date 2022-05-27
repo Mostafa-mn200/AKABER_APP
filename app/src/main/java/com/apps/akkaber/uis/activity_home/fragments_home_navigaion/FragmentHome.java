@@ -63,6 +63,7 @@ public class FragmentHome extends BaseFragment {
     private ActivityResultLauncher<Intent> launcher;
     private int req = 1;
 
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -209,6 +210,7 @@ public class FragmentHome extends BaseFragment {
                 }
             }
         });
+
         departmentAdapter = new DepartmentAdapter(activity, this);
         binding.recyclerDepartment.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
         binding.recyclerDepartment.setAdapter(departmentAdapter);

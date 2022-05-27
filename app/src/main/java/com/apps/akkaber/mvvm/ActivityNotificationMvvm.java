@@ -38,6 +38,7 @@ public class ActivityNotificationMvvm extends AndroidViewModel {
         context = application.getApplicationContext();
     }
 
+
     public MutableLiveData<List<NotificationModel>> getNotification() {
         if (notificationLiveData == null) {
             notificationLiveData = new MutableLiveData<>();

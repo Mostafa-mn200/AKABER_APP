@@ -14,6 +14,7 @@ public class ItemCartModel implements Serializable {
     private String title;
     private String image;
 
+
     public String getProduct_id() {
         return product_id;
     }

@@ -31,6 +31,7 @@ public class WrapAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         inflater = LayoutInflater.from(context);
     }
 
+
     @androidx.annotation.NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@androidx.annotation.NonNull ViewGroup parent, int viewType) {

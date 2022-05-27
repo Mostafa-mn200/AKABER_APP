@@ -40,6 +40,7 @@ public class MyOrderActivity extends BaseActivity {
 
     }
 
+
     private void initView() {
         ordersAdapter = new OrdersAdapter(this);
         preferences = Preferences.getInstance();

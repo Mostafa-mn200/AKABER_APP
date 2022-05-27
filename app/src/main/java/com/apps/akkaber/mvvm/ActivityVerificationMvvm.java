@@ -48,6 +48,7 @@ public class ActivityVerificationMvvm extends AndroidViewModel {
     public MutableLiveData<UserModel> userModelMutableLiveData = new MutableLiveData<>();
     public MutableLiveData<String> found = new MutableLiveData<>();
 
+
     private CompositeDisposable disposable = new CompositeDisposable();
 
     public ActivityVerificationMvvm(@NonNull Application application) {

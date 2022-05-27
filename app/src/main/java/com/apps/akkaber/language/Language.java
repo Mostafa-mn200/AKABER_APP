@@ -11,6 +11,7 @@ import java.util.Locale;
 
 public class Language {
 
+
     public static void setNewLocale(Context c, String language) {
         persistLanguage(c, language);
         updateResources(c, language);

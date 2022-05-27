@@ -13,6 +13,7 @@ public class LocationModel implements Serializable {
         this.address = address;
     }
 
+
     public double getLat() {
         return lat;
     }

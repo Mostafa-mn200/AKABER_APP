@@ -20,6 +20,7 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+
     private CartActivity activity;
     private List<ItemCartModel> list;
     private Context context;

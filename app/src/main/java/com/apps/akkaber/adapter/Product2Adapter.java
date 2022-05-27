@@ -29,6 +29,7 @@ public class Product2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         inflater = LayoutInflater.from(context);
     }
 
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

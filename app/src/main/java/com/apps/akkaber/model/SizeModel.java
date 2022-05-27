@@ -12,6 +12,7 @@ public class SizeModel implements Serializable {
     private OfferModel offer;
     private boolean isselected;
 
+
     public String getId() {
         return id;
     }

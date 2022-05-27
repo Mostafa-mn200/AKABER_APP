@@ -10,3 +10,4 @@ public class NotificationDataModel extends StatusResponse implements Serializabl
         return data;
     }
 }
+

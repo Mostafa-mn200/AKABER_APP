@@ -17,6 +17,7 @@ public class SignUpModel extends BaseObservable {
     private String code;
 
 
+
     public ObservableField<String> error_first_name = new ObservableField<>();
     public ObservableField<String> error_seconed_name = new ObservableField<>();
     public ObservableField<String> error_code = new ObservableField<>();

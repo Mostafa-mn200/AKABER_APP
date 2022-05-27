@@ -24,6 +24,7 @@ public class UserModel extends StatusResponse {
         private String updated_at;
         private String firebase_token;
 
+
         public int getId() {
             return id;
         }

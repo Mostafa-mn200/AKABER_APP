@@ -23,6 +23,7 @@ public class ContactUsModel extends BaseObservable {
     public ObservableField<String> error_message = new ObservableField<>();
 
 
+
     public boolean isDataValid(Context context) {
 
         if (!name.isEmpty() &&

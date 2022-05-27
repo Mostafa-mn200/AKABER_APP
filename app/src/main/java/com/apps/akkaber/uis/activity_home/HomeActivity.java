@@ -66,6 +66,7 @@ public class HomeActivity extends BaseActivity implements Listeners.Verification
 
     }
 
+
     private void initView() {
 
         preferences = Preferences.getInstance();

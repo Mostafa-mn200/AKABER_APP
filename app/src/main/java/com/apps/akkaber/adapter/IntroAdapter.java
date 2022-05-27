@@ -25,6 +25,7 @@ public class IntroAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater inflater;
 
+
     public IntroAdapter(Context context) {
 
         imagetopList = new ArrayList<>();

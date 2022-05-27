@@ -24,6 +24,7 @@ public class ProductModel implements Serializable {
     private List<WayModel> ways;
     private List<WrapModel> wrapping;
 
+
     public String getProduct_id() {
         return product_id;
     }

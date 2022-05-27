@@ -34,6 +34,7 @@ public class WalletActivity extends BaseActivity {
         initView();
     }
 
+
     private void initView() {
         preferences=Preferences.getInstance();
         userModel=getUserModel();

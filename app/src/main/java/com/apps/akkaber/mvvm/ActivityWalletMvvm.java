@@ -47,6 +47,7 @@ public class ActivityWalletMvvm extends AndroidViewModel {
 
 
     }
+
     public MutableLiveData<Boolean> getIsLoading() {
         if (isLoadingLiveData == null) {
             isLoadingLiveData = new MutableLiveData<>();

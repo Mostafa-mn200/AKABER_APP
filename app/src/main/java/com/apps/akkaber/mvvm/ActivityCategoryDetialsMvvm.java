@@ -36,6 +36,7 @@ public class ActivityCategoryDetialsMvvm extends AndroidViewModel {
     private MutableLiveData<SingleDepartmentDataModel> departmentLivData;
 
 
+
     public ActivityCategoryDetialsMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();

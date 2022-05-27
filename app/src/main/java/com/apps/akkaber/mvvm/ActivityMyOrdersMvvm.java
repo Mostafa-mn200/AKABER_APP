@@ -40,6 +40,7 @@ public class ActivityMyOrdersMvvm extends AndroidViewModel {
     }
 
 
+
     public MutableLiveData<Boolean> getIsLoading() {
         if (isLoadingLiveData == null) {
             isLoadingLiveData = new MutableLiveData<>();

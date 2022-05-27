@@ -47,7 +47,7 @@ public class IntroSliderActivity extends AppCompatActivity {
         binding.tab.setupWithViewPager(binding.pager);
         adapter = new IntroAdapter(this);
         binding.pager.setAdapter(adapter);
-        binding.pager.setOffscreenPageLimit(4);
+        binding.pager.setOffscreenPageLimit(4);//limit pictures
         for (int i = 0; i < binding.tab.getTabCount(); i++) {
             View tab = ((ViewGroup) binding.tab.getChildAt(0)).getChildAt(i);
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();

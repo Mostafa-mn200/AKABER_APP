@@ -24,6 +24,7 @@ public class MainDepartmentAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     private Fragment fragment;
 
 
+
     public MainDepartmentAdapter(Context context, Fragment fragment) {
         this.context = context;
         inflater = LayoutInflater.from(context);

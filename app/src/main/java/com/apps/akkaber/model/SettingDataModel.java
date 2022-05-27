@@ -12,3 +12,4 @@ public class SettingDataModel extends StatusResponse implements Serializable {
 
 
 }
+

@@ -47,6 +47,7 @@ public class ContactusActivityMvvm extends AndroidViewModel {
         return isLoading;
     }
 
+
     public MutableLiveData<Boolean> send = new MutableLiveData<>();
 
     private CompositeDisposable disposable = new CompositeDisposable();

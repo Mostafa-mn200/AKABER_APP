@@ -15,6 +15,7 @@ public class CartDataModel implements Serializable {
     private double total;
 
 
+
     public List<ItemCartModel> getDetails() {
         return details;
     }

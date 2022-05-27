@@ -15,3 +15,4 @@ public class ProductDataModel extends StatusResponse implements Serializable {
         return products;
     }
 }
+

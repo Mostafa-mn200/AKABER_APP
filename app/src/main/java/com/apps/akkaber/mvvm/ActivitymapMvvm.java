@@ -62,6 +62,7 @@ public class ActivitymapMvvm extends AndroidViewModel implements GoogleApiClient
     private String lang = "ar";
     private MutableLiveData<Boolean> isLoadingLivData;
 
+
     public ActivitymapMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();

@@ -29,3 +29,4 @@ public class WayModel implements Serializable {
         this.isselected = isselected;
     }
 }
+

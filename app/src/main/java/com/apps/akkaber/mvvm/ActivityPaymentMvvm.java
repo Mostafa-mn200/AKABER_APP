@@ -70,6 +70,7 @@ public class ActivityPaymentMvvm extends AndroidViewModel implements GoogleApiCl
     private String lang;
 
 
+
     public ActivityPaymentMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();

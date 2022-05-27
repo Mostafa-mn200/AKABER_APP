@@ -16,6 +16,7 @@ public class Preferences {
     private Preferences() {
     }
 
+
     public static Preferences getInstance() {
         if (instance == null) {
             instance = new Preferences();

@@ -14,3 +14,4 @@ public class DepartmentDataModel extends StatusResponse implements Serializable 
         this.data = data;
     }
 }
+

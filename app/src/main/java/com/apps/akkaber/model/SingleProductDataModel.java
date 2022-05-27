@@ -10,3 +10,4 @@ public class SingleProductDataModel extends StatusResponse implements Serializab
         return data;
     }
 }
+

@@ -29,6 +29,7 @@ public class PlaceGeocodeData implements Serializable {
         }
     }
 
+
     public class Geometry implements Serializable {
         private Location location;
 

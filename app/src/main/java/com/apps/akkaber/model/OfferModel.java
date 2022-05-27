@@ -11,6 +11,7 @@ public class OfferModel implements Serializable {
     private String price_after;
     private String value;
 
+
     public String getId() {
         return id;
     }

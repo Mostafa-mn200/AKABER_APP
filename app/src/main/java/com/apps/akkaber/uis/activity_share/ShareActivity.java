@@ -42,6 +42,7 @@ public class ShareActivity extends BaseActivity {
         initView();
     }
 
+
     private void initView() {
         binding.setLang(getLang());
 

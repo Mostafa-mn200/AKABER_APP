@@ -57,6 +57,7 @@ public class PaymentActivity extends BaseActivity {
     }
 
 
+
     private void initView() {
         itemCartModelList = new ArrayList<>();
         manager = new GridLayoutManager(this, 1);

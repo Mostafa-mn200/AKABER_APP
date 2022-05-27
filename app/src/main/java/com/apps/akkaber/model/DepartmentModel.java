@@ -30,3 +30,4 @@ public class DepartmentModel implements Serializable {
         return title;
     }
 }
+

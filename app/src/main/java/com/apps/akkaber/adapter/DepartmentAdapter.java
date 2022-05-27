@@ -23,6 +23,7 @@ public class DepartmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private LayoutInflater inflater;
     private Fragment fragment;
 
+
     public DepartmentAdapter(Context context, Fragment fragment) {
         this.context = context;
         inflater = LayoutInflater.from(context);

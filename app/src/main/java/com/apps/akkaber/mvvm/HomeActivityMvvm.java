@@ -40,6 +40,7 @@ public class HomeActivityMvvm extends AndroidViewModel {
 
     }
 
+
     public void logout(Context context, UserModel userModel) {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);

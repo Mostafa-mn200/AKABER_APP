@@ -51,6 +51,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         return offerlistMutableLiveData;
     }
 
+
     public MutableLiveData<ProductModel> getbox() {
         if (boxMutableLiveData == null) {
             boxMutableLiveData = new MutableLiveData<>();

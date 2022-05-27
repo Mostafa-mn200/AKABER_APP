@@ -22,6 +22,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private LayoutInflater inflater;
 
 
+
     public FavouriteAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);

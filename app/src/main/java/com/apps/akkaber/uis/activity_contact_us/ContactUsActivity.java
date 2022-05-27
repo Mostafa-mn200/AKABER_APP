@@ -35,6 +35,7 @@ public class ContactUsActivity extends BaseActivity {
 
     }
 
+
     private void initView() {
         binding.setLang(getLang());
 

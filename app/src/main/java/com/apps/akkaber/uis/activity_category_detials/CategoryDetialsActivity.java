@@ -51,6 +51,7 @@ public class CategoryDetialsActivity extends BaseActivity {
 
     }
 
+
     private void getDataFromIntent() {
         Intent intent = getIntent();
         catid = intent.getStringExtra("catid");

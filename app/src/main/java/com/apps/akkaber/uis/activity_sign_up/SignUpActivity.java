@@ -52,6 +52,7 @@ public class SignUpActivity extends BaseActivity {
     private Uri uri = null;
     private UserModel userModel;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

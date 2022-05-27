@@ -44,6 +44,7 @@ public class SplashActivity extends BaseActivity {
 
     }
 
+
     private void initView() {
         preferences = Preferences.getInstance();
         Observable.timer(2, TimeUnit.SECONDS)

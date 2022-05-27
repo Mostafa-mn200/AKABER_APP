@@ -14,6 +14,7 @@ public class NotificationModel implements Serializable {
     private String updated_at;
 
 
+
     public int getId() {
         return id;
     }

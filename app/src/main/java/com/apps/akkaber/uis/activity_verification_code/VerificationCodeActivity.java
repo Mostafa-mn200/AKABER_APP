@@ -32,6 +32,7 @@ public class VerificationCodeActivity extends BaseActivity {
         initView();
     }
 
+
     private void getDataFromIntent() {
         Intent intent = getIntent();
         phone_code = intent.getStringExtra("phone_code");

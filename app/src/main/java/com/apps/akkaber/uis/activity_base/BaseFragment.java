@@ -14,6 +14,7 @@ import io.paperdb.Paper;
 public class BaseFragment extends Fragment {
     private Context context;
 
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

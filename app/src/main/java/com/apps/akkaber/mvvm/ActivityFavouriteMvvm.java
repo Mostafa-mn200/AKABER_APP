@@ -31,6 +31,7 @@ public class ActivityFavouriteMvvm extends AndroidViewModel {
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
+
     public ActivityFavouriteMvvm(@NonNull Application application) {
         super(application);
     }

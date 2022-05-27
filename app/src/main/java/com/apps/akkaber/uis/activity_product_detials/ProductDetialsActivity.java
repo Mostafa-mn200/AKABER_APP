@@ -179,12 +179,15 @@ public class ProductDetialsActivity extends BaseActivity {
         typeAdapter = new TypeAdapter(this);
         binding.recViewAges.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         binding.recViewAges.setAdapter(typeAdapter);
+
         sizeAdapter = new SizeAdapter(this);
         binding.recViewSizes.setLayoutManager(new LinearLayoutManager(this));
         binding.recViewSizes.setAdapter(sizeAdapter);
+
         wayAdapter = new WayAdapter(this);
         binding.recViewWays.setLayoutManager(new LinearLayoutManager(this));
         binding.recViewWays.setAdapter(wayAdapter);
+
         wrapAdapter = new WrapAdapter(this);
         binding.recViewWrap.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         binding.recViewWrap.setAdapter(wrapAdapter);

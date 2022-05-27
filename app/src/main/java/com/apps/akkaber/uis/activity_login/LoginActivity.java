@@ -30,8 +30,8 @@ public class LoginActivity extends BaseActivity {
         initView();
     }
 
-
     private void initView() {
+
         model = new LoginModel();
         binding.setModel(model);
         binding.setLang(getLang());

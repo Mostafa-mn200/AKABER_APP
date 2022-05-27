@@ -32,6 +32,7 @@ public class SliderAdapter extends PagerAdapter {
         return list.size();
     }
 
+
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;

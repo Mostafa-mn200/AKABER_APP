@@ -36,6 +36,7 @@ public class FavouriteActivity extends BaseActivity {
         initView();
     }
 
+
     private void initView() {
         binding.setLang(getLang());
         activityFavouriteMvvm = ViewModelProviders.of(this).get(ActivityFavouriteMvvm.class);

@@ -45,6 +45,7 @@ public class ActivityProductDetialsMvvm extends AndroidViewModel {
     private MutableLiveData<SingleProductDataModel> productDataModelMutableLiveData;
 
 
+
     public ActivityProductDetialsMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();

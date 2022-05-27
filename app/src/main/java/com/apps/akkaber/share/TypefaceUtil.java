@@ -27,4 +27,5 @@ public class TypefaceUtil {
             e.printStackTrace();
         }
     }
+
 }

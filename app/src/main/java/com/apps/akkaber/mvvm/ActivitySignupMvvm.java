@@ -46,6 +46,7 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
+
         RequestBody name_part = Common.getRequestBodyText(model.getFirst_name());
         RequestBody seconded_name_part = Common.getRequestBodyText(model.getSeconed_name());
 
@@ -60,7 +61,14 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         }
 
 
-        Api.getService(Tags.base_url).signUpwithImage(name_part, seconded_name_part, phone_code_part, phone_part, code_part, image).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io()).subscribe(new Observer<Response<UserModel>>() {
+        Api.getService(Tags.base_url)
+                .signUpwithImage(name_part, seconded_name_part,
+                        phone_code_part, phone_part,
+                        code_part, image)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .unsubscribeOn(Schedulers.io())
+                .subscribe(new Observer<Response<UserModel>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable.add(d);

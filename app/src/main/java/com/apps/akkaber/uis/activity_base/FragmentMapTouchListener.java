@@ -13,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 public class FragmentMapTouchListener extends SupportMapFragment {
     private OnTouchListener mListener;
 
+
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle savedInstance) {
         View layout = super.onCreateView(layoutInflater, viewGroup, savedInstance);

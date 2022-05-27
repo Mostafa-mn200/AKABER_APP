@@ -14,3 +14,4 @@ public class SingleDepartmentDataModel extends StatusResponse implements Seriali
         this.data = data;
     }
 }
+

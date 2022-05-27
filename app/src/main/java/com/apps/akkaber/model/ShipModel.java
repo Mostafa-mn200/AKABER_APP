@@ -9,3 +9,4 @@ public class ShipModel extends StatusResponse implements Serializable {
         return shipping;
     }
 }
+

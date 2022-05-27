@@ -17,6 +17,7 @@ public class SettingModel implements Serializable {
     private String terms;
     private String privacy;
 
+
     public String getPhone() {
         return phone;
     }

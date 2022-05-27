@@ -30,6 +30,7 @@ public class NotificationActivity extends BaseActivity {
     }
 
 
+
     private void initView() {
         activityNotificationMvvm = ViewModelProviders.of(this).get(ActivityNotificationMvvm.class);
         activityNotificationMvvm.getIsLoading().observe(this, loading -> {
